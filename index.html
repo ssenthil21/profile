@@ -1,346 +1,763 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title id="page-title">Beauty Parlour</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style id="dynamic-styles">
-        /* Dynamic styles will be injected here by JavaScript */
+      /* Dynamic styles will be injected here by JavaScript */
     </style>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #FDFBF8;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-        }
-        
-        .btn { @apply font-semibold py-3 px-8 rounded-md transition-all duration-300 ease-in-out; }
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 0 rgba(192,130,97,0.0); }
-            50% { box-shadow: 0 0 20px rgba(192,130,97,0.6); }
-        }
-        .btn-glow { animation: glow 2s ease-in-out infinite; }
-        .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
-        .scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
-        .scroll-container::-webkit-scrollbar { display: none; }
-        .hero-slide { background-size: cover; background-position: center; }
-        .pagination-dot { @apply w-3 h-3 rounded-full bg-white/50 transition-all duration-300 cursor-pointer; }
-        .pagination-dot.active { @apply bg-white scale-125; }
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+        background-color: #fdfbf8;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+      }
 
-        /* Floating social icon animation */
-        .social-icon {
-            @apply w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg transition-transform duration-300;
-            background-color: var(--brand-accent);
-            animation: float 3s ease-in-out infinite;
+      .btn {
+        @apply font-semibold py-3 px-8 rounded-md transition-all duration-300 ease-in-out;
+      }
+      @keyframes glow {
+        0%,
+        100% {
+          box-shadow: 0 0 0 rgba(192, 130, 97, 0);
         }
-        .social-icon:hover {
-            animation: none;
-            transform: translateY(-0.25rem) scale(1.1);
+        50% {
+          box-shadow: 0 0 20px rgba(192, 130, 97, 0.6);
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-0.5rem); }
-        }
+      }
+      .btn-glow {
+        animation: glow 2s ease-in-out infinite;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        transition:
+          opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      .scroll-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scroll-container::-webkit-scrollbar {
+        display: none;
+      }
+      .hero-slide {
+        background-size: cover;
+        background-position: center;
+      }
+      .pagination-dot {
+        @apply w-3 h-3 rounded-full bg-white/50 transition-all duration-300 cursor-pointer;
+      }
+      .pagination-dot.active {
+        @apply bg-white scale-125;
+      }
 
-        /* New Service Card Styles */
-        .service-card-selectable {
-            @apply bg-white p-4 rounded-xl border-2 border-gray-200 flex items-center justify-between transition-all duration-300 cursor-pointer relative;
+      /* Floating social icon animation */
+      .social-icon {
+        @apply w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg transition-transform duration-300;
+        background-color: var(--brand-accent);
+        animation: float 3s ease-in-out infinite;
+      }
+      .social-icon:hover {
+        animation: none;
+        transform: translateY(-0.25rem) scale(1.1);
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
-        .service-card-selectable.selected {
-            border-color: var(--brand-accent);
-            background-color: var(--brand-light);
+        50% {
+          transform: translateY(-0.5rem);
         }
-        .service-card-icon-new {
-            @apply bg-gray-200 text-gray-500 w-16 h-16 rounded-lg flex items-center justify-center text-xl font-bold flex-shrink-0;
-        }
-        .service-price {
-            @apply inline-block border-2 border-gray-400 rounded-full px-3 py-1 text-sm font-semibold;
-        }
-        .checkmark-icon {
-            @apply absolute top-3 right-3 text-green-500 text-2xl opacity-0 transition-opacity scale-75 transform;
-        }
-        .service-card-selectable.selected .checkmark-icon {
-            opacity: 1;
-            transform: scale(1);
-        }
+      }
 
-        /* Stat Card Styles */
-        .stat-card {
-            @apply bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2;
-        }
+      /* New Service Card Styles */
+      .service-card-selectable {
+        @apply bg-white p-4 rounded-xl border-2 border-gray-300 flex items-center justify-between transition-all duration-300 cursor-pointer relative;
+      }
+      .service-card-selectable.selected {
+        border-color: var(--brand-accent);
+        background-color: var(--brand-light);
+      }
+      .service-card-icon-new {
+        @apply bg-gray-200 text-gray-500 w-16 h-16 rounded-lg flex items-center justify-center text-xl font-bold flex-shrink-0;
+      }
+      .service-price {
+        @apply inline-block border-2 border-gray-400 rounded-full px-3 py-1 text-sm font-semibold;
+      }
+      .checkmark-icon {
+        @apply absolute top-3 right-3 text-green-500 text-2xl hidden;
+      }
+      .service-card-selectable.selected .checkmark-icon {
+        @apply block;
+      }
 
-        /* Review Card Styles */
-        .review-card {
-            @apply bg-white p-6 rounded-lg shadow-lg flex flex-col;
+      /* Stat Card Styles */
+      .stat-card {
+        @apply bg-white p-6 rounded-xl shadow-lg text-center border-2 transform transition-transform duration-300 hover:-translate-y-2;
+        border-color: var(--brand-accent);
+      }
+
+      /* Review Card Styles */
+      .review-card {
+        @apply bg-white p-6 rounded-lg shadow-lg flex flex-col;
+      }
+      .star-rating .fa-star {
+        color: #fbbf24; /* amber-400 */
+      }
+
+      .gallery-container {
+        column-count: 2;
+        column-gap: 1rem;
+      }
+      @media (min-width: 768px) {
+        .gallery-container {
+          column-count: 3;
         }
-        .star-rating .fa-star {
-            color: #FBBF24; /* amber-400 */
+      }
+      @media (min-width: 1024px) {
+        .gallery-container {
+          column-count: 4;
         }
-        
-        .gallery-container { column-count: 2; column-gap: 1rem; }
-        @media (min-width: 768px) { .gallery-container { column-count: 3; } }
-        @media (min-width: 1024px) { .gallery-container { column-count: 4; } }
-        .gallery-item { break-inside: avoid; margin-bottom: 1rem; }
-        .gallery-item img { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; border: 4px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .gallery-item:hover img { transform: scale(1.03); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+      }
+      .gallery-item {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+      .gallery-item img {
+        transition:
+          transform 0.3s ease-in-out,
+          box-shadow 0.3s ease-in-out;
+        border: 4px solid white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .gallery-item:hover img {
+        transform: scale(1.03);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
     </style>
-</head>
-<body class="text-brand-charcoal">
-
+  </head>
+  <body class="text-brand-charcoal">
     <!-- JSON Data embedded directly in the HTML -->
     <script id="shai-data" type="application/json">
-    {
-      "businessName": "Shai.",
-      "contact": { "location": "123 Beauty Lane, Style City", "phone": "1234567890", "hours": "Tues - Sat: 10am - 6pm", "whatsapp": "1234567890" },
-      "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
-      "heroSlides": [
-        { "bgImage": "https://placehold.co/1920x1080/C08261/36322F?text=Shai+Beauty", "title": "A Sanctuary of Modern Beauty.", "subtitle": "Escape into a world of tranquility and style." },
-        { "bgImage": "https://placehold.co/1920x1080/8B5CF6/FFFFFF?text=Special+Offer", "title": "20% Off Bridal Packages", "subtitle": "Book your dream bridal look this month." }
-      ],
-      "stats": [
-        { "icon": "fas fa-star", "value": "4.5", "decimal": 1, "label": "Client Ratings" },
-        { "icon": "fas fa-users", "value": "400", "label": "Happy Customers" },
-        { "icon": "fas fa-cut", "value": "2400", "label": "Jobs Completed" },
-        { "icon": "fas fa-award", "value": "7", "label": "Years Experience" }
-      ],
-      "services": [
-        { "name": "Eyebrows", "duration": "10 mins", "price": "₹ 70", "category": "skin", "icon": "EY" },
-        { "name": "Upperlip Threading", "duration": "5 mins", "price": "₹ 30", "category": "skin", "icon": "UP" },
-        { "name": "Wax Upper Lip", "duration": "5 mins", "price": "₹ 80", "category": "skin", "icon": "WA" },
-        { "name": "Hair Cut", "duration": "45 mins", "price": "₹ 500", "category": "hair", "icon": "HC" },
-        { "name": "Hair Coloring", "duration": "90 mins", "price": "₹ 1500", "category": "hair", "icon": "CL" },
-        { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "bridal", "icon": "BM" }
-      ],
-      "reviews": [
-          { "name": "Jessica L.", "rating": 5, "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none." },
-          { "name": "Emily R.", "rating": 5, "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations." },
-          { "name": "Sarah P.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
-          { "name": "Megan B.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
-          { "name": "David K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
-          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." }
-      ],
-      "stylists": [
-        { "name": "Olivia Chen", "title": "Lead Colorist & Founder", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Olivia" },
-        { "name": "Ben Carter", "title": "Master Cutter", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Ben" },
-        { "name": "Sophia Garcia", "title": "Nail & Skin Specialist", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Sophia" }
-      ],
-      "reels": [
-        "https://placehold.co/1280x720/C08261/FFFFFF?text=Main+Video",
-        "https://placehold.co/1280x720/F5EFE6/36322F?text=Reel+2",
-        "https://placehold.co/1280x720/36322F/FFFFFF?text=Reel+3"
-      ],
-      "gallery": [
-        "https://placehold.co/800x1000/F5EFE6/36322F?text=Style", "https://placehold.co/800x800/F5EFE6/36322F?text=Style", "https://placehold.co/800x1200/F5EFE6/36322F?text=Style", "https://placehold.co/800x900/F5EFE6/36322F?text=Style", "https://placehold.co/800x1100/F5EFE6/36322F?text=Style", "https://placehold.co/800x800/F5EFE6/36322F?text=Style", "https://placehold.co/800x1000/F5EFE6/36322F?text=Style", "https://placehold.co/800x900/F5EFE6/36322F?text=Style"
-      ]
-    }
+      {
+        "businessName": "Shai.",
+        "contact": {
+          "location": "123 Beauty Lane, Style City",
+          "phone": "1234567890",
+          "hours": "Tues - Sat: 10am - 6pm",
+          "whatsapp": "1234567890"
+        },
+        "theme": {
+          "charcoal": "#36322F",
+          "accent": "#C08261",
+          "light": "#F5EFE6"
+        },
+        "heroSlides": [
+          {
+            "bgImage": "https://placehold.co/1920x1080/C08261/36322F?text=Shai+Beauty",
+            "title": "A Sanctuary of Modern Beauty.",
+            "subtitle": "Escape into a world of tranquility and style."
+          },
+          {
+            "bgImage": "https://placehold.co/1920x1080/8B5CF6/FFFFFF?text=Special+Offer",
+            "title": "20% Off Bridal Packages",
+            "subtitle": "Book your dream bridal look this month."
+          }
+        ],
+        "stats": [
+          {
+            "icon": "fas fa-star",
+            "value": "4.5",
+            "decimal": 1,
+            "label": "Client Ratings"
+          },
+          {
+            "icon": "fas fa-users",
+            "value": "400",
+            "label": "Happy Customers"
+          },
+          { "icon": "fas fa-cut", "value": "2400", "label": "Jobs Completed" },
+          { "icon": "fas fa-award", "value": "7", "label": "Years Experience" }
+        ],
+        "services": [
+          {
+            "name": "Eyebrows",
+            "duration": "10 mins",
+            "price": "₹ 70",
+            "category": "skin",
+            "icon": "EY"
+          },
+          {
+            "name": "Upperlip Threading",
+            "duration": "5 mins",
+            "price": "₹ 30",
+            "category": "skin",
+            "icon": "UP"
+          },
+          {
+            "name": "Wax Upper Lip",
+            "duration": "5 mins",
+            "price": "₹ 80",
+            "category": "skin",
+            "icon": "WA"
+          },
+          {
+            "name": "Hair Cut",
+            "duration": "45 mins",
+            "price": "₹ 500",
+            "category": "hair",
+            "icon": "HC"
+          },
+          {
+            "name": "Hair Coloring",
+            "duration": "90 mins",
+            "price": "₹ 1500",
+            "category": "hair",
+            "icon": "CL"
+          },
+          {
+            "name": "Bridal Makeup",
+            "duration": "120 mins",
+            "price": "₹ 8000",
+            "category": "bridal",
+            "icon": "BM"
+          }
+        ],
+        "reviews": [
+          {
+            "name": "Jessica L.",
+            "rating": 5,
+            "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none."
+          },
+          {
+            "name": "Emily R.",
+            "rating": 5,
+            "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations."
+          },
+          {
+            "name": "Sarah P.",
+            "rating": 5,
+            "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered."
+          },
+          {
+            "name": "Megan B.",
+            "rating": 4,
+            "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional."
+          },
+          {
+            "name": "David K.",
+            "rating": 5,
+            "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure."
+          },
+          {
+            "name": "Laura T.",
+            "rating": 5,
+            "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill."
+          },
+          {
+            "name": "Olga N.",
+            "rating": 5,
+            "comment": "Loved the ambiance and the results. Will return!"
+          },
+          {
+            "name": "Priya S.",
+            "rating": 4,
+            "comment": "Friendly staff and great service. Highly recommend."
+          }
+        ],
+        "stylists": [
+          {
+            "name": "Olivia Chen",
+            "title": "Lead Colorist & Founder",
+            "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Olivia"
+          },
+          {
+            "name": "Ben Carter",
+            "title": "Master Cutter",
+            "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Ben"
+          },
+          {
+            "name": "Sophia Garcia",
+            "title": "Nail & Skin Specialist",
+            "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Sophia"
+          }
+        ],
+        "reels": [
+          "https://placehold.co/1280x720/C08261/FFFFFF?text=Main+Video",
+          "https://placehold.co/1280x720/F5EFE6/36322F?text=Reel+2",
+          "https://placehold.co/1280x720/36322F/FFFFFF?text=Reel+3"
+        ],
+        "gallery": [
+          "https://placehold.co/800x1000/F5EFE6/36322F?text=Style",
+          "https://placehold.co/800x800/F5EFE6/36322F?text=Style",
+          "https://placehold.co/800x1200/F5EFE6/36322F?text=Style",
+          "https://placehold.co/800x900/F5EFE6/36322F?text=Style",
+          "https://placehold.co/800x1100/F5EFE6/36322F?text=Style",
+          "https://placehold.co/800x800/F5EFE6/36322F?text=Style",
+          "https://placehold.co/800x1000/F5EFE6/36322F?text=Style",
+          "https://placehold.co/800x900/F5EFE6/36322F?text=Style"
+        ]
+      }
     </script>
     <script id="glitz5-data" type="application/json">
-    {
-      "businessName": "Glitz 5",
-      "contact": { "location": "456 Glamour Ave, Sparkle City", "phone": "9876543210", "hours": "Mon - Sat: 9am - 8pm", "whatsapp": "9876543210" },
-      "theme": { "charcoal": "#43384a", "accent": "#8B5CF6", "light": "#F3E8FF" },
-      "heroSlides": [
-        { "bgImage": "https://placehold.co/1920x1080/8B5CF6/FFFFFF?text=Glitz+5", "title": "Where Glamour Meets Perfection.", "subtitle": "Experience luxury and style at Glitz 5." },
-        { "bgImage": "https://placehold.co/1920x1080/D946EF/FFFFFF?text=Special+Offer", "title": "30% Off All Manicures!", "subtitle": "Get ready for the weekend with a stunning manicure." }
-      ],
-      "stats": [
-        { "icon": "fas fa-star", "value": "4.9", "decimal": 1, "label": "Client Ratings" },
-        { "icon": "fas fa-users", "value": "1200", "label": "Happy Customers" },
-        { "icon": "fas fa-cut", "value": "5000", "label": "Jobs Completed" },
-        { "icon": "fas fa-award", "value": "5", "label": "Years Experience" }
-      ],
-      "services": [
-        { "name": "Eyebrows", "duration": "10 mins", "price": "₹ 70", "category": "skin", "icon": "EY" },
-        { "name": "Upperlip Threading", "duration": "5 mins", "price": "₹ 30", "category": "skin", "icon": "UP" },
-        { "name": "Wax Upper Lip", "duration": "5 mins", "price": "₹ 80", "category": "skin", "icon": "WA" },
-        { "name": "Hair Cut", "duration": "45 mins", "price": "₹ 500", "category": "hair", "icon": "HC" },
-        { "name": "Hair Coloring", "duration": "90 mins", "price": "₹ 1500", "category": "hair", "icon": "CL" },
-        { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "bridal", "icon": "BM" }
-      ],
-       "reviews": [
-          { "name": "Jessica L.", "rating": 5, "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none." },
-          { "name": "Emily R.", "rating": 5, "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations." },
-          { "name": "Sarah P.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
-          { "name": "Megan B.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
-          { "name": "David K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
-          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." }
-      ],
-      "stylists": [
-        { "name": "Chloe Davis", "title": "Lead Stylist & Founder", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Chloe" },
-        { "name": "Liam Smith", "title": "Color Specialist", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Liam" },
-        { "name": "Mia Rodriguez", "title": "Nail & Lash Artist", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Mia" }
-      ],
-      "reels": [
-        "https://placehold.co/1280x720/8B5CF6/FFFFFF?text=Main+Video",
-        "https://placehold.co/1280x720/F3E8FF/43384a?text=Reel+2",
-        "https://placehold.co/1280x720/43384a/FFFFFF?text=Reel+3"
-      ],
-      "gallery": [
-        "https://placehold.co/800x1000/F3E8FF/43384a?text=Style", "https://placehold.co/800x800/F3E8FF/43384a?text=Style", "https://placehold.co/800x1200/F3E8FF/43384a?text=Style", "https://placehold.co/800x900/F3E8FF/43384a?text=Style", "https://placehold.co/800x1100/F3E8FF/43384a?text=Style", "https://placehold.co/800x800/F3E8FF/43384a?text=Style", "https://placehold.co/800x1000/F3E8FF/43384a?text=Style", "https://placehold.co/800x900/F3E8FF/43384a?text=Style"
-      ]
-    }
+      {
+        "businessName": "Glitz 5",
+        "contact": {
+          "location": "456 Glamour Ave, Sparkle City",
+          "phone": "9876543210",
+          "hours": "Mon - Sat: 9am - 8pm",
+          "whatsapp": "9876543210"
+        },
+        "theme": {
+          "charcoal": "#43384a",
+          "accent": "#8B5CF6",
+          "light": "#F3E8FF"
+        },
+        "heroSlides": [
+          {
+            "bgImage": "https://placehold.co/1920x1080/8B5CF6/FFFFFF?text=Glitz+5",
+            "title": "Where Glamour Meets Perfection.",
+            "subtitle": "Experience luxury and style at Glitz 5."
+          },
+          {
+            "bgImage": "https://placehold.co/1920x1080/D946EF/FFFFFF?text=Special+Offer",
+            "title": "30% Off All Manicures!",
+            "subtitle": "Get ready for the weekend with a stunning manicure."
+          }
+        ],
+        "stats": [
+          {
+            "icon": "fas fa-star",
+            "value": "4.9",
+            "decimal": 1,
+            "label": "Client Ratings"
+          },
+          {
+            "icon": "fas fa-users",
+            "value": "1200",
+            "label": "Happy Customers"
+          },
+          { "icon": "fas fa-cut", "value": "5000", "label": "Jobs Completed" },
+          { "icon": "fas fa-award", "value": "5", "label": "Years Experience" }
+        ],
+        "services": [
+          {
+            "name": "Eyebrows",
+            "duration": "10 mins",
+            "price": "₹ 70",
+            "category": "skin",
+            "icon": "EY"
+          },
+          {
+            "name": "Upperlip Threading",
+            "duration": "5 mins",
+            "price": "₹ 30",
+            "category": "skin",
+            "icon": "UP"
+          },
+          {
+            "name": "Wax Upper Lip",
+            "duration": "5 mins",
+            "price": "₹ 80",
+            "category": "skin",
+            "icon": "WA"
+          },
+          {
+            "name": "Hair Cut",
+            "duration": "45 mins",
+            "price": "₹ 500",
+            "category": "hair",
+            "icon": "HC"
+          },
+          {
+            "name": "Hair Coloring",
+            "duration": "90 mins",
+            "price": "₹ 1500",
+            "category": "hair",
+            "icon": "CL"
+          },
+          {
+            "name": "Bridal Makeup",
+            "duration": "120 mins",
+            "price": "₹ 8000",
+            "category": "bridal",
+            "icon": "BM"
+          }
+        ],
+        "reviews": [
+          {
+            "name": "Jessica L.",
+            "rating": 5,
+            "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none."
+          },
+          {
+            "name": "Emily R.",
+            "rating": 5,
+            "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations."
+          },
+          {
+            "name": "Sarah P.",
+            "rating": 5,
+            "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered."
+          },
+          {
+            "name": "Megan B.",
+            "rating": 4,
+            "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional."
+          },
+          {
+            "name": "David K.",
+            "rating": 5,
+            "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure."
+          },
+          {
+            "name": "Laura T.",
+            "rating": 5,
+            "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill."
+          },
+          {
+            "name": "Nina W.",
+            "rating": 5,
+            "comment": "Absolutely thrilled with my makeover. Five stars!"
+          },
+          {
+            "name": "Carlos M.",
+            "rating": 4,
+            "comment": "Great service and attention to detail. Will visit again."
+          }
+        ],
+        "stylists": [
+          {
+            "name": "Chloe Davis",
+            "title": "Lead Stylist & Founder",
+            "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Chloe"
+          },
+          {
+            "name": "Liam Smith",
+            "title": "Color Specialist",
+            "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Liam"
+          },
+          {
+            "name": "Mia Rodriguez",
+            "title": "Nail & Lash Artist",
+            "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Mia"
+          }
+        ],
+        "reels": [
+          "https://placehold.co/1280x720/8B5CF6/FFFFFF?text=Main+Video",
+          "https://placehold.co/1280x720/F3E8FF/43384a?text=Reel+2",
+          "https://placehold.co/1280x720/43384a/FFFFFF?text=Reel+3"
+        ],
+        "gallery": [
+          "https://placehold.co/800x1000/F3E8FF/43384a?text=Style",
+          "https://placehold.co/800x800/F3E8FF/43384a?text=Style",
+          "https://placehold.co/800x1200/F3E8FF/43384a?text=Style",
+          "https://placehold.co/800x900/F3E8FF/43384a?text=Style",
+          "https://placehold.co/800x1100/F3E8FF/43384a?text=Style",
+          "https://placehold.co/800x800/F3E8FF/43384a?text=Style",
+          "https://placehold.co/800x1000/F3E8FF/43384a?text=Style",
+          "https://placehold.co/800x900/F3E8FF/43384a?text=Style"
+        ]
+      }
     </script>
 
-    <div id="floating-social-bar" class="flex-col space-y-2 fixed left-5 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-md shadow-lg rounded-full p-2 hidden md:flex">
-        <!-- Social icons will be injected here -->
+    <div
+      id="floating-social-bar"
+      class="flex-col space-y-2 fixed left-5 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-md shadow-lg rounded-full p-2 hidden md:flex"
+    >
+      <!-- Social icons will be injected here -->
     </div>
 
-    <div id="floating-action-buttons" class="fixed bottom-6 right-6 z-40 bg-white/80 backdrop-blur-md rounded-full flex flex-col items-center p-2 space-y-1 shadow-lg">
-        <!-- Action buttons will be injected here -->
+    <div
+      id="floating-action-buttons"
+      class="fixed bottom-6 right-6 z-40 bg-white/80 backdrop-blur-md rounded-full flex flex-col items-center p-2 space-y-1 shadow-lg"
+    >
+      <!-- Action buttons will be injected here -->
     </div>
 
-    <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 id="header-brand-name" class="text-3xl font-bold text-brand-charcoal"></h1>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
-                <a href="#reviews" class="hover:text-brand-accent transition-colors">Reviews</a>
-                <a href="#stylists" class="hover:text-brand-accent transition-colors">Our Team</a>
-            </nav>
-            <a href="#contact" class="hidden md:inline-block btn btn-primary btn-glow">Book Now</a>
-             <button id="mobile-menu-button" class="md:hidden">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white border-t">
-            <a href="#services" class="block py-2 hover:text-brand-accent">Services</a>
-            <a href="#reviews" class="block py-2 hover:text-brand-accent">Reviews</a>
-            <a href="#stylists" class="block py-2 hover:text-brand-accent">Our Team</a>
-            <a href="#contact" class="mt-2 block btn btn-primary text-center btn-glow">Book Now</a>
-        </div>
+    <header
+      class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-200"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1
+          id="header-brand-name"
+          class="text-3xl font-bold text-brand-charcoal"
+        ></h1>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#services" class="hover:text-brand-accent transition-colors"
+            >Services</a
+          >
+          <a href="#reviews" class="hover:text-brand-accent transition-colors"
+            >Reviews</a
+          >
+          <a href="#stylists" class="hover:text-brand-accent transition-colors"
+            >Our Team</a
+          >
+        </nav>
+        <a
+          href="#contact"
+          class="hidden md:inline-block btn btn-primary btn-glow"
+          >Book Now</a
+        >
+        <button id="mobile-menu-button" class="md:hidden">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden px-6 pt-2 pb-4 bg-white border-t"
+      >
+        <a href="#services" class="block py-2 hover:text-brand-accent"
+          >Services</a
+        >
+        <a href="#reviews" class="block py-2 hover:text-brand-accent"
+          >Reviews</a
+        >
+        <a href="#stylists" class="block py-2 hover:text-brand-accent"
+          >Our Team</a
+        >
+        <a
+          href="#contact"
+          class="mt-2 block btn btn-primary text-center btn-glow"
+          >Book Now</a
+        >
+      </div>
     </header>
 
     <main class="pt-24">
-        <section id="hero-slider" class="relative w-full h-[70vh] overflow-hidden">
-            <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
-            <button id="hero-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-left"></i></button>
-            <button id="hero-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-right"></i></button>
-            <div id="hero-pagination" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"></div>
-        </section>
+      <section
+        id="hero-slider"
+        class="relative w-full h-[70vh] overflow-hidden"
+      >
+        <div
+          id="hero-container"
+          class="w-full h-full flex transition-transform duration-500 ease-in-out"
+        ></div>
+        <button
+          id="hero-scroll-left"
+          class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button
+          id="hero-scroll-right"
+          class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div
+          id="hero-pagination"
+          class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"
+        ></div>
+      </section>
 
-        <section id="info-bar" class="py-6 bg-white border-b border-gray-200">
-            <div class="container mx-auto px-6">
-                 <div id="info-bar-content" class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 text-center"></div>
-            </div>
-        </section>
+      <section id="info-bar" class="py-6 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-6">
+          <div
+            id="info-bar-content"
+            class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 text-center"
+          ></div>
+        </div>
+      </section>
 
-        <section id="stats" class="py-16 bg-brand-light">
-            <div class="container mx-auto px-6">
-                <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
-            </div>
-        </section>
+      <section id="stats" class="py-16 bg-brand-light">
+        <div class="container mx-auto px-6">
+          <div
+            id="stats-grid"
+            class="grid grid-cols-1 md:grid-cols-4 gap-8"
+          ></div>
+        </div>
+      </section>
 
-        <section id="services" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-10 reveal">
-                    <h3 class="text-4xl font-bold mb-3">Our Services</h3>
-                    <p class="text-lg text-gray-500">Explore our range of expert treatments.</p>
-                </div>
-                <div id="service-filters" class="flex overflow-x-auto scroll-container justify-center gap-3 mb-10 reveal"></div>
-                <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="service-grid"></div>
-            </div>
-        </section>
-        
-        <section id="reviews" class="py-24 bg-brand-light">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-10 reveal">
-                    <h3 class="text-4xl font-bold mb-3">What Our Clients Say</h3>
-                    <p class="text-lg text-gray-500">Real stories from our valued customers.</p>
-                </div>
-                <div class="relative reveal">
-                    <div id="reviews-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-container space-x-6 pb-4"></div>
-                    <button id="reviews-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-0 transform -translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-left"></i></button>
-                    <button id="reviews-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-0 transform translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </section>
+      <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-10 reveal">
+            <h3 class="text-4xl font-bold mb-3">Our Services</h3>
+            <p class="text-lg text-gray-500">
+              Explore our range of expert treatments.
+            </p>
+          </div>
+          <div
+            id="service-filters"
+            class="flex overflow-x-auto scroll-container justify-center gap-3 mb-10 reveal"
+          ></div>
+          <div
+            class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            id="service-grid"
+          ></div>
+        </div>
+      </section>
 
-        <section id="stylists" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 reveal">
-                    <h3 class="text-4xl font-bold mb-3">Meet Our Expert Stylists</h3>
-                    <p class="text-lg text-gray-500">The talented artists behind your transformation.</p>
-                </div>
-                <div id="stylists-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
-            </div>
-        </section>
+      <section id="reviews" class="py-24 bg-brand-light">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-10 reveal">
+            <h3 class="text-4xl font-bold mb-3">What Our Clients Say</h3>
+            <p class="text-lg text-gray-500">
+              Real stories from our valued customers.
+            </p>
+          </div>
+          <div class="relative reveal">
+            <div
+              id="reviews-container"
+              class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-container space-x-6 pb-4"
+            ></div>
+            <button
+              id="reviews-scroll-left"
+              class="absolute top-1/2 -translate-y-1/2 left-0 transform -translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              id="reviews-scroll-right"
+              class="absolute top-1/2 -translate-y-1/2 right-0 transform translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
 
-        <section id="reels" class="py-24 bg-brand-light">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-10 reveal">
-                    <h3 class="text-4xl font-bold mb-3">Reels & Videos</h3>
-                    <p class="text-lg text-gray-500">See our stylists in action.</p>
-                </div>
-                <div class="relative reveal">
-                    <div id="reels-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-container space-x-6 pb-4"></div>
-                    <button id="reels-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-0 transform -translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-left"></i></button>
-                    <button id="reels-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-0 transform translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </section>
-        
-        <section id="gallery" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-10 reveal">
-                    <h3 class="text-4xl font-bold mb-3">Our Gallery</h3>
-                    <p class="text-lg text-gray-500">Inspiration for your next visit.</p>
-                </div>
-                <div class="relative reveal">
-                    <div id="gallery-container" class="gallery-container"></div>
-                </div>
-            </div>
-        </section>
+      <section id="stylists" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-16 reveal">
+            <h3 class="text-4xl font-bold mb-3">Meet Our Expert Stylists</h3>
+            <p class="text-lg text-gray-500">
+              The talented artists behind your transformation.
+            </p>
+          </div>
+          <div
+            id="stylists-grid"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          ></div>
+        </div>
+      </section>
 
+      <section id="reels" class="py-24 bg-brand-light">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-10 reveal">
+            <h3 class="text-4xl font-bold mb-3">Reels & Videos</h3>
+            <p class="text-lg text-gray-500">See our stylists in action.</p>
+          </div>
+          <div class="relative reveal">
+            <div
+              id="reels-container"
+              class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-container space-x-6 pb-4"
+            ></div>
+            <button
+              id="reels-scroll-left"
+              class="absolute top-1/2 -translate-y-1/2 left-0 transform -translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              id="reels-scroll-right"
+              class="absolute top-1/2 -translate-y-1/2 right-0 transform translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-10 reveal">
+            <h3 class="text-4xl font-bold mb-3">Our Gallery</h3>
+            <p class="text-lg text-gray-500">
+              Inspiration for your next visit.
+            </p>
+          </div>
+          <div class="relative reveal">
+            <div id="gallery-container" class="gallery-container"></div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="bg-brand-charcoal text-white">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                <p class="text-gray-400">&copy; 2025 <span id="footer-business-name"></span>. All Rights Reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube fa-lg"></i></a>
-                </div>
-            </div>
+      <div class="container mx-auto px-6 py-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+        >
+          <p class="text-gray-400">
+            &copy; 2025 <span id="footer-business-name"></span>. All Rights
+            Reserved.
+          </p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white"
+              ><i class="fab fa-instagram fa-lg"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-white"
+              ><i class="fab fa-facebook-f fa-lg"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-white"
+              ><i class="fab fa-youtube fa-lg"></i
+            ></a>
+          </div>
         </div>
+      </div>
     </footer>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- 1. GET BUSINESS NAME FROM URL ---
-            const params = new URLSearchParams(window.location.search);
-            const business = params.get('business') || 'shai'; // Default to 'shai'
-            const dataScriptId = `${business}-data`;
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. GET BUSINESS NAME FROM URL ---
+        const params = new URLSearchParams(window.location.search);
+        const business = params.get("business") || "shai"; // Default to 'shai'
+        const dataScriptId = `${business}-data`;
 
-            // --- 2. LOAD DYNAMIC DATA FROM SCRIPT TAG ---
-            let data;
-            try {
-                const dataElement = document.getElementById(dataScriptId);
-                if (!dataElement) throw new Error(`Data script with id "${dataScriptId}" not found.`);
-                data = JSON.parse(dataElement.textContent);
-            } catch (error) {
-                console.error('Failed to load business data:', error);
-                document.body.innerHTML = '<div class="text-center p-10">Error: Could not load business data. Please check the business name in the URL and the data script tag.</div>';
-                return;
-            }
+        // --- 2. LOAD DYNAMIC DATA FROM SCRIPT TAG ---
+        let data;
+        try {
+          const dataElement = document.getElementById(dataScriptId);
+          if (!dataElement)
+            throw new Error(`Data script with id "${dataScriptId}" not found.`);
+          data = JSON.parse(dataElement.textContent);
+        } catch (error) {
+          console.error("Failed to load business data:", error);
+          document.body.innerHTML =
+            '<div class="text-center p-10">Error: Could not load business data. Please check the business name in the URL and the data script tag.</div>';
+          return;
+        }
 
-            // --- 3. POPULATE HTML WITH DATA ---
-            
-            document.getElementById('page-title').textContent = `${data.businessName} - Premier Beauty Studio`;
-            document.getElementById('header-brand-name').textContent = data.businessName;
-            document.getElementById('footer-business-name').textContent = data.businessName;
+        // --- 3. POPULATE HTML WITH DATA ---
 
-            const styleTag = document.getElementById('dynamic-styles');
-            styleTag.innerHTML = `
+        document.getElementById("page-title").textContent =
+          `${data.businessName} - Premier Beauty Studio`;
+        document.getElementById("header-brand-name").textContent =
+          data.businessName;
+        document.getElementById("footer-business-name").textContent =
+          data.businessName;
+
+        const styleTag = document.getElementById("dynamic-styles");
+        styleTag.innerHTML = `
                 :root {
                     --brand-charcoal: ${data.theme.charcoal};
                     --brand-accent: ${data.theme.accent};
@@ -361,23 +778,29 @@
                 .service-filter-btn.active { background-color: var(--brand-charcoal); color: white; border-color: var(--brand-charcoal); }
             `;
 
-            const floatingActionButtons = document.getElementById('floating-action-buttons');
-            floatingActionButtons.innerHTML = `
+        const floatingActionButtons = document.getElementById(
+          "floating-action-buttons",
+        );
+        floatingActionButtons.innerHTML = `
                 <a href="https://wa.me/${data.contact.whatsapp}?text=Hello%20${data.businessName}%2C%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="page-action-btn text-brand-charcoal w-12 h-12 flex items-center justify-center text-xl transition-all duration-300 hover:text-brand-accent hover:scale-110" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="tel:${data.contact.phone}" class="page-action-btn text-brand-charcoal w-12 h-12 flex items-center justify-center text-xl transition-all duration-300 hover:text-brand-accent hover:scale-110" aria-label="Call Us"><i class="fas fa-phone"></i></a>
                 <button id="share-btn-js" class="page-action-btn text-brand-charcoal w-12 h-12 flex items-center justify-center text-xl transition-all duration-300 hover:text-brand-accent hover:scale-110" aria-label="Share this page"><i class="fas fa-share-alt"></i></button>
             `;
-            
-            const floatingSocialBar = document.getElementById('floating-social-bar');
-            floatingSocialBar.innerHTML = `
+
+        const floatingSocialBar = document.getElementById(
+          "floating-social-bar",
+        );
+        floatingSocialBar.innerHTML = `
                 <a href="#contact" class="social-icon" aria-label="Book Now"><i class="fas fa-calendar-check"></i></a>
                 <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             `;
-            
-            const heroContainer = document.getElementById('hero-container');
-            heroContainer.innerHTML = data.heroSlides.map(slide => `
+
+        const heroContainer = document.getElementById("hero-container");
+        heroContainer.innerHTML = data.heroSlides
+          .map(
+            (slide) => `
                 <div class="hero-slide w-full h-full flex-shrink-0" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${slide.bgImage}');">
                     <div class="w-full h-full flex flex-col items-center justify-center text-center text-white p-6">
                         <div class="reveal">
@@ -386,17 +809,21 @@
                         </div>
                     </div>
                 </div>
-            `).join('');
-            
-            const infoBarContent = document.getElementById('info-bar-content');
-            infoBarContent.innerHTML = `
+            `,
+          )
+          .join("");
+
+        const infoBarContent = document.getElementById("info-bar-content");
+        infoBarContent.innerHTML = `
                 <div class="reveal"> <i class="fas fa-map-marker-alt text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Location</h4> <p class="text-gray-600 text-sm">${data.contact.location}</p> </div>
                 <div class="reveal" style="transition-delay: 150ms;"> <i class="fas fa-phone text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Contact</h4> <p class="text-gray-600 text-sm">${data.contact.phone}</p> </div>
                 <div class="reveal" style="transition-delay: 300ms;"> <i class="fas fa-clock text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Hours</h4> <p class="text-gray-600 text-sm">${data.contact.hours}</p> </div>
             `;
 
-            const statsGrid = document.getElementById('stats-grid');
-            statsGrid.innerHTML = data.stats.map((stat, index) => `
+        const statsGrid = document.getElementById("stats-grid");
+        statsGrid.innerHTML = data.stats
+          .map(
+            (stat, index) => `
                 <div class="stat-card reveal" style="transition-delay: ${index * 150}ms;">
                     <div class="text-5xl font-bold text-brand-accent mb-2">
                         <i class="${stat.icon}"></i>
@@ -406,10 +833,14 @@
                     </div>
                     <p class="text-gray-500 mt-1">${stat.label}</p>
                 </div>
-            `).join('');
+            `,
+          )
+          .join("");
 
-            const serviceGrid = document.getElementById('service-grid');
-            serviceGrid.innerHTML = data.services.map(service => `
+        const serviceGrid = document.getElementById("service-grid");
+        serviceGrid.innerHTML = data.services
+          .map(
+            (service) => `
                 <div class="service-item service-card-selectable" data-category="${service.category}">
                     <div class="flex items-center space-x-4 flex-grow">
                         <div class="service-card-icon-new">${service.icon}</div>
@@ -418,10 +849,14 @@
                     <div class="service-price">${service.price}</div>
                     <div class="checkmark-icon"><i class="fas fa-check-circle"></i></div>
                 </div>
-            `).join('');
-            
-            const stylistsGrid = document.getElementById('stylists-grid');
-            stylistsGrid.innerHTML = data.stylists.map((stylist, index) => `
+            `,
+          )
+          .join("");
+
+        const stylistsGrid = document.getElementById("stylists-grid");
+        stylistsGrid.innerHTML = data.stylists
+          .map(
+            (stylist, index) => `
                  <div class="text-center reveal" style="transition-delay: ${index * 150}ms;">
                     <div class="relative inline-block">
                         <img src="${stylist.image}" onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/ffffff?text=Image';" alt="Stylist ${stylist.name}" class="w-full h-auto object-cover rounded-full aspect-square mx-auto mb-6 max-w-[250px] shadow-lg">
@@ -429,15 +864,18 @@
                     <h4 class="text-2xl font-bold">${stylist.name}</h4>
                     <p class="text-brand-accent font-semibold mb-2">${stylist.title}</p>
                 </div>
-            `).join('');
+            `,
+          )
+          .join("");
 
-            const reviewsContainer = document.getElementById('reviews-container');
-            reviewsContainer.innerHTML = (data.reviews || []).map(review => {
-                let stars = '';
-                for(let i=0; i<5; i++) {
-                    stars += `<i class="fa-star ${i < review.rating ? 'fas' : 'far'}"></i>`;
-                }
-                return `
+        const reviewsContainer = document.getElementById("reviews-container");
+        reviewsContainer.innerHTML = (data.reviews || [])
+          .map((review) => {
+            let stars = "";
+            for (let i = 0; i < 5; i++) {
+              stars += `<i class="fa-star ${i < review.rating ? "fas" : "far"}"></i>`;
+            }
+            return `
                 <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
                     <div class="review-card h-full">
                         <div class="star-rating text-xl mb-4">${stars}</div>
@@ -445,185 +883,230 @@
                         <p class="font-bold text-brand-charcoal">- ${review.name}</p>
                     </div>
                 </div>
-                `
-            }).join('');
+                `;
+          })
+          .join("");
 
-            const reelsContainer = document.getElementById('reels-container');
-            reelsContainer.innerHTML = (data.reels || []).map(reelUrl => `
+        const reelsContainer = document.getElementById("reels-container");
+        reelsContainer.innerHTML = (data.reels || [])
+          .map(
+            (reelUrl) => `
                 <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
                     <div class="relative aspect-video rounded-lg shadow-lg overflow-hidden">
                         <img src="${reelUrl}" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/cccccc/ffffff?text=Video';" class="w-full h-full object-cover" alt="Reel thumbnail">
                         <div class="absolute inset-0 bg-black/30 flex items-center justify-center"> <button class="text-white text-6xl opacity-80 hover:opacity-100 transition"><i class="fas fa-play-circle"></i></button> </div>
                     </div>
                 </div>
-            `).join('');
+            `,
+          )
+          .join("");
 
-            const galleryContainer = document.getElementById('gallery-container');
-            galleryContainer.innerHTML = (data.gallery || []).map(imageUrl => `
+        const galleryContainer = document.getElementById("gallery-container");
+        galleryContainer.innerHTML = (data.gallery || [])
+          .map(
+            (imageUrl) => `
                 <div class="gallery-item"> <img class="rounded-lg w-full" src="${imageUrl}" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/cccccc/ffffff?text=Image';" alt="Gallery Image"> </div>
-            `).join('');
+            `,
+          )
+          .join("");
 
-            initializePageFunctionality();
-        });
+        initializePageFunctionality();
+      });
 
-        function initializePageFunctionality() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if(mobileMenuButton) mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      function initializePageFunctionality() {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenuButton)
+          mobileMenuButton.addEventListener("click", () =>
+            mobileMenu.classList.toggle("hidden"),
+          );
 
-            const shareBtn = document.getElementById('share-btn-js');
-            if(shareBtn) {
-                shareBtn.addEventListener('click', function() {
-                    const shareData = {
-                        title: document.getElementById('page-title').textContent,
-                        text: 'Check out this amazing beauty parlour!',
-                        url: window.location.href
-                    };
-                    if (navigator.share) {
-                        navigator.share(shareData).catch((error) => {
-                            console.error('Error sharing:', error);
-                        });
-                    } else {
-                        alert('To share, please copy the link from your browser address bar.');
-                    }
-                });
+        const shareBtn = document.getElementById("share-btn-js");
+        if (shareBtn) {
+          shareBtn.addEventListener("click", function () {
+            const shareData = {
+              title: document.getElementById("page-title").textContent,
+              text: "Check out this amazing beauty parlour!",
+              url: window.location.href,
+            };
+            if (navigator.share) {
+              navigator.share(shareData).catch((error) => {
+                console.error("Error sharing:", error);
+              });
+            } else {
+              alert(
+                "To share, please copy the link from your browser address bar.",
+              );
             }
-
-            const heroContainer = document.getElementById('hero-container');
-            if (heroContainer) {
-                const slides = heroContainer.querySelectorAll('.hero-slide');
-                const paginationContainer = document.getElementById('hero-pagination');
-                const scrollLeftBtn = document.getElementById('hero-scroll-left');
-                const scrollRightBtn = document.getElementById('hero-scroll-right');
-                let currentIndex = 0;
-                let autoScrollInterval;
-
-                if (slides.length > 0) {
-                    slides.forEach((_, index) => {
-                        const dot = document.createElement('button');
-                        dot.className = 'pagination-dot';
-                        dot.addEventListener('click', () => { scrollToSlide(index); resetAutoScroll(); });
-                        paginationContainer.appendChild(dot);
-                    });
-
-                    const dots = paginationContainer.querySelectorAll('.pagination-dot');
-
-                    function updateSlider() {
-                        heroContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-                        dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
-                    }
-
-                    function scrollToSlide(index) { currentIndex = index; updateSlider(); }
-                    
-                    function resetAutoScroll() {
-                        clearInterval(autoScrollInterval);
-                        autoScrollInterval = setInterval(() => {
-                            currentIndex = (currentIndex + 1) % slides.length;
-                            updateSlider();
-                        }, 5000);
-                    }
-
-                    scrollLeftBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides.length) % slides.length; updateSlider(); resetAutoScroll(); });
-                    scrollRightBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides.length; updateSlider(); resetAutoScroll(); });
-                    
-                    updateSlider();
-                    resetAutoScroll();
-                }
-            }
-
-            const serviceGrid = document.getElementById('service-grid');
-            const filtersContainer = document.getElementById('service-filters');
-            if(serviceGrid && filtersContainer) {
-                const serviceItems = serviceGrid.querySelectorAll('.service-item');
-                const categories = { 'all': serviceItems.length };
-                
-                serviceItems.forEach(item => {
-                    const category = item.dataset.category;
-                    categories[category] = (categories[category] || 0) + 1;
-                });
-
-                Object.keys(categories).forEach(category => {
-                    const btn = document.createElement('button');
-                    btn.className = 'service-filter-btn';
-                    btn.dataset.filter = category;
-                    const count = categories[category];
-                    const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-                    btn.innerHTML = `${categoryName} <span class="text-xs ml-1">(${count})</span>`;
-                    if (category === 'all') btn.classList.add('active');
-                    filtersContainer.appendChild(btn);
-                });
-
-                filtersContainer.addEventListener('click', (e) => {
-                    const target = e.target.closest('.service-filter-btn');
-                    if (!target) return;
-                    
-                    filtersContainer.querySelector('.active').classList.remove('active');
-                    target.classList.add('active');
-
-                    const filter = target.dataset.filter;
-
-                    serviceItems.forEach(item => {
-                        item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'flex' : 'none';
-                    });
-                });
-
-                serviceItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                        item.classList.toggle('selected');
-                    });
-                });
-            }
-
-            function animateCountUp(el) {
-                const finalValue = parseFloat(el.dataset.count);
-                const decimalPlaces = parseInt(el.dataset.decimal) || 0;
-                if (el.dataset.animated) return;
-                el.dataset.animated = true;
-
-                const duration = 2000;
-                const frameRate = 1000 / 60;
-                const totalFrames = Math.round(duration / frameRate);
-                let frame = 0;
-
-                const counter = setInterval(() => {
-                    frame++;
-                    const progress = frame / totalFrames;
-                    const easeOutProgress = 1 - Math.pow(1 - progress, 3);
-                    const currentValue = easeOutProgress * finalValue;
-
-                    el.textContent = currentValue.toFixed(decimalPlaces);
-
-                    if (frame === totalFrames) {
-                        clearInterval(counter);
-                        el.textContent = finalValue.toFixed(decimalPlaces);
-                    }
-                }, frameRate);
-            }
-
-            const revealElements = document.querySelectorAll('.reveal');
-            const statsSection = document.getElementById('stats');
-
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
-
-            revealElements.forEach(el => revealObserver.observe(el));
-
-            if (statsSection) {
-                const statsObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const statNumbers = entry.target.querySelectorAll('.stat-number');
-                            statNumbers.forEach(num => animateCountUp(num));
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                statsObserver.observe(statsSection);
-            }
+          });
         }
+
+        const heroContainer = document.getElementById("hero-container");
+        if (heroContainer) {
+          const slides = heroContainer.querySelectorAll(".hero-slide");
+          const paginationContainer =
+            document.getElementById("hero-pagination");
+          const scrollLeftBtn = document.getElementById("hero-scroll-left");
+          const scrollRightBtn = document.getElementById("hero-scroll-right");
+          let currentIndex = 0;
+          let autoScrollInterval;
+
+          if (slides.length > 0) {
+            slides.forEach((_, index) => {
+              const dot = document.createElement("button");
+              dot.className = "pagination-dot";
+              dot.addEventListener("click", () => {
+                scrollToSlide(index);
+                resetAutoScroll();
+              });
+              paginationContainer.appendChild(dot);
+            });
+
+            const dots =
+              paginationContainer.querySelectorAll(".pagination-dot");
+
+            function updateSlider() {
+              heroContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+              dots.forEach((dot, index) =>
+                dot.classList.toggle("active", index === currentIndex),
+              );
+            }
+
+            function scrollToSlide(index) {
+              currentIndex = index;
+              updateSlider();
+            }
+
+            function resetAutoScroll() {
+              clearInterval(autoScrollInterval);
+              autoScrollInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+              }, 5000);
+            }
+
+            scrollLeftBtn.addEventListener("click", () => {
+              currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+              updateSlider();
+              resetAutoScroll();
+            });
+            scrollRightBtn.addEventListener("click", () => {
+              currentIndex = (currentIndex + 1) % slides.length;
+              updateSlider();
+              resetAutoScroll();
+            });
+
+            updateSlider();
+            resetAutoScroll();
+          }
+        }
+
+        const serviceGrid = document.getElementById("service-grid");
+        const filtersContainer = document.getElementById("service-filters");
+        if (serviceGrid && filtersContainer) {
+          const serviceItems = serviceGrid.querySelectorAll(".service-item");
+          const categories = { all: serviceItems.length };
+
+          serviceItems.forEach((item) => {
+            const category = item.dataset.category;
+            categories[category] = (categories[category] || 0) + 1;
+          });
+
+          Object.keys(categories).forEach((category) => {
+            const btn = document.createElement("button");
+            btn.className = "service-filter-btn";
+            btn.dataset.filter = category;
+            const count = categories[category];
+            const categoryName =
+              category.charAt(0).toUpperCase() + category.slice(1);
+            btn.innerHTML = `${categoryName} <span class="text-xs ml-1">(${count})</span>`;
+            if (category === "all") btn.classList.add("active");
+            filtersContainer.appendChild(btn);
+          });
+
+          filtersContainer.addEventListener("click", (e) => {
+            const target = e.target.closest(".service-filter-btn");
+            if (!target) return;
+
+            filtersContainer
+              .querySelector(".active")
+              .classList.remove("active");
+            target.classList.add("active");
+
+            const filter = target.dataset.filter;
+
+            serviceItems.forEach((item) => {
+              item.style.display =
+                filter === "all" || item.dataset.category === filter
+                  ? "flex"
+                  : "none";
+            });
+          });
+
+          serviceItems.forEach((item) => {
+            item.addEventListener("click", () => {
+              item.classList.toggle("selected");
+            });
+          });
+        }
+
+        function animateCountUp(el) {
+          const finalValue = parseFloat(el.dataset.count);
+          const decimalPlaces = parseInt(el.dataset.decimal) || 0;
+          if (el.dataset.animated) return;
+          el.dataset.animated = true;
+
+          const duration = 2000;
+          const frameRate = 1000 / 60;
+          const totalFrames = Math.round(duration / frameRate);
+          let frame = 0;
+
+          const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = easeOutProgress * finalValue;
+
+            el.textContent = currentValue.toFixed(decimalPlaces);
+
+            if (frame === totalFrames) {
+              clearInterval(counter);
+              el.textContent = finalValue.toFixed(decimalPlaces);
+            }
+          }, frameRate);
+        }
+
+        const revealElements = document.querySelectorAll(".reveal");
+        const statsSection = document.getElementById("stats");
+
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        if (statsSection) {
+          const statsObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const statNumbers =
+                    entry.target.querySelectorAll(".stat-number");
+                  statNumbers.forEach((num) => animateCountUp(num));
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.5 },
+          );
+          statsObserver.observe(statsSection);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
