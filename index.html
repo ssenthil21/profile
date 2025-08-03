@@ -53,18 +53,43 @@
 
         /* New Service Card Styles */
         .service-card-selectable {
-            @apply bg-white p-4 rounded-lg border-2 overflow-hidden flex items-center justify-between transition-all duration-300 cursor-pointer relative shadow-md;
-            border-color: var(--brand-accent);
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 2px solid var(--brand-accent);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         .service-card-selectable.selected {
             border-color: var(--brand-accent);
             background-color: var(--brand-light);
         }
         .service-card-icon-new {
-            @apply bg-gray-200 text-gray-500 w-16 h-16 rounded-lg flex items-center justify-center text-xl font-bold flex-shrink-0;
+            background-color: #e5e7eb;
+            color: #6b7280;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            flex-shrink: 0;
         }
         .service-price {
-            @apply inline-block border-2 border-gray-400 rounded-full px-3 py-1 text-sm font-semibold;
+            display: inline-block;
+            border: 2px solid #9ca3af;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
         }
         .checkmark-icon {
             @apply absolute top-3 right-3 text-green-500 text-2xl;
@@ -243,11 +268,14 @@
     </header>
 
     <main class="pt-24">
-        <section id="hero-slider" class="relative w-full h-[70vh] overflow-hidden">
-            <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
-            <button id="hero-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-left"></i></button>
-            <button id="hero-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-right"></i></button>
-            <div id="hero-pagination" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"></div>
+        <section id="hero-slider" class="relative w-full h-[56vh] flex overflow-hidden">
+            <div id="hero-info" class="w-1/4 bg-white flex flex-col items-center justify-center p-4 z-10"></div>
+            <div class="relative w-3/4 h-full overflow-hidden">
+                <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
+                <button id="hero-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-left"></i></button>
+                <button id="hero-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-right"></i></button>
+                <div id="hero-pagination" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"></div>
+            </div>
         </section>
 
         <section id="info-bar" class="py-6 bg-white border-b border-gray-200">
@@ -441,6 +469,15 @@
                 <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             `;
             
+            const heroInfo = document.getElementById('hero-info');
+            if (heroInfo) {
+                heroInfo.innerHTML = `
+                    <img src="https://placehold.co/150x150?text=Logo" alt="${data.businessName} logo" class="w-24 h-24 object-contain mb-4">
+                    <h1 class="text-2xl font-bold mb-2">${data.businessName}</h1>
+                    <p class="text-center text-sm text-gray-600">${data.contact.location}</p>
+                `;
+            }
+
             const heroContainer = document.getElementById('hero-container');
             heroContainer.innerHTML = data.heroSlides.map(slide => `
                 <div class="hero-slide w-full h-full flex-shrink-0" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${slide.bgImage}');">
