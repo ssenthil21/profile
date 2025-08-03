@@ -102,7 +102,7 @@
     <script id="shai-data" type="application/json">
     {
       "businessName": "Shai.",
-      "logo": "https://placehold.co/200x80?text=Shai",
+      "logo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nODAnIHZpZXdCb3g9JzAgMCAyMDAgODAnPjxyZWN0IHdpZHRoPScyMDAnIGhlaWdodD0nODAnIGZpbGw9JyNDMDgyNjEnLz48dGV4dCB4PScxMDAnIHk9JzUwJyBmb250LXNpemU9JzQwJyBmb250LWZhbWlseT0nUG9wcGlucycgZmlsbD0nd2hpdGUnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGRvbWluYW50LWJhc2VsaW5lPSdjZW50cmFsJz5TaGFpPC90ZXh0Pjwvc3ZnPg==",
       "contact": { "location": "123 Beauty Lane, Style City", "phone": "1234567890", "hours": "Tues - Sat: 10am - 6pm", "whatsapp": "1234567890" },
       "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
       "heroSlides": [
@@ -226,6 +226,8 @@
                 <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
                 <a href="#reviews" class="hover:text-brand-accent transition-colors">Reviews</a>
                 <a href="#stylists" class="hover:text-brand-accent transition-colors">Our Team</a>
+                <a href="#gallery" class="hover:text-brand-accent transition-colors">Gallery</a>
+                <a href="#reels" class="hover:text-brand-accent transition-colors">Reels</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <a href="#contact" class="hidden md:inline-block btn btn-primary btn-glow">Book Now</a>
@@ -239,13 +241,15 @@
             <a href="#services" class="block py-2 hover:text-brand-accent">Services</a>
             <a href="#reviews" class="block py-2 hover:text-brand-accent">Reviews</a>
             <a href="#stylists" class="block py-2 hover:text-brand-accent">Our Team</a>
+            <a href="#gallery" class="block py-2 hover:text-brand-accent">Gallery</a>
+            <a href="#reels" class="block py-2 hover:text-brand-accent">Reels</a>
             <a href="#contact" class="mt-2 block btn btn-primary text-center btn-glow">Book Now</a>
         </div>
     </header>
 
     <main class="pt-24">
         <section id="hero-slider" class="w-full h-[56vh] flex">
-            <div class="w-1/4 bg-white flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-1/4 bg-brand-light flex flex-col items-center justify-center p-6 text-center">
                 <img id="company-logo" class="mb-4 max-w-full h-auto" alt="Company Logo">
                 <div class="text-sm text-gray-600 space-y-1">
                     <p><i class="fas fa-map-marker-alt text-brand-accent mr-1"></i><span id="company-address"></span></p>
@@ -267,7 +271,7 @@
             </div>
         </section>
 
-        <section id="stats" class="py-8 bg-brand-light">
+        <section id="stats" class="py-7 bg-brand-light">
             <div class="container mx-auto px-6">
                 <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
             </div>
@@ -291,9 +295,9 @@
                     <p class="text-lg text-gray-500">Real stories from our valued customers.</p>
                 </div>
                 <div class="relative reveal">
-                    <div id="reviews-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-container space-x-6 pb-4"></div>
-                    <button id="reviews-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-0 transform -translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-left"></i></button>
-                    <button id="reviews-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-0 transform translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-right"></i></button>
+                    <div id="reviews-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-container space-x-6 pb-4 px-8"></div>
+                    <button id="reviews-scroll-left" class="absolute top-1/2 -translate-y-1/2 -left-8 transform -translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-left"></i></button>
+                    <button id="reviews-scroll-right" class="absolute top-1/2 -translate-y-1/2 -right-8 transform translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </section>
