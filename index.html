@@ -29,7 +29,22 @@
         .hero-slide { background-size: cover; background-position: center; }
         .pagination-dot { @apply w-3 h-3 rounded-full bg-white/50 transition-all duration-300 cursor-pointer; }
         .pagination-dot.active { @apply bg-white scale-125; }
-        
+
+        /* Floating social icon animation */
+        .social-icon {
+            @apply w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg transition-transform duration-300;
+            background-color: var(--brand-accent);
+            animation: float 3s ease-in-out infinite;
+        }
+        .social-icon:hover {
+            animation: none;
+            transform: translateY(-0.25rem) scale(1.1);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-0.5rem); }
+        }
+
         /* New Service Card Styles */
         .service-card-selectable {
             @apply bg-white p-4 rounded-xl border-2 border-gray-200 flex items-center justify-between transition-all duration-300 cursor-pointer relative;
