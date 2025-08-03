@@ -139,19 +139,18 @@
         { "name": "Divya Menon", "title": "Makeup Artist", "image": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" }
       ],
       "reels": [
-        "https://videos.pexels.com/video-files/3688456/3688456-hd_1920_1080_25fps.mp4",
-        "https://videos.pexels.com/video-files/3688452/3688452-hd_1920_1080_25fps.mp4",
-        "https://videos.pexels.com/video-files/3201726/3201726-hd_1920_1080_24fps.mp4"
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/27/27c1722844298893.mp4",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/27/27c1722844446736.mp4",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/27/longvolumnlayerhaircut-haircut-at-chillbreeze-unisex-salon-via-qtick-94.mp4"
       ],
       "gallery": [
-        "https://images.unsplash.com/photo-1519744346368-cb4a66974107?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581093588401-22d60c095ea0?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1556228724-4b8e80bdbad1?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1555680207-9e8b5f3ca9f8?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1553547276-54c6c33bc1a6?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1599586123892-ec72b1cec0a7?auto=format&fit=crop&w=800&q=80"
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-139.jpg",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-145.jpg",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/bridal-makeupbridal-makeup-at-shai-beauty-parlour-via-qtick-131.jpg",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-140.jpg",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-142.jpg",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-145.jpg",
+        "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-146.jpg"
       ]
     }
     </script>
@@ -249,6 +248,8 @@
             <div class="w-1/4 bg-white flex flex-col items-center justify-center p-6 text-center">
                 <img id="company-logo" class="mb-4 max-w-full h-auto" alt="Company Logo">
                 <p id="company-address" class="text-sm text-gray-600"></p>
+                <p id="company-phone" class="text-sm text-gray-600 mt-2"></p>
+                <p id="company-hours" class="text-sm text-gray-600 mt-2"></p>
             </div>
             <div class="relative w-3/4 h-full overflow-hidden">
                 <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
@@ -258,13 +259,13 @@
             </div>
         </section>
 
-        <section id="info-bar" class="py-6 bg-white border-b border-gray-200">
+        <section id="info-bar" class="py-6 bg-white border-b border-gray-200 hidden">
             <div class="container mx-auto px-6">
                  <div id="info-bar-content" class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 text-center"></div>
             </div>
         </section>
 
-        <section id="stats" class="py-16 bg-brand-light">
+        <section id="stats" class="py-8 bg-brand-light">
             <div class="container mx-auto px-6">
                 <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
             </div>
@@ -373,6 +374,8 @@
             document.getElementById('company-logo').src = data.logo;
             document.getElementById('company-logo').alt = `${data.businessName} logo`;
             document.getElementById('company-address').textContent = data.contact.location;
+            document.getElementById('company-phone').textContent = data.contact.phone;
+            document.getElementById('company-hours').textContent = data.contact.hours;
 
             const styleTag = document.getElementById('dynamic-styles');
             styleTag.innerHTML = `
@@ -464,13 +467,6 @@
                 </div>
             `).join('');
             
-            const infoBarContent = document.getElementById('info-bar-content');
-            infoBarContent.innerHTML = `
-                <div class="reveal"> <i class="fas fa-map-marker-alt text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Location</h4> <p class="text-gray-600 text-sm">${data.contact.location}</p> </div>
-                <div class="reveal" style="transition-delay: 150ms;"> <i class="fas fa-phone text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Contact</h4> <p class="text-gray-600 text-sm">${data.contact.phone}</p> </div>
-                <div class="reveal" style="transition-delay: 300ms;"> <i class="fas fa-clock text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Hours</h4> <p class="text-gray-600 text-sm">${data.contact.hours}</p> </div>
-            `;
-
             const statsGrid = document.getElementById('stats-grid');
             statsGrid.innerHTML = data.stats.map((stat, index) => `
                 <div class="stat-card reveal" style="transition-delay: ${index * 150}ms;">
