@@ -52,7 +52,7 @@
 
         /* New Service Card Styles */
         .service-card-selectable {
-            @apply bg-white p-4 rounded-xl border-2 border-gray-200 flex items-center justify-between transition-all duration-300 cursor-pointer relative;
+            @apply bg-white p-4 rounded-xl border-2 border-gray-300 flex items-center justify-between transition-all duration-300 cursor-pointer relative;
         }
         .service-card-selectable.selected {
             border-color: var(--brand-accent);
@@ -65,16 +65,17 @@
             @apply inline-block border-2 border-gray-400 rounded-full px-3 py-1 text-sm font-semibold;
         }
         .checkmark-icon {
-            @apply absolute top-3 right-3 text-green-500 text-2xl opacity-0 transition-opacity scale-75 transform;
+            @apply absolute top-3 right-3 text-green-500 text-2xl;
+            display: none;
         }
         .service-card-selectable.selected .checkmark-icon {
-            opacity: 1;
-            transform: scale(1);
+            display: block;
         }
 
         /* Stat Card Styles */
         .stat-card {
-            @apply bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2;
+            @apply bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2 border-2;
+            border-color: var(--brand-accent);
         }
 
         /* Review Card Styles */
@@ -125,7 +126,9 @@
           { "name": "Sarah P.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
           { "name": "Megan B.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
           { "name": "David K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
-          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." }
+          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." },
+          { "name": "Olivia M.", "rating": 5, "comment": "Absolutely loved the service. Will come back!" },
+          { "name": "James H.", "rating": 4, "comment": "Great atmosphere and professional staff." }
       ],
       "stylists": [
         { "name": "Olivia Chen", "title": "Lead Colorist & Founder", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Olivia" },
@@ -171,7 +174,9 @@
           { "name": "Sarah P.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
           { "name": "Megan B.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
           { "name": "David K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
-          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." }
+          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." },
+          { "name": "Olivia M.", "rating": 5, "comment": "Absolutely loved the service. Will come back!" },
+          { "name": "James H.", "rating": 4, "comment": "Great atmosphere and professional staff." }
       ],
       "stylists": [
         { "name": "Chloe Davis", "title": "Lead Stylist & Founder", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Chloe" },
