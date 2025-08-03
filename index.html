@@ -76,7 +76,7 @@
 
         /* Stat Card Styles */
         .stat-card {
-            @apply bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2 border-2;
+            @apply bg-white p-5 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2 border-2;
             border-color: var(--brand-accent);
         }
 
@@ -102,7 +102,7 @@
     <script id="shai-data" type="application/json">
     {
       "businessName": "Shai.",
-      "logo": "https://placehold.co/200x80?text=Shai",
+      "logo": "https://placehold.co/200x80/36322F/C08261?text=Shai+Logo",
       "contact": { "location": "123 Beauty Lane, Style City", "phone": "1234567890", "hours": "Tues - Sat: 10am - 6pm", "whatsapp": "1234567890" },
       "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
       "heroSlides": [
@@ -157,7 +157,7 @@
     <script id="glitz5-data" type="application/json">
     {
       "businessName": "Glitz 5",
-      "logo": "https://placehold.co/200x80?text=Glitz5",
+      "logo": "https://placehold.co/200x80/43384a/8B5CF6?text=Glitz5",
       "contact": { "location": "456 Glamour Ave, Sparkle City", "phone": "9876543210", "hours": "Mon - Sat: 9am - 8pm", "whatsapp": "9876543210" },
       "theme": { "charcoal": "#43384a", "accent": "#8B5CF6", "light": "#F3E8FF" },
       "heroSlides": [
@@ -222,9 +222,11 @@
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 id="header-brand-name" class="text-3xl font-bold text-brand-charcoal"></h1>
-            <nav class="hidden md:flex items-center space-x-8">
+        <nav class="hidden md:flex items-center space-x-8">
                 <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
                 <a href="#reviews" class="hover:text-brand-accent transition-colors">Reviews</a>
+                <a href="#gallery" class="hover:text-brand-accent transition-colors">Gallery</a>
+                <a href="#reels" class="hover:text-brand-accent transition-colors">Reels</a>
                 <a href="#stylists" class="hover:text-brand-accent transition-colors">Our Team</a>
             </nav>
             <div class="flex items-center space-x-4">
@@ -238,6 +240,8 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white border-t">
             <a href="#services" class="block py-2 hover:text-brand-accent">Services</a>
             <a href="#reviews" class="block py-2 hover:text-brand-accent">Reviews</a>
+            <a href="#gallery" class="block py-2 hover:text-brand-accent">Gallery</a>
+            <a href="#reels" class="block py-2 hover:text-brand-accent">Reels</a>
             <a href="#stylists" class="block py-2 hover:text-brand-accent">Our Team</a>
             <a href="#contact" class="mt-2 block btn btn-primary text-center btn-glow">Book Now</a>
         </div>
@@ -245,7 +249,7 @@
 
     <main class="pt-24">
         <section id="hero-slider" class="w-full h-[56vh] flex">
-            <div class="w-1/4 bg-white flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-1/4 bg-brand-light flex flex-col items-center justify-center p-6 text-center">
                 <img id="company-logo" class="mb-4 max-w-full h-auto" alt="Company Logo">
                 <div class="text-sm text-gray-600 space-y-1">
                     <p><i class="fas fa-map-marker-alt text-brand-accent mr-1"></i><span id="company-address"></span></p>
@@ -267,7 +271,7 @@
             </div>
         </section>
 
-        <section id="stats" class="py-8 bg-brand-light">
+        <section id="stats" class="py-7 bg-brand-light">
             <div class="container mx-auto px-6">
                 <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
             </div>
@@ -290,10 +294,10 @@
                     <h3 class="text-4xl font-bold mb-3">What Our Clients Say</h3>
                     <p class="text-lg text-gray-500">Real stories from our valued customers.</p>
                 </div>
-                <div class="relative reveal">
+                <div class="relative reveal px-6">
                     <div id="reviews-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-container space-x-6 pb-4"></div>
-                    <button id="reviews-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-0 transform -translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-left"></i></button>
-                    <button id="reviews-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-0 transform translate-x-1/2 bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-right"></i></button>
+                    <button id="reviews-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-left"></i></button>
+                    <button id="reviews-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-0 translate-x-full bg-white/80 rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white transition z-10"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </section>
