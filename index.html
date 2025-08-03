@@ -28,6 +28,20 @@
             50% { box-shadow: 0 0 20px rgba(192,130,97,0.6); }
         }
         .btn-glow { animation: glow 2s ease-in-out infinite; }
+        /* Animated navigation link underline */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--brand-accent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .nav-link:hover::after { transform: translateX(0); }
         .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
         .scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
@@ -103,7 +117,6 @@
         .stylist-card:hover h4 { color: var(--brand-accent); }
 
         .media-item { @apply relative overflow-hidden; }
-        .media-overlay { @apply absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300; }
         .media-item:hover .media-overlay { @apply opacity-100; }
 
         .reveal-left, .reveal-right { opacity: 0; transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -113,6 +126,30 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
         .fade-in { animation: fadeIn 0.5s ease forwards; }
+
+        @keyframes fadeOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.95); } }
+        .fade-out { animation: fadeOut 0.3s ease forwards; }
+
+        .image-reveal { position: relative; overflow: hidden; }
+        .image-reveal::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--brand-accent);
+            transform: translateX(0);
+            transition: transform 0.7s ease;
+            z-index: 1;
+        }
+        .image-reveal.visible::after { transform: translateX(100%); }
+
+        .media-overlay { @apply absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300; z-index:2; }
+
+        .parallax-bg { background-attachment: fixed; background-position: center; }
+
+        .modal { @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300; opacity:0; pointer-events:none; }
+        .modal.active { opacity:1; pointer-events:auto; }
+        .modal-content { @apply bg-white rounded-lg p-6 w-11/12 max-w-md transform transition-transform duration-300 relative; transform:scale(0.9); }
+        .modal.active .modal-content { transform:scale(1); }
 
         .blur-up { filter: blur(20px); transition: filter 0.5s ease; }
         .blur-up.loaded { filter: blur(0); }
@@ -252,11 +289,11 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 id="header-brand-name" class="text-3xl font-bold text-brand-charcoal"></h1>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
-                <a href="#reviews" class="hover:text-brand-accent transition-colors">Reviews</a>
-                <a href="#stylists" class="hover:text-brand-accent transition-colors">Our Team</a>
-                <a href="#gallery" class="hover:text-brand-accent transition-colors">Gallery</a>
-                <a href="#reels" class="hover:text-brand-accent transition-colors">Reels</a>
+                <a href="#services" class="nav-link hover:text-brand-accent transition-colors">Services</a>
+                <a href="#reviews" class="nav-link hover:text-brand-accent transition-colors">Reviews</a>
+                <a href="#stylists" class="nav-link hover:text-brand-accent transition-colors">Our Team</a>
+                <a href="#gallery" class="nav-link hover:text-brand-accent transition-colors">Gallery</a>
+                <a href="#reels" class="nav-link hover:text-brand-accent transition-colors">Reels</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <a href="#contact" class="hidden md:inline-block btn btn-primary btn-glow">Book Now</a>
@@ -267,11 +304,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white border-t">
-            <a href="#services" class="block py-2 hover:text-brand-accent">Services</a>
-            <a href="#reviews" class="block py-2 hover:text-brand-accent">Reviews</a>
-            <a href="#stylists" class="block py-2 hover:text-brand-accent">Our Team</a>
-            <a href="#gallery" class="block py-2 hover:text-brand-accent">Gallery</a>
-            <a href="#reels" class="block py-2 hover:text-brand-accent">Reels</a>
+            <a href="#services" class="nav-link block py-2 hover:text-brand-accent">Services</a>
+            <a href="#reviews" class="nav-link block py-2 hover:text-brand-accent">Reviews</a>
+            <a href="#stylists" class="nav-link block py-2 hover:text-brand-accent">Our Team</a>
+            <a href="#gallery" class="nav-link block py-2 hover:text-brand-accent">Gallery</a>
+            <a href="#reels" class="nav-link block py-2 hover:text-brand-accent">Reels</a>
             <a href="#contact" class="mt-2 block btn btn-primary text-center btn-glow">Book Now</a>
         </div>
     </header>
@@ -300,7 +337,7 @@
             </div>
         </section>
 
-        <section id="stats" class="py-6 bg-brand-light">
+        <section id="stats" class="py-6 bg-brand-light parallax-bg">
             <div class="container mx-auto px-6">
                 <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
             </div>
@@ -317,7 +354,7 @@
             </div>
         </section>
         
-        <section id="reviews" class="py-24 bg-brand-light">
+        <section id="reviews" class="py-24 bg-brand-light parallax-bg">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-10 reveal">
                     <h3 class="text-4xl font-bold mb-3">What Our Clients Say</h3>
@@ -381,7 +418,19 @@
             </div>
         </div>
     </footer>
-    
+
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <button id="modal-close" class="absolute top-3 right-3 text-gray-500 text-2xl">&times;</button>
+            <h3 class="text-2xl font-bold mb-4">Book Now</h3>
+            <form class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full border p-2 rounded">
+                <input type="tel" placeholder="Phone" class="w-full border p-2 rounded">
+                <button type="submit" class="btn btn-primary w-full">Submit</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- 1. GET BUSINESS NAME FROM URL ---
@@ -519,9 +568,9 @@
             
             const infoBarContent = document.getElementById('info-bar-content');
             infoBarContent.innerHTML = `
-                <div class="reveal"> <i class="fas fa-map-marker-alt text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Location</h4> <p class="text-gray-600 text-sm">${data.contact.location}</p> </div>
+                <div class="reveal-left"> <i class="fas fa-map-marker-alt text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Location</h4> <p class="text-gray-600 text-sm">${data.contact.location}</p> </div>
                 <div class="reveal" style="transition-delay: 150ms;"> <i class="fas fa-phone text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Contact</h4> <p class="text-gray-600 text-sm">${data.contact.phone}</p> </div>
-                <div class="reveal" style="transition-delay: 300ms;"> <i class="fas fa-clock text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Hours</h4> <p class="text-gray-600 text-sm">${data.contact.hours}</p> </div>
+                <div class="reveal-right" style="transition-delay: 300ms;"> <i class="fas fa-clock text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Hours</h4> <p class="text-gray-600 text-sm">${data.contact.hours}</p> </div>
             `;
 
             const statsGrid = document.getElementById('stats-grid');
@@ -552,7 +601,7 @@
             const stylistsGrid = document.getElementById('stylists-grid');
             stylistsGrid.innerHTML = data.stylists.map((stylist, index) => `
                 <div class="stylist-card text-center">
-                    <div class="relative inline-block reveal-left" style="transition-delay: ${index * 150}ms;">
+                    <div class="relative inline-block reveal-left image-reveal" style="transition-delay: ${index * 150}ms;">
                         <img src="${stylist.image}" onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/ffffff?text=Image';" alt="Stylist ${stylist.name}" class="w-full h-auto object-cover rounded-full aspect-square mx-auto mb-6 max-w-[250px] shadow-lg">
                     </div>
                     <div class="reveal-right" style="transition-delay: ${index * 150 + 150}ms;">
@@ -592,7 +641,7 @@
 
             const galleryContainer = document.getElementById('gallery-container');
             galleryContainer.innerHTML = (data.gallery || []).map(imageUrl => `
-                <div class="gallery-item media-item"> <img class="rounded-lg w-full blur-up" src="${imageUrl}" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/cccccc/ffffff?text=Image';" alt="Gallery Image"> <div class="media-overlay"><i class="fas fa-eye text-white text-3xl"></i></div> </div>
+                <div class="gallery-item media-item image-reveal"> <img class="rounded-lg w-full blur-up" src="${imageUrl}" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/cccccc/ffffff?text=Image';" alt="Gallery Image"> <div class="media-overlay"><i class="fas fa-eye text-white text-3xl"></i></div> </div>
             `).join('');
             galleryContainer.querySelectorAll('img.blur-up').forEach(img => {
                 if (img.complete) img.classList.add('loaded');
@@ -700,11 +749,20 @@
 
                     serviceItems.forEach(item => {
                         const show = (filter === 'all' || item.dataset.category === filter);
-                        item.style.display = show ? 'flex' : 'none';
                         if (show) {
+                            item.style.display = 'flex';
+                            item.classList.remove('fade-out');
                             item.classList.remove('fade-in');
                             void item.offsetWidth;
                             item.classList.add('fade-in');
+                            item.addEventListener('animationend', () => item.classList.remove('fade-in'), { once: true });
+                        } else {
+                            item.classList.remove('fade-in');
+                            item.classList.add('fade-out');
+                            item.addEventListener('animationend', () => {
+                                item.style.display = 'none';
+                                item.classList.remove('fade-out');
+                            }, { once: true });
                         }
                     });
                 });
@@ -795,7 +853,7 @@
                 }, frameRate);
             }
 
-            const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .image-reveal');
             const statsSection = document.getElementById('stats');
 
             const revealObserver = new IntersectionObserver((entries) => {
@@ -818,6 +876,27 @@
                 }, { threshold: 0.5 });
                 statsObserver.observe(statsSection);
             }
+
+            const parallaxSections = document.querySelectorAll('.parallax-bg');
+            window.addEventListener('scroll', () => {
+                parallaxSections.forEach(sec => {
+                    const offset = window.pageYOffset - sec.offsetTop;
+                    sec.style.backgroundPosition = `center ${offset * 0.5}px`;
+                });
+            });
+
+            const bookingModal = document.getElementById('booking-modal');
+            const closeModalBtn = document.getElementById('modal-close');
+            document.querySelectorAll('a[href="#contact"]').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.preventDefault();
+                    bookingModal.classList.add('active');
+                });
+            });
+            closeModalBtn?.addEventListener('click', () => bookingModal.classList.remove('active'));
+            bookingModal?.addEventListener('click', e => {
+                if (e.target === bookingModal) bookingModal.classList.remove('active');
+            });
         }
 
         window.addEventListener('load', () => {
