@@ -53,7 +53,8 @@
 
         /* New Service Card Styles */
         .service-card-selectable {
-            @apply bg-white p-4 rounded-xl border-2 border-black flex items-center justify-between transition-all duration-300 cursor-pointer relative;
+            @apply bg-white p-4 rounded-xl border-2 flex items-center justify-between transition-all duration-300 cursor-pointer relative shadow-sm;
+            border-color: var(--brand-accent);
         }
         .service-card-selectable.selected {
             border-color: var(--brand-accent);
@@ -122,34 +123,34 @@
         { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "bridal", "icon": "BM" }
       ],
       "reviews": [
-          { "name": "Jessica L.", "rating": 5, "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none." },
-          { "name": "Emily R.", "rating": 5, "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations." },
-          { "name": "Sarah P.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
-          { "name": "Megan B.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
-          { "name": "David K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
-          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." },
-          { "name": "Olivia M.", "rating": 5, "comment": "Absolutely loved the service. Will come back!" },
-          { "name": "James H.", "rating": 4, "comment": "Great atmosphere and professional staff." }
+          { "name": "Aisha K.", "rating": 5, "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none.", "service": "Facial" },
+          { "name": "Emily R.", "rating": 5, "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations.", "service": "Hair Coloring" },
+          { "name": "Sarah P.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered.", "service": "Bridal Makeup" },
+          { "name": "Megan B.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional.", "service": "Manicure" },
+          { "name": "David K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure.", "service": "Hair Cut" },
+          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill.", "service": "Nail Art" },
+          { "name": "Olivia M.", "rating": 5, "comment": "Absolutely loved the service. Will come back!", "service": "Threading" },
+          { "name": "James H.", "rating": 4, "comment": "Great atmosphere and professional staff.", "service": "Hair Cut" }
       ],
       "stylists": [
-        { "name": "Olivia Chen", "title": "Lead Colorist & Founder", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Olivia" },
-        { "name": "Ben Carter", "title": "Master Cutter", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Ben" },
-        { "name": "Sophia Garcia", "title": "Nail & Skin Specialist", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Sophia" }
+        { "name": "Aisha Patel", "title": "Senior Hair Stylist", "image": "https://images.unsplash.com/photo-1599351843111-cb8f595e0d60?auto=format&fit=crop&w=400&q=80" },
+        { "name": "Rahul Sharma", "title": "Color Specialist", "image": "https://images.unsplash.com/photo-1601455763357-042783dfe0f0?auto=format&fit=crop&w=400&q=80" },
+        { "name": "Sneha Gupta", "title": "Bridal Makeup Artist", "image": "https://images.unsplash.com/photo-1597593169583-8cf4413a49e2?auto=format&fit=crop&w=400&q=80" }
       ],
       "reels": [
-        "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-        "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
-        "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
+        "https://videos.pexels.com/video-files/3992879/3992879-uhd_2560_1440_25fps.mp4",
+        "https://videos.pexels.com/video-files/3063914/3063914-uhd_2560_1440_25fps.mp4",
+        "https://videos.pexels.com/video-files/3182833/3182833-uhd_2560_1440_25fps.mp4"
       ],
       "gallery": [
-        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1503342452485-86b7f54527dd?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1501870190088-42259e120fd9?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1519744346363-52a6b42f6237?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600431521327-16d34221d4df?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1598514982842-7a4fc3e2d0b2?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1519415943484-9fa78f1f0021?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1502786129293-79981df4e689?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600272632335-64cee0350310?auto=format&fit=crop&w=800&q=80"
       ]
     }
     </script>
@@ -176,35 +177,35 @@
         { "name": "Hair Coloring", "duration": "90 mins", "price": "₹ 1500", "category": "hair", "icon": "CL" },
         { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "bridal", "icon": "BM" }
       ],
-       "reviews": [
-          { "name": "Jessica L.", "rating": 5, "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none." },
-          { "name": "Emily R.", "rating": 5, "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations." },
-          { "name": "Sarah P.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
-          { "name": "Megan B.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
-          { "name": "David K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
-          { "name": "Laura T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." },
-          { "name": "Olivia M.", "rating": 5, "comment": "Absolutely loved the service. Will come back!" },
-          { "name": "James H.", "rating": 4, "comment": "Great atmosphere and professional staff." }
+      "reviews": [
+          { "name": "Priya S.", "rating": 5, "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none.", "service": "Facial" },
+          { "name": "Rohit P.", "rating": 5, "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations.", "service": "Hair Cut" },
+          { "name": "Neha G.", "rating": 5, "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered.", "service": "Bridal Makeup" },
+          { "name": "Anita L.", "rating": 4, "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional.", "service": "Manicure" },
+          { "name": "Sanjay K.", "rating": 5, "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure.", "service": "Hair Cut" },
+          { "name": "Lakshmi T.", "rating": 5, "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill.", "service": "Nail Art" },
+          { "name": "Varun M.", "rating": 5, "comment": "Absolutely loved the service. Will come back!", "service": "Threading" },
+          { "name": "Isha H.", "rating": 4, "comment": "Great atmosphere and professional staff.", "service": "Hair Coloring" }
       ],
       "stylists": [
-        { "name": "Chloe Davis", "title": "Lead Stylist & Founder", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Chloe" },
-        { "name": "Liam Smith", "title": "Color Specialist", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Liam" },
-        { "name": "Mia Rodriguez", "title": "Nail & Lash Artist", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Mia" }
+        { "name": "Priya Singh", "title": "Lead Stylist", "image": "https://images.unsplash.com/photo-1536305030014-28d428ecf34e?auto=format&fit=crop&w=400&q=80" },
+        { "name": "Arjun Mehta", "title": "Hair Artist", "image": "https://images.unsplash.com/photo-1583511655936-0f9b3889a823?auto=format&fit=crop&w=400&q=80" },
+        { "name": "Nisha Khan", "title": "Skin & Nail Expert", "image": "https://images.unsplash.com/photo-1601040135845-a975d6ab9fbe?auto=format&fit=crop&w=400&q=80" }
       ],
       "reels": [
-        "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-        "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
-        "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
+        "https://videos.pexels.com/video-files/3992879/3992879-uhd_2560_1440_25fps.mp4",
+        "https://videos.pexels.com/video-files/3063914/3063914-uhd_2560_1440_25fps.mp4",
+        "https://videos.pexels.com/video-files/3182833/3182833-uhd_2560_1440_25fps.mp4"
       ],
       "gallery": [
-        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1503342452485-86b7f54527dd?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1501870190088-42259e120fd9?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1519744346363-52a6b42f6237?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600431521327-16d34221d4df?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1598514982842-7a4fc3e2d0b2?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1519415943484-9fa78f1f0021?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1502786129293-79981df4e689?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600272632335-64cee0350310?auto=format&fit=crop&w=800&q=80"
       ]
     }
     </script>
@@ -505,7 +506,8 @@
                 <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
                     <div class="review-card h-full">
                         <div class="star-rating text-xl mb-4">${stars}</div>
-                        <p class="text-gray-600 italic mb-4 flex-grow">"${review.comment}"</p>
+                        <p class="text-gray-600 italic mb-2 flex-grow">"${review.comment}"</p>
+                        <p class="text-sm text-brand-accent mb-4">${review.service || ''}</p>
                         <p class="font-bold text-brand-charcoal">- ${review.name}</p>
                     </div>
                 </div>
@@ -641,11 +643,26 @@
             const reviewsScrollLeft = document.getElementById('reviews-scroll-left');
             const reviewsScrollRight = document.getElementById('reviews-scroll-right');
             if (reviewsContainerScroll && reviewsScrollLeft && reviewsScrollRight) {
+                const scrollAmount = () => reviewsContainerScroll.clientWidth;
+                function scrollNext() {
+                    if (reviewsContainerScroll.scrollLeft + scrollAmount() >= reviewsContainerScroll.scrollWidth) {
+                        reviewsContainerScroll.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        reviewsContainerScroll.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+                    }
+                }
+                let reviewsAuto = setInterval(scrollNext, 4000);
+                function resetReviewsAuto() {
+                    clearInterval(reviewsAuto);
+                    reviewsAuto = setInterval(scrollNext, 4000);
+                }
                 reviewsScrollLeft.addEventListener('click', () => {
-                    reviewsContainerScroll.scrollBy({ left: -reviewsContainerScroll.clientWidth, behavior: 'smooth' });
+                    reviewsContainerScroll.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+                    resetReviewsAuto();
                 });
                 reviewsScrollRight.addEventListener('click', () => {
-                    reviewsContainerScroll.scrollBy({ left: reviewsContainerScroll.clientWidth, behavior: 'smooth' });
+                    reviewsContainerScroll.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+                    resetReviewsAuto();
                 });
             }
 
