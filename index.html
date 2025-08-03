@@ -52,10 +52,10 @@
 
         /* New Service Card Styles */
         .service-card-selectable {
-            @apply bg-white p-4 rounded-xl border-2 border-gray-300 flex items-center justify-between transition-all duration-300 cursor-pointer relative;
+            @apply bg-white p-4 rounded-xl border-2 border-black flex items-center justify-between transition-all duration-300 cursor-pointer relative;
         }
         .service-card-selectable.selected {
-            border-color: var(--brand-accent);
+            border-color: black;
             background-color: var(--brand-light);
         }
         .service-card-icon-new {
@@ -194,12 +194,16 @@
     }
     </script>
 
-    <div id="floating-social-bar" class="flex-col space-y-2 fixed left-5 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-md shadow-lg rounded-full p-2 hidden md:flex">
+    <div id="floating-social-bar" class="flex-col space-y-2 fixed left-5 top-1/2 -translate-y-1/2 z-40 backdrop-blur-md shadow-lg rounded-full p-2 hidden md:flex">
         <!-- Social icons will be injected here -->
     </div>
 
     <div id="floating-action-buttons" class="fixed bottom-6 right-6 z-40 bg-white/80 backdrop-blur-md rounded-full flex flex-col items-center p-2 space-y-1 shadow-lg">
         <!-- Action buttons will be injected here -->
+    </div>
+
+    <div id="color-palette" class="fixed bottom-6 left-6 z-40 bg-white/80 backdrop-blur-md rounded-lg p-3 shadow-lg flex space-x-2">
+        <!-- Color options will be injected here -->
     </div>
 
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
@@ -246,8 +250,10 @@
         <section id="services" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-10 reveal">
-                    <h3 class="text-4xl font-bold mb-3">Our Services</h3>
-                    <p class="text-lg text-gray-500">Explore our range of expert treatments.</p>
+                    <div class="bg-brand-light border border-black rounded-lg p-6 inline-block">
+                        <h3 class="text-4xl font-bold mb-3">Our Services</h3>
+                        <p class="text-lg text-gray-500">Explore our range of expert treatments.</p>
+                    </div>
                 </div>
                 <div id="service-filters" class="flex overflow-x-auto scroll-container justify-center gap-3 mb-10 reveal"></div>
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="service-grid"></div>
@@ -380,7 +386,27 @@
                 <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             `;
-            
+
+            const colorPalette = document.getElementById('color-palette');
+            const themes = [
+                { accent: '#3B82F6', light: '#DBEAFE' },
+                { accent: '#0EA5E9', light: '#E0F2FE' },
+                { accent: '#8B5CF6', light: '#EDE9FE' },
+                { accent: '#10B981', light: '#D1FAE5' },
+                { accent: '#F472B6', light: '#FCE7F3' }
+            ];
+            colorPalette.innerHTML = themes.map(t => `
+                <button class="color-swatch w-6 h-6 rounded-full border-2 border-white cursor-pointer" style="background-color:${t.accent}" data-accent="${t.accent}" data-light="${t.light}"></button>
+            `).join('');
+            colorPalette.addEventListener('click', (e) => {
+                const swatch = e.target.closest('.color-swatch');
+                if (!swatch) return;
+                const accent = swatch.dataset.accent;
+                const light = swatch.dataset.light;
+                document.documentElement.style.setProperty('--brand-accent', accent);
+                document.documentElement.style.setProperty('--brand-light', light);
+            });
+
             const heroContainer = document.getElementById('hero-container');
             heroContainer.innerHTML = data.heroSlides.map(slide => `
                 <div class="hero-slide w-full h-full flex-shrink-0" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${slide.bgImage}');">
