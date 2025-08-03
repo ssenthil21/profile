@@ -137,12 +137,19 @@
         { "name": "Sophia Garcia", "title": "Nail & Skin Specialist", "image": "https://placehold.co/400x400/FDFBF8/36322F?text=Sophia" }
       ],
       "reels": [
-        "https://placehold.co/1280x720/C08261/FFFFFF?text=Main+Video",
-        "https://placehold.co/1280x720/F5EFE6/36322F?text=Reel+2",
-        "https://placehold.co/1280x720/36322F/FFFFFF?text=Reel+3"
+        "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+        "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+        "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
       ],
       "gallery": [
-        "https://placehold.co/800x1000/F5EFE6/36322F?text=Style", "https://placehold.co/800x800/F5EFE6/36322F?text=Style", "https://placehold.co/800x1200/F5EFE6/36322F?text=Style", "https://placehold.co/800x900/F5EFE6/36322F?text=Style", "https://placehold.co/800x1100/F5EFE6/36322F?text=Style", "https://placehold.co/800x800/F5EFE6/36322F?text=Style", "https://placehold.co/800x1000/F5EFE6/36322F?text=Style", "https://placehold.co/800x900/F5EFE6/36322F?text=Style"
+        "https://picsum.photos/seed/beauty1/800/1000",
+        "https://picsum.photos/seed/beauty2/800/800",
+        "https://picsum.photos/seed/beauty3/800/1200",
+        "https://picsum.photos/seed/beauty4/800/900",
+        "https://picsum.photos/seed/beauty5/800/1100",
+        "https://picsum.photos/seed/beauty6/800/800",
+        "https://picsum.photos/seed/beauty7/800/1000",
+        "https://picsum.photos/seed/beauty8/800/900"
       ]
     }
     </script>
@@ -185,12 +192,19 @@
         { "name": "Mia Rodriguez", "title": "Nail & Lash Artist", "image": "https://placehold.co/400x400/F3E8FF/43384a?text=Mia" }
       ],
       "reels": [
-        "https://placehold.co/1280x720/8B5CF6/FFFFFF?text=Main+Video",
-        "https://placehold.co/1280x720/F3E8FF/43384a?text=Reel+2",
-        "https://placehold.co/1280x720/43384a/FFFFFF?text=Reel+3"
+        "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+        "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+        "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
       ],
       "gallery": [
-        "https://placehold.co/800x1000/F3E8FF/43384a?text=Style", "https://placehold.co/800x800/F3E8FF/43384a?text=Style", "https://placehold.co/800x1200/F3E8FF/43384a?text=Style", "https://placehold.co/800x900/F3E8FF/43384a?text=Style", "https://placehold.co/800x1100/F3E8FF/43384a?text=Style", "https://placehold.co/800x800/F3E8FF/43384a?text=Style", "https://placehold.co/800x1000/F3E8FF/43384a?text=Style", "https://placehold.co/800x900/F3E8FF/43384a?text=Style"
+        "https://picsum.photos/seed/glitz1/800/1000",
+        "https://picsum.photos/seed/glitz2/800/800",
+        "https://picsum.photos/seed/glitz3/800/1200",
+        "https://picsum.photos/seed/glitz4/800/900",
+        "https://picsum.photos/seed/glitz5/800/1100",
+        "https://picsum.photos/seed/glitz6/800/800",
+        "https://picsum.photos/seed/glitz7/800/1000",
+        "https://picsum.photos/seed/glitz8/800/900"
       ]
     }
     </script>
@@ -203,8 +217,6 @@
         <!-- Action buttons will be injected here -->
     </div>
 
-    <div id="color-palette" class="fixed bottom-6 right-24 z-40 bg-white/80 backdrop-blur-md rounded-full flex items-center p-2 space-x-2 shadow-lg"></div>
-
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 id="header-brand-name" class="text-3xl font-bold text-brand-charcoal"></h1>
@@ -213,12 +225,15 @@
                 <a href="#reviews" class="hover:text-brand-accent transition-colors">Reviews</a>
                 <a href="#stylists" class="hover:text-brand-accent transition-colors">Our Team</a>
             </nav>
-            <a href="#contact" class="hidden md:inline-block btn btn-primary btn-glow">Book Now</a>
-             <button id="mobile-menu-button" class="md:hidden">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="hidden md:inline-block btn btn-primary btn-glow">Book Now</a>
+                <div id="color-palette" class="hidden md:flex items-center space-x-2"></div>
+                <button id="mobile-menu-button" class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white border-t">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white border-t">
             <a href="#services" class="block py-2 hover:text-brand-accent">Services</a>
             <a href="#reviews" class="block py-2 hover:text-brand-accent">Reviews</a>
             <a href="#stylists" class="block py-2 hover:text-brand-accent">Our Team</a>
@@ -252,7 +267,7 @@
                     <h3 class="text-4xl font-bold mb-3">Our Services</h3>
                     <p class="text-lg text-gray-500">Explore our range of expert treatments.</p>
                 </div>
-                <div id="service-filters" class="flex overflow-x-auto scroll-container justify-center gap-3 mb-10 reveal"></div>
+                <div id="service-filters" class="flex flex-wrap justify-center gap-4 mb-10 reveal"></div>
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="service-grid"></div>
             </div>
         </section>
@@ -366,6 +381,17 @@
                 .social-icon:hover { color: var(--brand-accent); }
                 .page-action-btn:hover { color: var(--brand-accent); }
                 .service-card-icon-new { background-color: var(--brand-light); color: var(--brand-accent); }
+                .service-filter-btn {
+                    border: 2px solid var(--brand-accent);
+                    color: var(--brand-charcoal);
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.5rem;
+                    font-weight: 600;
+                    background-color: #fff;
+                    transition: background-color 0.3s, color 0.3s;
+                    cursor: pointer;
+                }
+                .service-filter-btn:hover { background-color: var(--brand-light); }
                 .service-filter-btn.active { background-color: var(--brand-charcoal); color: white; border-color: var(--brand-charcoal); }
             `;
 
@@ -381,9 +407,15 @@
             if (paletteContainer) {
                 const palettes = [
                     data.theme,
-                    { charcoal: '#1E293B', accent: '#3B82F6', light: '#DBEAFE' },
-                    { charcoal: '#1F2937', accent: '#10B981', light: '#D1FAE5' },
-                    { charcoal: '#312E81', accent: '#8B5CF6', light: '#EDE9FE' }
+                    { charcoal: '#0f172a', accent: '#3b82f6', light: '#dbeafe' },
+                    { charcoal: '#0f172a', accent: '#0ea5e9', light: '#e0f2fe' },
+                    { charcoal: '#0f172a', accent: '#06b6d4', light: '#cffafe' },
+                    { charcoal: '#0f172a', accent: '#14b8a6', light: '#ccfbf1' },
+                    { charcoal: '#0f172a', accent: '#6366f1', light: '#e0e7ff' },
+                    { charcoal: '#0f172a', accent: '#8b5cf6', light: '#ede9fe' },
+                    { charcoal: '#0f172a', accent: '#a855f7', light: '#f3e8ff' },
+                    { charcoal: '#0f172a', accent: '#7dd3fc', light: '#f0f9ff' },
+                    { charcoal: '#0f172a', accent: '#5eead4', light: '#f0fdfa' }
                 ];
                 palettes.forEach(palette => {
                     const btn = document.createElement('button');
@@ -485,8 +517,7 @@
             reelsContainer.innerHTML = (data.reels || []).map(reelUrl => `
                 <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
                     <div class="relative aspect-video rounded-lg shadow-lg overflow-hidden">
-                        <img src="${reelUrl}" onerror="this.onerror=null;this.src='https://placehold.co/1280x720/cccccc/ffffff?text=Video';" class="w-full h-full object-cover" alt="Reel thumbnail">
-                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center"> <button class="text-white text-6xl opacity-80 hover:opacity-100 transition"><i class="fas fa-play-circle"></i></button> </div>
+                        <video src="${reelUrl}" controls class="w-full h-full object-cover" onerror="this.onerror=null;this.poster='https://placehold.co/1280x720/cccccc/ffffff?text=Video';"></video>
                     </div>
                 </div>
             `).join('');
@@ -606,6 +637,24 @@
                     });
                 });
             }
+
+            const addScrollButtons = (containerId, leftBtnId, rightBtnId) => {
+                const container = document.getElementById(containerId);
+                const leftBtn = document.getElementById(leftBtnId);
+                const rightBtn = document.getElementById(rightBtnId);
+                if(container && leftBtn && rightBtn) {
+                    const scrollAmount = container.clientWidth;
+                    leftBtn.addEventListener('click', () => {
+                        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    });
+                    rightBtn.addEventListener('click', () => {
+                        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    });
+                }
+            };
+
+            addScrollButtons('reviews-container', 'reviews-scroll-left', 'reviews-scroll-right');
+            addScrollButtons('reels-container', 'reels-scroll-left', 'reels-scroll-right');
 
             function animateCountUp(el) {
                 const finalValue = parseFloat(el.dataset.count);
