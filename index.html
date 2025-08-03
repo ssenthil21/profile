@@ -10,7 +10,7 @@
     <style id="dynamic-styles">
         /* Dynamic styles will be injected here by JavaScript */
     </style>
-    <style>
+    <style type="text/tailwindcss">
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
@@ -102,6 +102,7 @@
     <script id="shai-data" type="application/json">
     {
       "businessName": "Shai.",
+      "logo": "https://placehold.co/200x80?text=Shai",
       "contact": { "location": "123 Beauty Lane, Style City", "phone": "1234567890", "hours": "Tues - Sat: 10am - 6pm", "whatsapp": "1234567890" },
       "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
       "heroSlides": [
@@ -157,6 +158,7 @@
     <script id="glitz5-data" type="application/json">
     {
       "businessName": "Glitz 5",
+      "logo": "https://placehold.co/200x80?text=Glitz5",
       "contact": { "location": "456 Glamour Ave, Sparkle City", "phone": "9876543210", "hours": "Mon - Sat: 9am - 8pm", "whatsapp": "9876543210" },
       "theme": { "charcoal": "#43384a", "accent": "#8B5CF6", "light": "#F3E8FF" },
       "heroSlides": [
@@ -243,11 +245,17 @@
     </header>
 
     <main class="pt-24">
-        <section id="hero-slider" class="relative w-full h-[70vh] overflow-hidden">
-            <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
-            <button id="hero-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-left"></i></button>
-            <button id="hero-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-right"></i></button>
-            <div id="hero-pagination" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"></div>
+        <section id="hero-slider" class="w-full h-[56vh] flex">
+            <div class="w-1/4 bg-white flex flex-col items-center justify-center p-6 text-center">
+                <img id="company-logo" class="mb-4 max-w-full h-auto" alt="Company Logo">
+                <p id="company-address" class="text-sm text-gray-600"></p>
+            </div>
+            <div class="relative w-3/4 h-full overflow-hidden">
+                <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
+                <button id="hero-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-left"></i></button>
+                <button id="hero-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-right"></i></button>
+                <div id="hero-pagination" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"></div>
+            </div>
         </section>
 
         <section id="info-bar" class="py-6 bg-white border-b border-gray-200">
@@ -362,6 +370,9 @@
             document.getElementById('page-title').textContent = `${data.businessName} - Premier Beauty Studio`;
             document.getElementById('header-brand-name').textContent = data.businessName;
             document.getElementById('footer-business-name').textContent = data.businessName;
+            document.getElementById('company-logo').src = data.logo;
+            document.getElementById('company-logo').alt = `${data.businessName} logo`;
+            document.getElementById('company-address').textContent = data.contact.location;
 
             const styleTag = document.getElementById('dynamic-styles');
             styleTag.innerHTML = `
