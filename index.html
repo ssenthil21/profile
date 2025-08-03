@@ -22,6 +22,11 @@
         }
         
         .btn { @apply font-semibold py-3 px-8 rounded-md transition-all duration-300 ease-in-out; }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 0 rgba(192,130,97,0.0); }
+            50% { box-shadow: 0 0 20px rgba(192,130,97,0.6); }
+        }
+        .btn-glow { animation: glow 2s ease-in-out infinite; }
         .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
         .scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
@@ -200,7 +205,7 @@
                 <a href="#reviews" class="hover:text-brand-accent transition-colors">Reviews</a>
                 <a href="#stylists" class="hover:text-brand-accent transition-colors">Our Team</a>
             </nav>
-            <a href="#contact" class="hidden md:inline-block btn btn-primary">Book Now</a>
+            <a href="#contact" class="hidden md:inline-block btn btn-primary btn-glow">Book Now</a>
              <button id="mobile-menu-button" class="md:hidden">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
@@ -209,7 +214,7 @@
             <a href="#services" class="block py-2 hover:text-brand-accent">Services</a>
             <a href="#reviews" class="block py-2 hover:text-brand-accent">Reviews</a>
             <a href="#stylists" class="block py-2 hover:text-brand-accent">Our Team</a>
-            <a href="#contact" class="mt-2 block btn btn-primary text-center">Book Now</a>
+            <a href="#contact" class="mt-2 block btn btn-primary text-center btn-glow">Book Now</a>
         </div>
     </header>
 
