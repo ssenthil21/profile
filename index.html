@@ -147,9 +147,6 @@
         .service-item { transition: transform 0.3s ease, opacity 0.3s ease; }
         .service-item.fade-out { opacity: 0; transform: scale(0.95); }
 
-        #booking-modal.open { opacity: 1; pointer-events: auto; }
-        #booking-modal.open .modal-content { transform: scale(1); }
-
         .blur-up { filter: blur(20px); transition: filter 0.5s ease; }
         .blur-up.loaded { filter: blur(0); }
 
@@ -295,7 +292,7 @@
                 <a href="#reels" class="nav-link hover:text-brand-accent transition-colors">Reels</a>
             </nav>
             <div class="flex items-center space-x-4">
-                <a href="#" class="hidden md:inline-block btn btn-primary btn-glow open-booking-modal">Book Now</a>
+                <a href="#booking" class="hidden md:inline-block btn btn-primary btn-glow">Book Now</a>
                 <div id="color-palette" class="flex items-center space-x-2 bg-white/80 backdrop-blur-md rounded-full p-2 shadow-lg"></div>
                 <button id="mobile-menu-button" class="md:hidden">
                     <i class="fas fa-bars text-2xl"></i>
@@ -308,21 +305,9 @@
             <a href="#stylists" class="block py-2 hover:text-brand-accent nav-link">Our Team</a>
             <a href="#gallery" class="block py-2 hover:text-brand-accent nav-link">Gallery</a>
             <a href="#reels" class="block py-2 hover:text-brand-accent nav-link">Reels</a>
-            <a href="#" class="mt-2 block btn btn-primary text-center btn-glow open-booking-modal">Book Now</a>
+            <a href="#booking" class="mt-2 block btn btn-primary text-center btn-glow">Book Now</a>
         </div>
     </header>
-    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="modal-content bg-white p-6 rounded-lg w-11/12 max-w-md transform scale-95 transition-transform duration-300 relative">
-            <button id="booking-modal-close" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"><i class="fas fa-times"></i></button>
-            <h3 class="text-xl font-bold mb-4">Book an Appointment</h3>
-            <form class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full border p-2 rounded" required>
-                <input type="email" placeholder="Email" class="w-full border p-2 rounded" required>
-                <input type="tel" placeholder="Phone" class="w-full border p-2 rounded" required>
-                <button type="submit" class="btn btn-primary w-full">Submit</button>
-            </form>
-        </div>
-    </div>
 
     <main class="pt-24">
         <section id="hero-slider" class="w-full h-[56vh] flex">
@@ -348,7 +333,7 @@
             </div>
         </section>
 
-        <section id="stats" class="py-6 bg-brand-light parallax">
+        <section id="stats" class="py-[1.35rem] bg-brand-light parallax">
             <div class="container mx-auto px-6">
                 <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
             </div>
@@ -360,8 +345,41 @@
                     <h3 class="text-4xl font-bold mb-3">Our Services</h3>
                     <p class="text-lg text-gray-500">Explore our range of expert treatments.</p>
                 </div>
+                <div class="mb-6 text-center reveal">
+                    <input type="text" id="service-search" placeholder="Search services..." class="w-full md:w-1/2 border p-2 rounded">
+                </div>
                 <div id="service-filters" class="flex overflow-x-auto scroll-container justify-center gap-3 mb-10 reveal"></div>
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="service-grid"></div>
+            </div>
+        </section>
+
+        <section id="booking" class="py-24 bg-brand-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-10 reveal">
+                    <h3 class="text-4xl font-bold mb-3">Online Booking</h3>
+                    <p class="text-lg text-gray-500">Schedule your visit at your convenience.</p>
+                </div>
+                <form id="booking-form" class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow space-y-4 reveal">
+                    <div>
+                        <label class="block mb-1 font-semibold">Select Service(s)</label>
+                        <div id="booking-services" class="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
+                    </div>
+                    <div>
+                        <label class="block mb-1 font-semibold">Preferred Stylist</label>
+                        <select id="booking-stylist" class="w-full border p-2 rounded"></select>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block mb-1 font-semibold">Date</label>
+                            <input type="date" id="booking-date" class="w-full border p-2 rounded">
+                        </div>
+                        <div>
+                            <label class="block mb-1 font-semibold">Time</label>
+                            <select id="booking-time" class="w-full border p-2 rounded"></select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Book Appointment</button>
+                </form>
             </div>
         </section>
         
@@ -547,7 +565,7 @@
             
             const floatingSocialBar = document.getElementById('floating-social-bar');
             floatingSocialBar.innerHTML = `
-                <a href="#" class="social-icon open-booking-modal" aria-label="Book Now"><i class="fas fa-calendar-check"></i></a>
+                <a href="#booking" class="social-icon" aria-label="Book Now"><i class="fas fa-calendar-check"></i></a>
                 <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -596,6 +614,36 @@
                     <div class="checkmark-icon"><i class="fas fa-check-circle"></i></div>
                 </div>
             `).join('');
+
+            const bookingServices = document.getElementById('booking-services');
+            const bookingStylist = document.getElementById('booking-stylist');
+            const bookingTime = document.getElementById('booking-time');
+            if (bookingServices && bookingStylist && bookingTime) {
+                bookingServices.innerHTML = data.services.map(service => `
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" value="${service.name}">
+                        <span>${service.name}</span>
+                    </label>
+                `).join('');
+                bookingStylist.innerHTML = data.stylists.map(stylist => `
+                    <option value="${stylist.name}">${stylist.name}</option>
+                `).join('');
+                const times = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
+                bookingTime.innerHTML = times.map(t => `<option value="${t}">${t}</option>`).join('');
+            }
+
+            const bookingForm = document.getElementById('booking-form');
+            if (bookingForm && bookingServices && bookingStylist && bookingTime) {
+                bookingForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const selectedServices = Array.from(bookingServices.querySelectorAll('input:checked')).map(cb => cb.value);
+                    const stylist = bookingStylist.value;
+                    const date = document.getElementById('booking-date').value;
+                    const time = bookingTime.value;
+                    alert(`Booked ${selectedServices.join(', ')} with ${stylist} on ${date} at ${time}`);
+                    bookingForm.reset();
+                });
+            }
 
             const stylistsGrid = document.getElementById('stylists-grid');
             stylistsGrid.innerHTML = data.stylists.map((stylist, index) => `
@@ -717,10 +765,11 @@
 
             const serviceGrid = document.getElementById('service-grid');
             const filtersContainer = document.getElementById('service-filters');
+            const serviceSearchInput = document.getElementById('service-search');
             if(serviceGrid && filtersContainer) {
                 const serviceItems = serviceGrid.querySelectorAll('.service-item');
                 const categories = { 'all': serviceItems.length };
-                
+
                 serviceItems.forEach(item => {
                     const category = item.dataset.category;
                     categories[category] = (categories[category] || 0) + 1;
@@ -737,14 +786,10 @@
                     filtersContainer.appendChild(btn);
                 });
 
-                filtersContainer.addEventListener('click', (e) => {
-                    const target = e.target.closest('.service-filter-btn');
-                    if (!target) return;
-
-                    filtersContainer.querySelector('.active').classList.remove('active');
-                    target.classList.add('active');
-
-                    const filter = target.dataset.filter;
+                let activeFilter = 'all';
+                function applyServiceFilters() {
+                    const filter = activeFilter;
+                    const query = serviceSearchInput ? serviceSearchInput.value.toLowerCase() : '';
                     const items = Array.from(serviceItems);
                     const visible = items.filter(item => item.style.display !== 'none');
                     const initialRects = new Map();
@@ -753,7 +798,8 @@
                     const fadeDuration = 300;
 
                     items.forEach(item => {
-                        const show = (filter === 'all' || item.dataset.category === filter);
+                        const name = item.querySelector('h5').textContent.toLowerCase();
+                        const show = (filter === 'all' || item.dataset.category === filter) && name.includes(query);
                         if (!show && item.style.display !== 'none') {
                             item.classList.add('fade-out');
                             setTimeout(() => {
@@ -765,7 +811,8 @@
 
                     setTimeout(() => {
                         items.forEach(item => {
-                            const show = (filter === 'all' || item.dataset.category === filter);
+                            const name = item.querySelector('h5').textContent.toLowerCase();
+                            const show = (filter === 'all' || item.dataset.category === filter) && name.includes(query);
                             if (show) item.style.display = 'flex';
                         });
 
@@ -791,13 +838,28 @@
                             }
                         });
                     }, fadeDuration);
+                }
+
+                filtersContainer.addEventListener('click', (e) => {
+                    const target = e.target.closest('.service-filter-btn');
+                    if (!target) return;
+                    filtersContainer.querySelector('.active').classList.remove('active');
+                    target.classList.add('active');
+                    activeFilter = target.dataset.filter;
+                    applyServiceFilters();
                 });
+
+                if (serviceSearchInput) {
+                    serviceSearchInput.addEventListener('input', applyServiceFilters);
+                }
 
                 serviceItems.forEach(item => {
                     item.addEventListener('click', () => {
                         item.classList.toggle('selected');
                     });
                 });
+
+                applyServiceFilters();
             }
 
             const reviewsContainerScroll = document.getElementById('reviews-container');
@@ -911,19 +973,6 @@
                 });
             });
 
-            const bookingModal = document.getElementById('booking-modal');
-            const openBookingBtns = document.querySelectorAll('.open-booking-modal');
-            const closeBookingBtn = document.getElementById('booking-modal-close');
-            if (bookingModal && openBookingBtns.length && closeBookingBtn) {
-                openBookingBtns.forEach(btn => btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    bookingModal.classList.add('open');
-                }));
-                closeBookingBtn.addEventListener('click', () => bookingModal.classList.remove('open'));
-                bookingModal.addEventListener('click', (e) => {
-                    if (e.target === bookingModal) bookingModal.classList.remove('open');
-                });
-            }
         }
 
         window.addEventListener('load', () => {
