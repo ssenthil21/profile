@@ -311,21 +311,15 @@
     </header>
 
     <main class="pt-24">
-        <section id="hero-slider" class="w-full h-[56vh] flex">
-            <div class="w-1/4 bg-brand-light flex flex-col items-center justify-center p-6 text-center">
-                <img id="company-logo" class="mb-4 max-w-full h-auto" alt="Company Logo">
-                <div class="text-sm text-gray-600 space-y-1">
-                    <p><i class="fas fa-map-marker-alt text-brand-accent mr-1"></i><span id="company-address"></span></p>
-                    <p><i class="fas fa-phone text-brand-accent mr-1"></i><span id="company-phone"></span></p>
-                    <p><i class="fas fa-clock text-brand-accent mr-1"></i><span id="company-hours"></span></p>
-                </div>
+        <section id="hero-slider" class="relative w-full h-[56vh] overflow-hidden">
+            <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
+            <div class="absolute top-0 left-0 right-0 flex justify-between items-start p-6 z-10">
+                <p id="company-address" class="bg-black/50 text-white text-sm px-4 py-2 rounded-md"></p>
+                <img id="company-logo" class="h-16 w-auto" alt="Company Logo">
             </div>
-            <div class="relative w-3/4 h-full overflow-hidden">
-                <div id="hero-container" class="w-full h-full flex transition-transform duration-500 ease-in-out"></div>
-                <button id="hero-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-left"></i></button>
-                <button id="hero-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-right"></i></button>
-                <div id="hero-pagination" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"></div>
-            </div>
+            <button id="hero-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-left"></i></button>
+            <button id="hero-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-white/50 transition z-10"><i class="fas fa-chevron-right"></i></button>
+            <div id="hero-pagination" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10"></div>
         </section>
 
         <section id="info-bar" class="py-6 bg-white border-b border-gray-200 hidden">
@@ -452,8 +446,6 @@
                 preloaderLogo.alt = `${data.businessName} loading`;
             }
             document.getElementById('company-address').textContent = data.contact.location;
-            document.getElementById('company-phone').textContent = data.contact.phone;
-            document.getElementById('company-hours').textContent = data.contact.hours;
 
             const styleTag = document.getElementById('dynamic-styles');
             styleTag.innerHTML = `
