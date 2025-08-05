@@ -1,36 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qtick Mockup</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const salonLink = document.getElementById('saloon');
-            const results = document.getElementById('salon-results');
-            salonLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                results.style.display = 'block';
-            });
-        });
-    </script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 2rem; }
-        .hidden { display: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qtick</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+      :root {
+          --brand-charcoal:#36322F;
+          --brand-accent:#C08261;
+          --brand-light:#F5EFE6;
+      }
+      body{
+          font-family: 'Poppins', sans-serif;
+          color: var(--brand-charcoal);
+      }
+      h1,h2,h3,h4,h5,h6{
+          font-family:'DM Sans', sans-serif;
+      }
+  </style>
 </head>
-<body>
-    <h1>Qtick Sample Home</h1>
-    <p>Select a category:</p>
-    <ul>
-        <li><a href="#" id="saloon">Saloon</a></li>
-    </ul>
-    <div id="salon-results" class="hidden">
-        <h2>Saloon Results</h2>
-        <ul>
-            <li><a href="businessview.html" id="shai">Shai</a></li>
-            <li>Glitz 5</li>
-        </ul>
+<body class="bg-white">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl font-bold text-[var(--brand-accent)]">Qtick</h1>
+      <nav class="space-x-4">
+        <a href="#" class="text-gray-600 hover:text-[var(--brand-accent)]">Home</a>
+        <a href="#categories" class="text-gray-600 hover:text-[var(--brand-accent)]">Categories</a>
+      </nav>
     </div>
+  </header>
+
+  <section class="bg-[var(--brand-light)] text-center py-20">
+    <h2 class="text-4xl font-bold mb-4">Find your perfect salon</h2>
+    <p class="text-lg mb-8">Discover and book beauty services near you.</p>
+    <a href="#categories" class="px-8 py-3 rounded-md bg-[var(--brand-accent)] text-white font-semibold">Explore</a>
+  </section>
+
+  <section id="categories" class="max-w-6xl mx-auto py-16">
+    <h3 class="text-3xl font-bold text-center mb-10">Popular categories</h3>
+    <div class="flex justify-center gap-4">
+      <button id="salonBtn" class="px-6 py-3 bg-[var(--brand-accent)] text-white rounded-md font-semibold">Salon</button>
+    </div>
+  </section>
+
+  <section id="salonResults" class="hidden py-16 bg-[var(--brand-light)]">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-12">Salon results</h3>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-white rounded-lg shadow-md border-t-4 border-[var(--brand-accent)]">
+          <div class="p-6">
+            <h4 class="text-xl font-semibold mb-2">Shai</h4>
+            <p class="text-gray-600 mb-4">A modern sanctuary of style and beauty.</p>
+            <a href="businessview.html" class="text-[var(--brand-accent)] font-semibold">View details</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md border-t-4 border-[var(--brand-accent)]">
+          <div class="p-6">
+            <h4 class="text-xl font-semibold mb-2">Glitz 5</h4>
+            <p class="text-gray-600 mb-4">Trendy looks and professional care.</p>
+            <a href="#" class="text-[var(--brand-accent)] font-semibold">View details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('salonBtn').addEventListener('click', () => {
+      const results = document.getElementById('salonResults');
+      results.classList.remove('hidden');
+      results.scrollIntoView({behavior:'smooth'});
+    });
+  </script>
 </body>
 </html>
