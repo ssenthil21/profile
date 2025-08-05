@@ -314,8 +314,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const business = params.get("business") || "shai";
+            const dataUrl = new URL(`./data/${business}.json`, window.location.href);
 
-            fetch(`data/${business}.json`)
+            fetch(dataUrl)
                 .then(response => {
                     if (!response.ok) throw new Error("Network response was not ok");
                     return response.json();
@@ -450,6 +451,8 @@
                 <div class="reveal" style="transition-delay: 150ms;"> <i class="fas fa-phone text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Contact</h4> <p class="text-gray-600 text-sm">${data.contact.phone}</p> </div>
                 <div class="reveal-right" style="transition-delay: 300ms;"> <i class="fas fa-clock text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Hours</h4> <p class="text-gray-600 text-sm">${data.contact.hours}</p> </div>
             `;
+            const infoBar = document.getElementById('info-bar');
+            if (infoBar) infoBar.classList.remove('hidden');
 
             const statsGrid = document.getElementById('stats-grid');
             statsGrid.innerHTML = data.stats.map((stat, index) => `

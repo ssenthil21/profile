@@ -100,7 +100,8 @@
     const resultsSection = document.getElementById("results");
     const resultsContainer = document.getElementById("resultsContainer");
 
-    fetch("data/businesses.json")
+    const businessesUrl = new URL("./data/businesses.json", window.location.href);
+    fetch(businessesUrl)
       .then(res => res.json())
       .then(data => { businesses = data; });
 
