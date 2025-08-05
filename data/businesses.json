@@ -1,0 +1,20 @@
+[
+  {
+    "id": "shai",
+    "name": "Shai",
+    "category": "salon",
+    "description": "A modern sanctuary of style and beauty.",
+    "rating": 4.5,
+    "address": "123 Beauty Lane, Style City",
+    "phone": "1234567890"
+  },
+  {
+    "id": "glitz5",
+    "name": "Glitz 5",
+    "category": "salon",
+    "description": "Trendy looks and professional care.",
+    "rating": 4.9,
+    "address": "456 Glamour Ave, Sparkle City",
+    "phone": "9876543210"
+  }
+]
