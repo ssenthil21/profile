@@ -109,7 +109,7 @@
         const category = card.dataset.category;
         const filtered = businesses.filter(b => b.category === category);
         resultsContainer.innerHTML = filtered.length ? filtered.map(b => `
-          <div class="bg-white rounded-lg shadow-lg border-t-4 border-[var(--brand-accent)] p-8 flex flex-col">
+          <a href="businessview.html?business=${b.id}" class="block bg-white rounded-lg shadow-lg border-t-4 border-[var(--brand-accent)] p-8 flex flex-col hover:shadow-xl transition">
             <div class="flex justify-between items-start mb-4">
               <h4 class="text-2xl font-semibold">${b.name}</h4>
               <span class="flex items-center text-yellow-500"><i class="fa-solid fa-star mr-1"></i>${b.rating}</span>
@@ -119,8 +119,8 @@
               <p><i class="fa-solid fa-map-marker-alt mr-2"></i>${b.address}</p>
               <p><i class="fa-solid fa-phone mr-2"></i>${b.phone}</p>
             </div>
-            <a href="businessview.html?business=${b.id}" class="mt-auto text-[var(--brand-accent)] font-semibold">View details</a>
-          </div>
+            <span class="mt-auto text-[var(--brand-accent)] font-semibold">View details</span>
+          </a>
         `).join('') : '<p class="col-span-full text-center text-gray-500">No businesses found.</p>';
         resultsSection.classList.remove("hidden");
         resultsSection.scrollIntoView({ behavior: "smooth" });
