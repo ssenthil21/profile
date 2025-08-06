@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Qtick</title>
+    <title>QTick</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -68,14 +68,17 @@
 </head>
 <body class="bg-white">
   <header class="bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-      <h1 class="text-2xl font-bold text-[var(--brand-accent)]">Qtick</h1>
-      <nav class="space-x-4">
-        <a href="#" class="text-gray-600 hover:text-[var(--brand-accent)]">Home</a>
-        <a href="#categories" class="text-gray-600 hover:text-[var(--brand-accent)]">Categories</a>
-      </nav>
-    </div>
-  </header>
+      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+        <a id="homeLogo" href="#" class="flex items-center">
+          <img src="logo.svg" alt="QTick logo" class="h-8 w-auto mr-2" />
+          <span class="text-2xl font-bold text-[var(--brand-accent)]">QTick</span>
+        </a>
+        <nav class="space-x-4">
+          <a href="#" class="text-gray-600 hover:text-[var(--brand-accent)]">Home</a>
+          <a href="#categories" class="text-gray-600 hover:text-[var(--brand-accent)]">Categories</a>
+        </nav>
+      </div>
+    </header>
 
   <section id="explore" class="max-w-6xl mx-auto py-16">
     <div id="categories">
@@ -163,6 +166,13 @@
         </div>
       <span class="text-lg font-semibold">Pet Clinic</span>
       </button>
+      <button style="--delay:1.1s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="dressiron">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-shirt text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Dress Iron</span>
+      </button>
       </div>
       <div id="globalMapContainer" class="hidden h-96 mb-8 w-full"></div>
     </div>
@@ -198,6 +208,11 @@
     const ratingPanelContent = document.getElementById("ratingPanelContent");
     const ratingPanelClose = document.getElementById("ratingPanelClose");
     ratingPanelClose.addEventListener("click", () => ratingPanel.classList.add("translate-x-full"));
+    const homeLogo = document.getElementById("homeLogo");
+    homeLogo.addEventListener("click", (e) => {
+      e.preventDefault();
+      location.reload();
+    });
     let currentFiltered = [];
     let map;
     let markerGroup;
@@ -214,7 +229,8 @@
       gamezone: 'fa-gamepad',
       massage: 'fa-hand-holding-heart',
       event: 'fa-calendar-check',
-      petclinic: 'fa-paw'
+      petclinic: 'fa-paw',
+      dressiron: 'fa-shirt'
     };
 
     const businessesUrl = new URL("data/businesses.json", window.location.origin);
@@ -232,7 +248,11 @@
 
     function attachRatingListeners() {
       document.querySelectorAll('.rating-star').forEach(el => {
-        el.addEventListener('click', () => showRatings(el.dataset.id));
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          showRatings(el.dataset.id);
+        });
       });
     }
 
@@ -243,13 +263,16 @@
           const reviews = data.reviews || [];
           if (reviews.length) {
             ratingPanelContent.innerHTML = reviews.map(rv => {
-              const stars = Array.from({length:5}).map((_,i)=> `<i class="fa-star ${i < rv.rating ? 'fas star-glow' : 'far'}"></i>`).join('');
+              const stars = Array.from({ length: 5 })
+                .map((_, i) => `<i class="fa-star ${i < rv.rating ? 'fas text-yellow-500 star-glow' : 'far text-gray-300'}"></i>`)
+                .join('');
               return `
-              <div class="border-b pb-2">
-                <div class="flex items-center text-yellow-500 mb-1">${stars}</div>
-                <p class="text-sm text-gray-700">${rv.comment}</p>
-                <p class="text-xs text-gray-500 mt-1">${rv.name} - ${rv.service}</p>
-              </div>`;}).join('');
+              <div class="bg-white rounded-lg shadow p-4">
+                <div class="flex items-center mb-2">${stars}</div>
+                <p class="text-sm text-gray-700 mb-2">${rv.comment}</p>
+                <p class="text-xs text-gray-500 text-right">- ${rv.name || rv.author || 'Anonymous'}</p>
+              </div>`;
+            }).join('');
           } else {
             ratingPanelContent.innerHTML = '<p class="text-gray-500">No ratings available.</p>';
           }
