@@ -1,0 +1,16 @@
+{
+  "businessName": "Health Clinic",
+  "logo": "https://placehold.co/200x80?text=Health+Clinic",
+  "rating": 4.8,
+  "contact": { "location": "33 Wellness Rd, Care City", "phone": "3333333333", "hours": "Mon - Fri: 8am - 6pm", "whatsapp": "3333333333" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Health+Clinic", "title": "Your Health, Our Priority", "subtitle": "Professional care when you need it" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.8", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "General Checkup", "duration": "30 mins", "price": "₹ 500", "category": "clinic", "icon": "GC" } ],
+  "reviews": [ { "name": "Liam K.", "rating": 5, "service": "Checkup", "comment": "Friendly staff and quick service." } ],
+  "stylists": [ { "name": "Dr. Maya", "title": "Physician", "image": "https://placehold.co/400x400" } ],
+  "reels": [],
+  "gallery": []
+}

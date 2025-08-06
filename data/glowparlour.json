@@ -1,0 +1,16 @@
+{
+  "businessName": "Glow Parlour",
+  "logo": "https://placehold.co/200x80?text=Glow+Parlour",
+  "rating": 4.6,
+  "contact": { "location": "22 Shine Ave, Glam Town", "phone": "2222222222", "hours": "Mon - Sat: 10am - 7pm", "whatsapp": "2222222222" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Glow+Parlour", "title": "Look Your Best", "subtitle": "Make everyday a glam day" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.6", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Facial", "duration": "45 mins", "price": "₹ 1200", "category": "parlour", "icon": "FA" } ],
+  "reviews": [ { "name": "Sara P.", "rating": 5, "service": "Facial", "comment": "Glowing results!" } ],
+  "stylists": [ { "name": "Riya", "title": "Beautician", "image": "https://placehold.co/400x400" } ],
+  "reels": [],
+  "gallery": []
+}

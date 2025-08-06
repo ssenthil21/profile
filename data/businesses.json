@@ -16,5 +16,95 @@
     "rating": 4.9,
     "address": "456 Glamour Ave, Sparkle City",
     "phone": "9876543210"
+  },
+  {
+    "id": "relaxspa",
+    "name": "Relax Spa",
+    "category": "spa",
+    "description": "Your place to unwind and rejuvenate.",
+    "rating": 4.7,
+    "address": "1 Spa Street, Relax City",
+    "phone": "1111111111"
+  },
+  {
+    "id": "glowparlour",
+    "name": "Glow Parlour",
+    "category": "parlour",
+    "description": "Beauty treatments for a radiant you.",
+    "rating": 4.6,
+    "address": "22 Shine Ave, Glam Town",
+    "phone": "2222222222"
+  },
+  {
+    "id": "healthclinic",
+    "name": "Health Clinic",
+    "category": "clinic",
+    "description": "Caring professionals for your health.",
+    "rating": 4.8,
+    "address": "33 Wellness Rd, Care City",
+    "phone": "3333333333"
+  },
+  {
+    "id": "quickbites",
+    "name": "Quick Bites",
+    "category": "food",
+    "description": "Fast and tasty takeaway meals.",
+    "rating": 4.3,
+    "address": "44 Snack St, Foodville",
+    "phone": "4444444444"
+  },
+  {
+    "id": "washnfold",
+    "name": "Wash n Fold",
+    "category": "laundry",
+    "description": "Fresh laundry services.",
+    "rating": 4.4,
+    "address": "55 Clean St, Fresh Town",
+    "phone": "5555555555"
+  },
+  {
+    "id": "greensideturf",
+    "name": "Greenside Turf",
+    "category": "turf",
+    "description": "Play on premium turf.",
+    "rating": 4.5,
+    "address": "66 Field Rd, Sport City",
+    "phone": "6666666666"
+  },
+  {
+    "id": "funzone",
+    "name": "Fun Zone",
+    "category": "gamezone",
+    "description": "Arcade games for everyone.",
+    "rating": 4.2,
+    "address": "77 Play Ave, Joy Town",
+    "phone": "7777777777"
+  },
+  {
+    "id": "zenmassage",
+    "name": "Zen Massage",
+    "category": "massage",
+    "description": "Relaxing massage therapies.",
+    "rating": 4.9,
+    "address": "88 Calm St, Peace City",
+    "phone": "8888888888"
+  },
+  {
+    "id": "eventify",
+    "name": "Eventify",
+    "category": "event",
+    "description": "Event planning made easy.",
+    "rating": 4.6,
+    "address": "99 Party Blvd, Festive City",
+    "phone": "9999999999"
+  },
+  {
+    "id": "petcare",
+    "name": "Pet Care Clinic",
+    "category": "petclinic",
+    "description": "Compassionate pet health services.",
+    "rating": 4.8,
+    "address": "11 Paw Rd, Pet Town",
+    "phone": "1010101010"
   }
 ]

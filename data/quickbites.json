@@ -1,0 +1,16 @@
+{
+  "businessName": "Quick Bites",
+  "logo": "https://placehold.co/200x80?text=Quick+Bites",
+  "rating": 4.3,
+  "contact": { "location": "44 Snack St, Foodville", "phone": "4444444444", "hours": "Daily: 11am - 11pm", "whatsapp": "4444444444" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Quick+Bites", "title": "Fast & Tasty", "subtitle": "Grab a bite on the go" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.3", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Veg Burger", "duration": "10 mins", "price": "₹ 120", "category": "food", "icon": "VB" } ],
+  "reviews": [ { "name": "Asha M.", "rating": 4, "service": "Burger", "comment": "Tasty and quick." } ],
+  "stylists": [],
+  "reels": [],
+  "gallery": []
+}

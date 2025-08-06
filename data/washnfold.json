@@ -1,0 +1,16 @@
+{
+  "businessName": "Wash n Fold",
+  "logo": "https://placehold.co/200x80?text=Wash+n+Fold",
+  "rating": 4.4,
+  "contact": { "location": "55 Clean St, Fresh Town", "phone": "5555555555", "hours": "Mon - Sat: 8am - 8pm", "whatsapp": "5555555555" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Wash+n+Fold", "title": "Fresh Clothes, Every Time", "subtitle": "Convenient laundry services" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.4", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Regular Wash", "duration": "24 hrs", "price": "₹ 80/kg", "category": "laundry", "icon": "RW" } ],
+  "reviews": [ { "name": "Nina S.", "rating": 5, "service": "Laundry", "comment": "Clothes came back spotless." } ],
+  "stylists": [],
+  "reels": [],
+  "gallery": []
+}

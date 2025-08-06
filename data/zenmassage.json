@@ -1,0 +1,16 @@
+{
+  "businessName": "Zen Massage",
+  "logo": "https://placehold.co/200x80?text=Zen+Massage",
+  "rating": 4.9,
+  "contact": { "location": "88 Calm St, Peace City", "phone": "8888888888", "hours": "Daily: 9am - 9pm", "whatsapp": "8888888888" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Zen+Massage", "title": "Find Your Zen", "subtitle": "Relaxing massage therapies" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.9", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Deep Tissue Massage", "duration": "60 mins", "price": "₹ 1800", "category": "massage", "icon": "DT" } ],
+  "reviews": [ { "name": "Priya S.", "rating": 5, "service": "Massage", "comment": "Best massage experience." } ],
+  "stylists": [ { "name": "Sunita", "title": "Masseur", "image": "https://placehold.co/400x400" } ],
+  "reels": [],
+  "gallery": []
+}
