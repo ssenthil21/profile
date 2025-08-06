@@ -7,6 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
       :root {
           --brand-charcoal:#36322F;
@@ -35,6 +37,27 @@
           animation: fadeInUp 0.6s ease forwards;
           animation-delay: var(--delay);
       }
+      .category-card.compact {
+          padding: 1rem;
+          flex-direction: row;
+          width: 100%;
+          justify-content: flex-start;
+      }
+      .category-card.compact .w-16 {
+          width: 2.5rem;
+          height: 2.5rem;
+          margin-bottom: 0;
+          margin-right: 0.5rem;
+      }
+      .result-card {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .result-card.show {
+          opacity: 1;
+          transform: translateY(0);
+      }
   </style>
 </head>
 <body class="bg-white">
@@ -48,9 +71,14 @@
     </div>
   </header>
 
-  <section id="categories" class="max-w-6xl mx-auto py-16">
-    <h3 class="text-3xl font-bold text-center mb-10">Popular categories</h3>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <section id="explore" class="max-w-6xl mx-auto py-16">
+    <div id="categories">
+      <div class="flex items-center justify-center lg:justify-start mb-8 space-x-4">
+        <span class="flex items-center text-gray-600"><i class="fa-solid fa-location-dot mr-1"></i>Chenai</span>
+        <input id="categorySearch" type="text" placeholder="Search categories..." class="border border-gray-300 rounded-md px-3 py-2 w-64"/>
+      </div>
+      <h3 class="text-3xl font-bold text-center mb-10 lg:text-left">Popular categories</h3>
+      <div id="categoryGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <button style="--delay:0s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="salon">
         <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
         <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
@@ -128,46 +156,148 @@
         </div>
         <span class="text-lg font-semibold">Pet Clinic</span>
       </button>
+      </div>
     </div>
-  </section>
-
-  <section id="results" class="hidden py-16 bg-[var(--brand-light)] results-section">
-    <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-bold text-center mb-12">Results</h3>
-      <div id="resultsContainer" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"></div>
+    <div id="results" class="hidden mt-16 lg:mt-0 lg:pl-12 results-section">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-3xl font-bold">Results</h3>
+        <button id="mapToggle" class="hidden px-4 py-2 border rounded-md">Map View</button>
+      </div>
+      <div id="mapContainer" class="hidden h-96 mb-8 w-full"></div>
+      <div id="resultsContainer" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-2"></div>
     </div>
   </section>
   <script>
     let businesses = [];
-    const resultsSection = document.getElementById("results");
+    const results = document.getElementById("results");
     const resultsContainer = document.getElementById("resultsContainer");
+    const categoryGrid = document.getElementById("categoryGrid");
+    const categoriesSection = document.getElementById("categories");
+    const explore = document.getElementById("explore");
+    const searchInput = document.getElementById("categorySearch");
+    const mapToggle = document.getElementById("mapToggle");
+    const mapContainer = document.getElementById("mapContainer");
+    let currentFiltered = [];
+    let map;
+    let markerGroup;
+    const categoryIcons = {
+      salon: 'fa-scissors',
+      spa: 'fa-spa',
+      parlour: 'fa-hand-sparkles',
+      clinic: 'fa-clinic-medical',
+      food: 'fa-burger',
+      laundry: 'fa-bath',
+      turf: 'fa-futbol',
+      gamezone: 'fa-gamepad',
+      massage: 'fa-hand-holding-heart',
+      event: 'fa-calendar-check',
+      petclinic: 'fa-paw'
+    };
 
     const businessesUrl = new URL("data/businesses.json", window.location.origin);
     fetch(businessesUrl)
       .then(res => res.json())
       .then(data => { businesses = data; });
 
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.toLowerCase();
+      document.querySelectorAll(".category-card").forEach(card => {
+        const text = card.querySelector("span.text-lg").textContent.toLowerCase();
+        card.classList.toggle("hidden", !text.includes(q));
+      });
+    });
+
     document.querySelectorAll(".category-card").forEach(card => {
       card.addEventListener("click", () => {
         const category = card.dataset.category;
         const filtered = businesses.filter(b => b.category === category);
-        resultsContainer.innerHTML = filtered.length ? filtered.map(b => `
-          <a href="businessview.html?business=${b.id}" class="block bg-white rounded-lg shadow-lg border-t-4 border-[var(--brand-accent)] p-8 flex flex-col hover:shadow-xl transition">
-            <div class="flex justify-between items-start mb-4">
-              <h4 class="text-2xl font-semibold">${b.name}</h4>
-              <span class="flex items-center text-yellow-500"><i class="fa-solid fa-star mr-1"></i>${b.rating}</span>
-            </div>
-            <p class="text-gray-600 mb-4">${b.description}</p>
-            <div class="text-sm text-gray-500 mb-4 space-y-1">
-              <p><i class="fa-solid fa-map-marker-alt mr-2"></i>${b.address}</p>
-              <p><i class="fa-solid fa-phone mr-2"></i>${b.phone}</p>
-            </div>
-            <span class="mt-auto text-[var(--brand-accent)] font-semibold">View details</span>
-          </a>
-        `).join('') : '<p class="col-span-full text-center text-gray-500">No businesses found.</p>';
-        resultsSection.classList.remove("hidden");
-        resultsSection.scrollIntoView({ behavior: "smooth" });
+        currentFiltered = filtered;
+        let html = "";
+        for (let i = 0; i < 5; i++) {
+          const b = filtered[i];
+          if (b) {
+            const content = `
+              <div class="result-card bg-white rounded-xl overflow-hidden shadow-lg transform transition-all hover:-translate-y-1">
+                <div class="h-40 bg-gray-200 flex items-center justify-center">
+                  <i class="fa-solid fa-image text-4xl text-gray-400"></i>
+                </div>
+                <div class="p-6 flex flex-col h-full">
+                  <div class="flex justify-between items-start mb-2">
+                    <h4 class="text-xl font-semibold">${b.name}</h4>
+                    <span class="flex items-center text-yellow-500"><i class="fa-solid fa-star mr-1"></i>${b.rating}</span>
+                  </div>
+                  <p class="text-gray-600 mb-4 flex-grow">${b.description}</p>
+                  <div class="text-sm text-gray-500 mb-4 space-y-1">
+                    <p><i class="fa-solid fa-map-marker-alt mr-2"></i>${b.address}</p>
+                    <p><i class="fa-solid fa-phone mr-2"></i>${b.phone}</p>
+                  </div>
+                  ${i < 2 ? '<span class="mt-auto text-[var(--brand-accent)] font-semibold">View details</span>' : ''}
+                </div>
+              </div>`;
+            html += i < 2 ? `<a href="businessview.html?business=${b.id}" class="block">${content}</a>` : content;
+          } else {
+            html += `
+              <div class="result-card bg-white rounded-xl overflow-hidden shadow-md flex items-center justify-center text-gray-400 p-6">
+                <div class="text-center">
+                  <i class="fa-solid fa-store text-4xl mb-2"></i>
+                  <p>More businesses coming soon</p>
+                </div>
+              </div>`;
+          }
+        }
+        resultsContainer.innerHTML = html;
+        explore.classList.add("lg:flex");
+        categoriesSection.classList.add("lg:w-1/3", "lg:pr-8");
+        categoryGrid.classList.remove("sm:grid-cols-2", "lg:grid-cols-4");
+        categoryGrid.classList.add("grid-cols-1");
+        document.querySelectorAll(".category-card").forEach(c => c.classList.add("compact"));
+        results.classList.remove("hidden");
+        results.classList.add("lg:w-2/3");
+        results.scrollIntoView({ behavior: "smooth" });
+        document.querySelectorAll(".result-card").forEach((rc, idx) => {
+          setTimeout(() => rc.classList.add("show"), idx * 100);
+        });
+        mapToggle.classList.remove("hidden");
+        mapContainer.classList.add("hidden");
+        resultsContainer.classList.remove("hidden");
+        mapToggle.textContent = "Map View";
       });
+    });
+
+    mapToggle.addEventListener("click", () => {
+      if (mapContainer.classList.contains("hidden")) {
+        mapContainer.classList.remove("hidden");
+        resultsContainer.classList.add("hidden");
+        mapToggle.textContent = "List View";
+        if (!map) {
+          map = L.map('mapContainer').setView([13.0827, 80.2707], 12);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+          }).addTo(map);
+          markerGroup = L.layerGroup().addTo(map);
+        }
+        markerGroup.clearLayers();
+        currentFiltered.forEach(b => {
+          if (b.lat && b.lng) {
+            const icon = L.divIcon({
+              html: `<i class="fa-solid ${categoryIcons[b.category] || 'fa-map-marker'} text-[var(--brand-accent)] text-xl"></i>`,
+              className: '',
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
+            const marker = L.marker([b.lat, b.lng], { icon }).addTo(markerGroup);
+            marker.on('click', () => {
+              window.location.href = `businessview.html?business=${b.id}`;
+            });
+          }
+        });
+        setTimeout(() => map.invalidateSize(), 0);
+      } else {
+        mapContainer.classList.add("hidden");
+        resultsContainer.classList.remove("hidden");
+        mapToggle.textContent = "Map View";
+      }
     });
   </script>
 </body>
