@@ -1,0 +1,29 @@
+{
+  "businessName": "Coimbatore Cuts",
+  "logo": "https://placehold.co/200x80?text=Coimbatore+Cuts",
+  "rating": 4.4,
+  "contact": {
+    "location": "12 Race Course, Coimbatore",
+    "phone": "9090909090",
+    "hours": "Mon - Sat: 9am - 8pm",
+    "whatsapp": "9090909090"
+  },
+  "theme": {
+    "charcoal": "#111827",
+    "accent": "#C08261",
+    "light": "#F5EFE6"
+  },
+  "heroSlides": [
+    {
+      "bgImage": "https://placehold.co/1920x1080/C08261/36322F?text=Coimbatore+Cuts",
+      "title": "Style in Coimbatore",
+      "subtitle": "Experience top trends."
+    }
+  ],
+  "stats": [],
+  "services": [],
+  "stylists": [],
+  "reviews": [],
+  "reels": [],
+  "gallery": []
+}

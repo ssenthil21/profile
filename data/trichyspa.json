@@ -1,0 +1,29 @@
+{
+  "businessName": "Trichy Spa",
+  "logo": "https://placehold.co/200x80?text=Trichy+Spa",
+  "rating": 4.3,
+  "contact": {
+    "location": "89 River Rd, Tiruchirappalli",
+    "phone": "7070707070",
+    "hours": "Mon - Sun: 10am - 9pm",
+    "whatsapp": "7070707070"
+  },
+  "theme": {
+    "charcoal": "#1F2937",
+    "accent": "#10B981",
+    "light": "#D1FAE5"
+  },
+  "heroSlides": [
+    {
+      "bgImage": "https://placehold.co/1920x1080/10B981/FFFFFF?text=Trichy+Spa",
+      "title": "Relax at Trichy Spa",
+      "subtitle": "Unwind and rejuvenate"
+    }
+  ],
+  "stats": [],
+  "services": [],
+  "stylists": [],
+  "reviews": [],
+  "reels": [],
+  "gallery": []
+}

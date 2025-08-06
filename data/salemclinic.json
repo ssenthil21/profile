@@ -1,0 +1,29 @@
+{
+  "businessName": "Salem Clinic",
+  "logo": "https://placehold.co/200x80?text=Salem+Clinic",
+  "rating": 4.5,
+  "contact": {
+    "location": "67 Fort Rd, Salem",
+    "phone": "6060606060",
+    "hours": "Mon - Sat: 8am - 6pm",
+    "whatsapp": "6060606060"
+  },
+  "theme": {
+    "charcoal": "#312E81",
+    "accent": "#8B5CF6",
+    "light": "#EDE9FE"
+  },
+  "heroSlides": [
+    {
+      "bgImage": "https://placehold.co/1920x1080/8B5CF6/FFFFFF?text=Salem+Clinic",
+      "title": "Care in Salem",
+      "subtitle": "Trusted medical professionals"
+    }
+  ],
+  "stats": [],
+  "services": [],
+  "stylists": [],
+  "reviews": [],
+  "reels": [],
+  "gallery": []
+}

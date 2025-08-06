@@ -1,0 +1,29 @@
+{
+  "businessName": "Madurai Bites",
+  "logo": "https://placehold.co/200x80?text=Madurai+Bites",
+  "rating": 4.2,
+  "contact": {
+    "location": "45 Temple St, Madurai",
+    "phone": "8080808080",
+    "hours": "Daily: 11am - 11pm",
+    "whatsapp": "8080808080"
+  },
+  "theme": {
+    "charcoal": "#4E342E",
+    "accent": "#FF5722",
+    "light": "#FFF3E0"
+  },
+  "heroSlides": [
+    {
+      "bgImage": "https://placehold.co/1920x1080/FF5722/FFFFFF?text=Madurai+Bites",
+      "title": "Taste of Madurai",
+      "subtitle": "Grab a bite on the go"
+    }
+  ],
+  "stats": [],
+  "services": [],
+  "stylists": [],
+  "reviews": [],
+  "reels": [],
+  "gallery": []
+}
