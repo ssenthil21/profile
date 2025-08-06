@@ -8,7 +8,8 @@
     "address": "123 Beauty Lane, Style City",
     "phone": "1234567890",
     "lat": 13.05,
-    "lng": 80.25
+    "lng": 80.25,
+    "city": "Chennai"
   },
   {
     "id": "glitz5",
@@ -19,7 +20,8 @@
     "address": "456 Glamour Ave, Sparkle City",
     "phone": "9876543210",
     "lat": 13.1,
-    "lng": 80.25
+    "lng": 80.25,
+    "city": "Chennai"
   },
   {
     "id": "relaxspa",
@@ -30,7 +32,8 @@
     "address": "1 Spa Street, Relax City",
     "phone": "1111111111",
     "lat": 13.07,
-    "lng": 80.29
+    "lng": 80.29,
+    "city": "Chennai"
   },
   {
     "id": "glowparlour",
@@ -41,7 +44,8 @@
     "address": "22 Shine Ave, Glam Town",
     "phone": "2222222222",
     "lat": 13.09,
-    "lng": 80.27
+    "lng": 80.27,
+    "city": "Chennai"
   },
   {
     "id": "healthclinic",
@@ -52,7 +56,8 @@
     "address": "33 Wellness Rd, Care City",
     "phone": "3333333333",
     "lat": 13.06,
-    "lng": 80.23
+    "lng": 80.23,
+    "city": "Chennai"
   },
   {
     "id": "quickbites",
@@ -63,7 +68,8 @@
     "address": "44 Snack St, Foodville",
     "phone": "4444444444",
     "lat": 13.08,
-    "lng": 80.26
+    "lng": 80.26,
+    "city": "Chennai"
   },
   {
     "id": "washnfold",
@@ -74,7 +80,8 @@
     "address": "55 Clean St, Fresh Town",
     "phone": "5555555555",
     "lat": 13.085,
-    "lng": 80.28
+    "lng": 80.28,
+    "city": "Chennai"
   },
   {
     "id": "greensideturf",
@@ -85,7 +92,8 @@
     "address": "66 Field Rd, Sport City",
     "phone": "6666666666",
     "lat": 13.095,
-    "lng": 80.3
+    "lng": 80.3,
+    "city": "Chennai"
   },
   {
     "id": "funzone",
@@ -96,7 +104,8 @@
     "address": "77 Play Ave, Joy Town",
     "phone": "7777777777",
     "lat": 13.11,
-    "lng": 80.27
+    "lng": 80.27,
+    "city": "Chennai"
   },
   {
     "id": "zenmassage",
@@ -107,7 +116,8 @@
     "address": "88 Calm St, Peace City",
     "phone": "8888888888",
     "lat": 13.1,
-    "lng": 80.26
+    "lng": 80.26,
+    "city": "Chennai"
   },
   {
     "id": "eventify",
@@ -118,7 +128,8 @@
     "address": "99 Party Blvd, Festive City",
     "phone": "9999999999",
     "lat": 13.09,
-    "lng": 80.25
+    "lng": 80.25,
+    "city": "Chennai"
   },
   {
     "id": "petcare",
@@ -129,7 +140,8 @@
     "address": "11 Paw Rd, Pet Town",
     "phone": "1010101010",
     "lat": 13.07,
-    "lng": 80.24
+    "lng": 80.24,
+    "city": "Chennai"
   },
   {
     "id": "dressiron",
@@ -140,6 +152,55 @@
     "address": "12 Iron St, Press Town",
     "phone": "1112223333",
     "lat": 13.12,
-    "lng": 80.22
+    "lng": 80.22,
+    "city": "Chennai"
+  },
+  {
+    "id": "coimbatorecuts",
+    "name": "Coimbatore Cuts",
+    "category": "salon",
+    "description": "Stylish salon in Coimbatore.",
+    "rating": 4.4,
+    "address": "12 Race Course, Coimbatore",
+    "phone": "9090909090",
+    "lat": 11.0168,
+    "lng": 76.9558,
+    "city": "Coimbatore"
+  },
+  {
+    "id": "maduraibites",
+    "name": "Madurai Bites",
+    "category": "food",
+    "description": "Local cuisine in Madurai.",
+    "rating": 4.2,
+    "address": "45 Temple St, Madurai",
+    "phone": "8080808080",
+    "lat": 9.9252,
+    "lng": 78.1198,
+    "city": "Madurai"
+  },
+  {
+    "id": "trichyspa",
+    "name": "Trichy Spa",
+    "category": "spa",
+    "description": "Relaxing spa in Trichy.",
+    "rating": 4.3,
+    "address": "89 River Rd, Tiruchirappalli",
+    "phone": "7070707070",
+    "lat": 10.7905,
+    "lng": 78.7047,
+    "city": "Tiruchirappalli"
+  },
+  {
+    "id": "salemclinic",
+    "name": "Salem Clinic",
+    "category": "clinic",
+    "description": "Health services in Salem.",
+    "rating": 4.5,
+    "address": "67 Fort Rd, Salem",
+    "phone": "6060606060",
+    "lat": 11.6643,
+    "lng": 78.1460,
+    "city": "Salem"
   }
 ]
