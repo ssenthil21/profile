@@ -14,7 +14,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
-            background-color: #FDFBF8;
+            background-color: var(--brand-light);
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'DM Sans', sans-serif;
@@ -173,7 +173,12 @@
 
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 id="header-brand-name" class="text-3xl font-bold text-brand-charcoal"></h1>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-brand-charcoal hover:text-brand-accent transition-colors" aria-label="Home">
+                    <i class="fas fa-home text-2xl"></i>
+                </a>
+                <h1 id="header-brand-name" class="text-3xl font-bold text-brand-charcoal"></h1>
+            </div>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#services" class="nav-link hover:text-brand-accent transition-colors">Services</a>
                 <a href="#reviews" class="nav-link hover:text-brand-accent transition-colors">Reviews</a>
@@ -262,8 +267,8 @@
         <section id="stylists" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
-                    <h3 class="text-4xl font-bold mb-3">Meet Our Expert Stylists</h3>
-                    <p class="text-lg text-gray-500">The talented artists behind your transformation.</p>
+                    <h3 id="team-title" class="text-4xl font-bold mb-3">Meet Our Expert Stylists</h3>
+                    <p id="team-subtitle" class="text-lg text-gray-500">The talented artists behind your transformation.</p>
                 </div>
                 <div id="stylists-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
             </div>
@@ -315,13 +320,36 @@
             const params = new URLSearchParams(window.location.search);
             const business = params.get("business") || "shai";
             const dataUrl = new URL(`data/${business}.json`, window.location.origin);
+            const listUrl = new URL('data/businesses.json', window.location.origin);
 
-            fetch(dataUrl)
-                .then(response => {
-                    if (!response.ok) throw new Error("Network response was not ok");
-                    return response.json();
+            Promise.all([fetch(dataUrl), fetch(listUrl)])
+                .then(([resData, resList]) => {
+                    if (!resData.ok || !resList.ok) throw new Error('Network response was not ok');
+                    return Promise.all([resData.json(), resList.json()]);
                 })
-                .then(data => {
+                .then(([data, businessList]) => {
+                    const info = businessList.find(b => b.id === business) || {};
+                    const category = info.category || '';
+
+                    const professionMap = {
+                        salon: 'Stylists',
+                        parlour: 'Stylists',
+                        spa: 'Therapists',
+                        massage: 'Therapists',
+                        clinic: 'Doctors',
+                        food: 'Chefs',
+                        laundry: 'Attendants',
+                        turf: 'Coaches',
+                        gamezone: 'Crew',
+                        event: 'Planners',
+                        petclinic: 'Vets'
+                    };
+                    const teamLabel = professionMap[category] || 'Stylists';
+                    const teamTitleEl = document.getElementById('team-title');
+                    const teamSubtitleEl = document.getElementById('team-subtitle');
+                    if(teamTitleEl) teamTitleEl.textContent = `Meet Our Expert ${teamLabel}`;
+                    if(teamSubtitleEl) teamSubtitleEl.textContent = `The talented ${teamLabel.toLowerCase()} behind your experience.`;
+
                     // --- POPULATE HTML WITH DATA ---
             
             document.getElementById('page-title').textContent = `${data.businessName} - Premier Beauty Studio`;
@@ -407,7 +435,17 @@
                     { charcoal: '#0F172A', accent: '#14B8A6', light: '#CCFBF1' },
                     { charcoal: '#111827', accent: '#6366F1', light: '#E0E7FF' },
                     { charcoal: '#171717', accent: '#F59E0B', light: '#FEF3C7' },
-                    { charcoal: '#0a0f0d', accent: '#94a3b8', light: '#f1f5f9' }
+                    { charcoal: '#0a0f0d', accent: '#94a3b8', light: '#f1f5f9' },
+                    { charcoal: '#4A044E', accent: '#F0ABFC', light: '#FDF4FF' },
+                    { charcoal: '#083344', accent: '#0EA5E9', light: '#E0F2FE' },
+                    { charcoal: '#14532D', accent: '#22C55E', light: '#DCFCE7' },
+                    { charcoal: '#4C0519', accent: '#F43F5E', light: '#FFE4E6' },
+                    { charcoal: '#3F6212', accent: '#84CC16', light: '#ECFCCB' },
+                    { charcoal: '#5B0216', accent: '#FB7185', light: '#FDE2E2' },
+                    { charcoal: '#1E1B4B', accent: '#818CF8', light: '#E0E7FF' },
+                    { charcoal: '#0B1120', accent: '#38BDF8', light: '#BAE6FD' },
+                    { charcoal: '#422006', accent: '#FACC15', light: '#FEFCE8' },
+                    { charcoal: '#451a03', accent: '#D97706', light: '#FFEDD5' }
                 ];
                 palettes.forEach(palette => {
                     const btn = document.createElement('button');
@@ -445,14 +483,15 @@
                 </div>
             `).join('');
             
-            const infoBarContent = document.getElementById('info-bar-content');
-            infoBarContent.innerHTML = `
-                <div class="reveal-left"> <i class="fas fa-map-marker-alt text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Location</h4> <p class="text-gray-600 text-sm">${data.contact.location}</p> </div>
-                <div class="reveal" style="transition-delay: 150ms;"> <i class="fas fa-phone text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Contact</h4> <p class="text-gray-600 text-sm">${data.contact.phone}</p> </div>
-                <div class="reveal-right" style="transition-delay: 300ms;"> <i class="fas fa-clock text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Hours</h4> <p class="text-gray-600 text-sm">${data.contact.hours}</p> </div>
-            `;
-            const infoBar = document.getElementById('info-bar');
-            if (infoBar) infoBar.classList.remove('hidden');
+            // Info bar intentionally hidden
+            // const infoBarContent = document.getElementById('info-bar-content');
+            // infoBarContent.innerHTML = `
+            //     <div class="reveal-left"> <i class="fas fa-map-marker-alt text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Location</h4> <p class="text-gray-600 text-sm">${data.contact.location}</p> </div>
+            //     <div class="reveal" style="transition-delay: 150ms;"> <i class="fas fa-phone text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Contact</h4> <p class="text-gray-600 text-sm">${data.contact.phone}</p> </div>
+            //     <div class="reveal-right" style="transition-delay: 300ms;"> <i class="fas fa-clock text-brand-accent text-xl mb-1"></i> <h4 class="text-md font-bold">Hours</h4> <p class="text-gray-600 text-sm">${data.contact.hours}</p> </div>
+            // `;
+            // const infoBar = document.getElementById('info-bar');
+            // if (infoBar) infoBar.classList.remove('hidden');
 
             const statsGrid = document.getElementById('stats-grid');
             statsGrid.innerHTML = data.stats.map((stat, index) => `
@@ -471,7 +510,9 @@
             serviceGrid.innerHTML = data.services.map((service, index) => `
                 <div class="service-item service-card-selectable reveal" data-category="${service.category}" style="transition-delay: ${index * 100}ms;">
                     <div class="flex items-center space-x-4 flex-grow">
-                        <div class="service-card-icon-new">${service.icon}</div>
+                        <div class="service-card-icon-new">
+                            ${service.icon?.startsWith('fa-') ? `<i class="fa-solid ${service.icon}"></i>` : service.icon?.startsWith('http') ? `<img src="${service.icon}" alt="${service.name} icon" class="w-8 h-8 object-contain">` : service.icon || ''}
+                        </div>
                         <div> <h5 class="font-bold text-lg">${service.name}</h5> <p class="text-sm text-gray-500">${service.duration}</p> </div>
                     </div>
                     <div class="service-price">${service.price}</div>
@@ -512,23 +553,34 @@
             }).join('');
 
             const reelsContainer = document.getElementById('reels-container');
-            reelsContainer.innerHTML = (data.reels || []).map(reelUrl => `
-                <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
-                    <div class="media-item relative aspect-video rounded-lg shadow-lg overflow-hidden">
-                        <video src="${reelUrl}" controls muted loop class="w-full h-full object-cover"></video>
-                        <div class="media-overlay pointer-events-none"><i class="fas fa-play text-white text-3xl"></i></div>
-                    </div>
-                </div>
-            `).join('');
+            if (reelsContainer) {
+                const reels = (data.reels || []).slice(0, 3);
+                if (reels.length) {
+                    reelsContainer.innerHTML = reels.map(url => `
+                        <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                            <div class="media-item relative aspect-video rounded-lg shadow-lg overflow-hidden">
+                                <video src="${url}" controls muted loop class="w-full h-full object-cover"></video>
+                                <div class="media-overlay pointer-events-none"><i class="fas fa-play text-white text-3xl"></i></div>
+                            </div>
+                        </div>`).join('');
+                }
+            }
 
             const galleryContainer = document.getElementById('gallery-container');
-            galleryContainer.innerHTML = (data.gallery || []).map(imageUrl => `
-                <div class="gallery-item media-item image-reveal"> <img class="rounded-lg w-full blur-up" src="${imageUrl}" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/cccccc/ffffff?text=Image';" alt="Gallery Image"> <div class="media-overlay"><i class="fas fa-eye text-white text-3xl"></i></div> </div>
-            `).join('');
-              galleryContainer.querySelectorAll('img.blur-up').forEach(img => {
-                  if (img.complete) img.classList.add('loaded');
-                  else img.addEventListener('load', () => img.classList.add('loaded'));
-              });
+            if (galleryContainer) {
+                const images = (data.gallery || []).slice(0, 5);
+                if (images.length) {
+                    galleryContainer.innerHTML = images.map(url => `
+                        <div class="gallery-item media-item image-reveal">
+                            <img class="rounded-lg w-full blur-up" src="${url}" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/cccccc/ffffff?text=Image';" alt="Gallery Image">
+                            <div class="media-overlay"><i class="fas fa-eye text-white text-3xl"></i></div>
+                        </div>`).join('');
+                    galleryContainer.querySelectorAll('img.blur-up').forEach(img => {
+                        if (img.complete) img.classList.add('loaded');
+                        else img.addEventListener('load', () => img.classList.add('loaded'));
+                    });
+                }
+            }
 
               initializePageFunctionality();
 

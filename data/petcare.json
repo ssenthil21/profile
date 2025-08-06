@@ -2,15 +2,178 @@
   "businessName": "Pet Care Clinic",
   "logo": "https://placehold.co/200x80?text=Pet+Care",
   "rating": 4.8,
-  "contact": { "location": "11 Paw Rd, Pet Town", "phone": "1010101010", "hours": "Mon - Sat: 9am - 8pm", "whatsapp": "1010101010" },
-  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "contact": {
+    "location": "11 Paw Rd, Pet Town",
+    "phone": "1010101010",
+    "hours": "Mon - Sat: 9am - 8pm",
+    "whatsapp": "1010101010"
+  },
+  "theme": {
+    "charcoal": "#171717",
+    "accent": "#F59E0B",
+    "light": "#FEF3C7"
+  },
   "heroSlides": [
-    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Pet+Care", "title": "Care for Your Pets", "subtitle": "Compassionate pet health services" }
+    {
+      "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Pet+Care",
+      "title": "Care for Your Pets",
+      "subtitle": "Compassionate pet health services"
+    }
   ],
-  "stats": [ { "icon": "fas fa-star", "value": "4.8", "decimal": 1, "label": "Rating" } ],
-  "services": [ { "name": "Vet Consultation", "duration": "30 mins", "price": "₹ 500", "category": "petclinic", "icon": "VC" } ],
-  "reviews": [ { "name": "Mark D.", "rating": 5, "service": "Consultation", "comment": "Took great care of my dog." } ],
-  "stylists": [ { "name": "Dr. Neha", "title": "Veterinarian", "image": "https://placehold.co/400x400" } ],
-  "reels": [],
-  "gallery": []
+  "stats": [
+    {
+      "icon": "fas fa-star",
+      "value": "4.8",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "600",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "8",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-paw",
+      "value": "1200",
+      "label": "Pets Treated"
+    }
+  ],
+  "services": [
+    {
+      "name": "Vet Consultation",
+      "duration": "30 mins",
+      "price": "₹ 500",
+      "category": "health",
+      "icon": "fa-stethoscope"
+    },
+    {
+      "name": "Grooming",
+      "duration": "60 mins",
+      "price": "₹ 800",
+      "category": "grooming",
+      "icon": "fa-scissors"
+    },
+    {
+      "name": "Vaccination",
+      "duration": "15 mins",
+      "price": "₹ 300",
+      "category": "health",
+      "icon": "fa-syringe"
+    },
+    {
+      "name": "Dental Cleaning",
+      "duration": "45 mins",
+      "price": "₹ 700",
+      "category": "health",
+      "icon": "fa-tooth"
+    },
+    {
+      "name": "Surgery Consultation",
+      "duration": "30 mins",
+      "price": "₹ 600",
+      "category": "health",
+      "icon": "fa-briefcase-medical"
+    },
+    {
+      "name": "Pet Boarding",
+      "duration": "Per day",
+      "price": "₹ 1000",
+      "category": "services",
+      "icon": "fa-dog"
+    },
+    {
+      "name": "Nutrition Advice",
+      "duration": "30 mins",
+      "price": "₹ 400",
+      "category": "services",
+      "icon": "fa-bowl-food"
+    },
+    {
+      "name": "Emergency Care",
+      "duration": "30 mins",
+      "price": "₹ 1500",
+      "category": "health",
+      "icon": "fa-kit-medical"
+    },
+    {
+      "name": "Microchipping",
+      "duration": "20 mins",
+      "price": "₹ 900",
+      "category": "services",
+      "icon": "fa-microchip"
+    },
+    {
+      "name": "Deworming",
+      "duration": "15 mins",
+      "price": "₹ 250",
+      "category": "health",
+      "icon": "fa-bug"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Mark D.",
+      "rating": 5,
+      "service": "Vet Consultation",
+      "comment": "Took great care of my dog."
+    },
+    {
+      "name": "Sasha P.",
+      "rating": 5,
+      "service": "Grooming",
+      "comment": "My cat looks amazing!"
+    },
+    {
+      "name": "Arjun V.",
+      "rating": 4,
+      "service": "Vaccination",
+      "comment": "Quick and professional."
+    },
+    {
+      "name": "Kriti S.",
+      "rating": 5,
+      "service": "Pet Boarding",
+      "comment": "Safe and clean facility."
+    },
+    {
+      "name": "Ravi T.",
+      "rating": 4,
+      "service": "Dental Cleaning",
+      "comment": "Great attention to detail."
+    }
+  ],
+  "stylists": [
+    {
+      "name": "Dr. Neha",
+      "title": "Veterinarian",
+      "image": "https://placehold.co/400x400?text=Vet+1"
+    },
+    {
+      "name": "Dr. Rohit",
+      "title": "Surgeon",
+      "image": "https://placehold.co/400x400?text=Vet+2"
+    },
+    {
+      "name": "Anjali",
+      "title": "Groomer",
+      "image": "https://placehold.co/400x400?text=Vet+3"
+    }
+  ],
+  "reels": [
+    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
+  ],
+  "gallery": [
+    "https://placehold.co/600x400?text=Pet+1",
+    "https://placehold.co/600x400?text=Pet+2",
+    "https://placehold.co/600x400?text=Pet+3",
+    "https://placehold.co/600x400?text=Pet+4",
+    "https://placehold.co/600x400?text=Pet+5"
+  ]
 }

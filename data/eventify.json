@@ -2,15 +2,178 @@
   "businessName": "Eventify",
   "logo": "https://placehold.co/200x80?text=Eventify",
   "rating": 4.6,
-  "contact": { "location": "99 Party Blvd, Festive City", "phone": "9999999999", "hours": "Mon - Fri: 9am - 6pm", "whatsapp": "9999999999" },
-  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "contact": {
+    "location": "99 Party Blvd, Festive City",
+    "phone": "9999999999",
+    "hours": "Mon - Fri: 9am - 6pm",
+    "whatsapp": "9999999999"
+  },
+  "theme": {
+    "charcoal": "#1E293B",
+    "accent": "#3B82F6",
+    "light": "#DBEAFE"
+  },
   "heroSlides": [
-    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Eventify", "title": "Make It Memorable", "subtitle": "Event planning made easy" }
+    {
+      "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Eventify",
+      "title": "Make It Memorable",
+      "subtitle": "Event planning made easy"
+    }
   ],
-  "stats": [ { "icon": "fas fa-star", "value": "4.6", "decimal": 1, "label": "Rating" } ],
-  "services": [ { "name": "Birthday Package", "duration": "Full day", "price": "₹ 15000", "category": "event", "icon": "BP" } ],
-  "reviews": [ { "name": "Anil K.", "rating": 5, "service": "Event Planning", "comment": "Wonderful arrangements!" } ],
-  "stylists": [],
-  "reels": [],
-  "gallery": []
+  "stats": [
+    {
+      "icon": "fas fa-star",
+      "value": "4.6",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "800",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "6",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-calendar-check",
+      "value": "350",
+      "label": "Events Organized"
+    }
+  ],
+  "services": [
+    {
+      "name": "Birthday Package",
+      "duration": "Full day",
+      "price": "₹ 15000",
+      "category": "planning",
+      "icon": "fa-cake-candles"
+    },
+    {
+      "name": "Wedding Planning",
+      "duration": "Full day",
+      "price": "₹ 50000",
+      "category": "planning",
+      "icon": "fa-ring"
+    },
+    {
+      "name": "Corporate Event",
+      "duration": "Full day",
+      "price": "₹ 40000",
+      "category": "planning",
+      "icon": "fa-briefcase"
+    },
+    {
+      "name": "Stage Decoration",
+      "duration": "",
+      "price": "₹ 12000",
+      "category": "decor",
+      "icon": "fa-ribbon"
+    },
+    {
+      "name": "Catering Coordination",
+      "duration": "",
+      "price": "₹ 10000",
+      "category": "services",
+      "icon": "fa-utensils"
+    },
+    {
+      "name": "DJ Booking",
+      "duration": "",
+      "price": "₹ 8000",
+      "category": "services",
+      "icon": "fa-music"
+    },
+    {
+      "name": "Photography",
+      "duration": "",
+      "price": "₹ 15000",
+      "category": "services",
+      "icon": "fa-camera"
+    },
+    {
+      "name": "Venue Booking",
+      "duration": "",
+      "price": "₹ 20000",
+      "category": "planning",
+      "icon": "fa-building"
+    },
+    {
+      "name": "Invitation Design",
+      "duration": "",
+      "price": "₹ 5000",
+      "category": "decor",
+      "icon": "fa-envelope"
+    },
+    {
+      "name": "Event Coordination",
+      "duration": "Full day",
+      "price": "₹ 10000",
+      "category": "services",
+      "icon": "fa-people-group"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Anil K.",
+      "rating": 5,
+      "service": "Wedding Planning",
+      "comment": "Wonderful arrangements!"
+    },
+    {
+      "name": "Riya S.",
+      "rating": 5,
+      "service": "Birthday Package",
+      "comment": "Everything was perfect."
+    },
+    {
+      "name": "Sunil P.",
+      "rating": 4,
+      "service": "Stage Decoration",
+      "comment": "Beautiful decor."
+    },
+    {
+      "name": "Megha T.",
+      "rating": 5,
+      "service": "Photography",
+      "comment": "Stunning photos."
+    },
+    {
+      "name": "Vivek L.",
+      "rating": 4,
+      "service": "DJ Booking",
+      "comment": "Great music selection."
+    }
+  ],
+  "stylists": [
+    {
+      "name": "Karan",
+      "title": "Event Planner",
+      "image": "https://placehold.co/400x400?text=Planner+1"
+    },
+    {
+      "name": "Simran",
+      "title": "Decorator",
+      "image": "https://placehold.co/400x400?text=Planner+2"
+    },
+    {
+      "name": "Amit",
+      "title": "Coordinator",
+      "image": "https://placehold.co/400x400?text=Planner+3"
+    }
+  ],
+  "reels": [
+    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
+  ],
+  "gallery": [
+    "https://placehold.co/600x400?text=Event+1",
+    "https://placehold.co/600x400?text=Event+2",
+    "https://placehold.co/600x400?text=Event+3",
+    "https://placehold.co/600x400?text=Event+4",
+    "https://placehold.co/600x400?text=Event+5"
+  ]
 }

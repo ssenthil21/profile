@@ -2,15 +2,178 @@
   "businessName": "Relax Spa",
   "logo": "https://placehold.co/200x80?text=Relax+Spa",
   "rating": 4.7,
-  "contact": { "location": "1 Spa Street, Relax City", "phone": "1111111111", "hours": "Mon - Sun: 9am - 9pm", "whatsapp": "1111111111" },
-  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "contact": {
+    "location": "1 Spa Street, Relax City",
+    "phone": "1111111111",
+    "hours": "Mon - Sun: 9am - 9pm",
+    "whatsapp": "1111111111"
+  },
+  "theme": {
+    "charcoal": "#083344",
+    "accent": "#0EA5E9",
+    "light": "#E0F2FE"
+  },
   "heroSlides": [
-    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Relax+Spa", "title": "Relax and Unwind", "subtitle": "Experience our top-notch spa treatments" }
+    {
+      "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Relax+Spa",
+      "title": "Relax and Unwind",
+      "subtitle": "Experience our top-notch spa treatments"
+    }
   ],
-  "stats": [ { "icon": "fas fa-star", "value": "4.7", "decimal": 1, "label": "Rating" } ],
-  "services": [ { "name": "Full Body Massage", "duration": "60 mins", "price": "₹ 1500", "category": "spa", "icon": "FB" } ],
-  "reviews": [ { "name": "John D.", "rating": 5, "service": "Massage", "comment": "Very relaxing!" } ],
-  "stylists": [ { "name": "Alice", "title": "Therapist", "image": "https://placehold.co/400x400" } ],
-  "reels": [],
-  "gallery": []
+  "stats": [
+    {
+      "icon": "fas fa-star",
+      "value": "4.7",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "500",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "4",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-spa",
+      "value": "1500",
+      "label": "Sessions Completed"
+    }
+  ],
+  "services": [
+    {
+      "name": "Swedish Massage",
+      "duration": "60 mins",
+      "price": "₹ 1500",
+      "category": "massage",
+      "icon": "fa-spa"
+    },
+    {
+      "name": "Deep Tissue Massage",
+      "duration": "60 mins",
+      "price": "₹ 1800",
+      "category": "massage",
+      "icon": "fa-hands"
+    },
+    {
+      "name": "Aromatherapy",
+      "duration": "45 mins",
+      "price": "₹ 1600",
+      "category": "therapy",
+      "icon": "fa-wind"
+    },
+    {
+      "name": "Hot Stone Therapy",
+      "duration": "60 mins",
+      "price": "₹ 2000",
+      "category": "therapy",
+      "icon": "fa-fire"
+    },
+    {
+      "name": "Head Massage",
+      "duration": "30 mins",
+      "price": "₹ 800",
+      "category": "massage",
+      "icon": "fa-head-side-relaxed"
+    },
+    {
+      "name": "Foot Reflexology",
+      "duration": "30 mins",
+      "price": "₹ 900",
+      "category": "therapy",
+      "icon": "fa-shoe-prints"
+    },
+    {
+      "name": "Body Scrub",
+      "duration": "40 mins",
+      "price": "₹ 1200",
+      "category": "therapy",
+      "icon": "fa-leaf"
+    },
+    {
+      "name": "Facial Therapy",
+      "duration": "45 mins",
+      "price": "₹ 1300",
+      "category": "therapy",
+      "icon": "fa-face-smile"
+    },
+    {
+      "name": "Herbal Steam",
+      "duration": "20 mins",
+      "price": "₹ 600",
+      "category": "therapy",
+      "icon": "fa-water"
+    },
+    {
+      "name": "Spa Day Package",
+      "duration": "180 mins",
+      "price": "₹ 4500",
+      "category": "package",
+      "icon": "fa-gift"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "John D.",
+      "rating": 5,
+      "service": "Swedish Massage",
+      "comment": "Very relaxing!"
+    },
+    {
+      "name": "Aarti S.",
+      "rating": 5,
+      "service": "Aromatherapy",
+      "comment": "Loved the calming oils."
+    },
+    {
+      "name": "Neeraj K.",
+      "rating": 4,
+      "service": "Hot Stone Therapy",
+      "comment": "Felt rejuvenated."
+    },
+    {
+      "name": "Leena M.",
+      "rating": 5,
+      "service": "Facial Therapy",
+      "comment": "Skin felt so soft."
+    },
+    {
+      "name": "Rohan V.",
+      "rating": 4,
+      "service": "Spa Day Package",
+      "comment": "Great value for money."
+    }
+  ],
+  "stylists": [
+    {
+      "name": "Alice",
+      "title": "Therapist",
+      "image": "https://placehold.co/400x400?text=Therapist+1"
+    },
+    {
+      "name": "Nandini",
+      "title": "Massage Expert",
+      "image": "https://placehold.co/400x400?text=Therapist+2"
+    },
+    {
+      "name": "Kavya",
+      "title": "Spa Specialist",
+      "image": "https://placehold.co/400x400?text=Therapist+3"
+    }
+  ],
+  "reels": [
+    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
+  ],
+  "gallery": [
+    "https://placehold.co/600x400?text=Spa+1",
+    "https://placehold.co/600x400?text=Spa+2",
+    "https://placehold.co/600x400?text=Spa+3",
+    "https://placehold.co/600x400?text=Spa+4",
+    "https://placehold.co/600x400?text=Spa+5"
+  ]
 }

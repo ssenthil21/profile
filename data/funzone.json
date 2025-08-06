@@ -2,15 +2,178 @@
   "businessName": "Fun Zone",
   "logo": "https://placehold.co/200x80?text=Fun+Zone",
   "rating": 4.2,
-  "contact": { "location": "77 Play Ave, Joy Town", "phone": "7777777777", "hours": "Daily: 10am - 10pm", "whatsapp": "7777777777" },
-  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "contact": {
+    "location": "77 Play Ave, Joy Town",
+    "phone": "7777777777",
+    "hours": "Daily: 10am - 10pm",
+    "whatsapp": "7777777777"
+  },
+  "theme": {
+    "charcoal": "#4C0519",
+    "accent": "#F43F5E",
+    "light": "#FFE4E6"
+  },
   "heroSlides": [
-    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Fun+Zone", "title": "Game On!", "subtitle": "Arcade fun for everyone" }
+    {
+      "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Fun+Zone",
+      "title": "Game On!",
+      "subtitle": "Arcade fun for everyone"
+    }
   ],
-  "stats": [ { "icon": "fas fa-star", "value": "4.2", "decimal": 1, "label": "Rating" } ],
-  "services": [ { "name": "Arcade Pass", "duration": "60 mins", "price": "₹ 300", "category": "gamezone", "icon": "AP" } ],
-  "reviews": [ { "name": "Kevin L.", "rating": 4, "service": "Arcade", "comment": "Kids loved it." } ],
-  "stylists": [],
-  "reels": [],
-  "gallery": []
+  "stats": [
+    {
+      "icon": "fas fa-star",
+      "value": "4.2",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "1500",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "4",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-gamepad",
+      "value": "5000",
+      "label": "Games Played"
+    }
+  ],
+  "services": [
+    {
+      "name": "Arcade Pass",
+      "duration": "60 mins",
+      "price": "₹ 300",
+      "category": "games",
+      "icon": "fa-gamepad"
+    },
+    {
+      "name": "VR Experience",
+      "duration": "30 mins",
+      "price": "₹ 500",
+      "category": "games",
+      "icon": "fa-vr-cardboard"
+    },
+    {
+      "name": "Bowling",
+      "duration": "30 mins",
+      "price": "₹ 400",
+      "category": "games",
+      "icon": "fa-bowling-ball"
+    },
+    {
+      "name": "Laser Tag",
+      "duration": "30 mins",
+      "price": "₹ 350",
+      "category": "games",
+      "icon": "fa-bullseye"
+    },
+    {
+      "name": "Kids Play Area",
+      "duration": "60 mins",
+      "price": "₹ 250",
+      "category": "games",
+      "icon": "fa-child"
+    },
+    {
+      "name": "Game Card Reload",
+      "duration": "",
+      "price": "₹ 200",
+      "category": "extras",
+      "icon": "fa-credit-card"
+    },
+    {
+      "name": "Birthday Package",
+      "duration": "3 hrs",
+      "price": "₹ 8000",
+      "category": "events",
+      "icon": "fa-cake-candles"
+    },
+    {
+      "name": "Escape Room",
+      "duration": "45 mins",
+      "price": "₹ 700",
+      "category": "events",
+      "icon": "fa-door-open"
+    },
+    {
+      "name": "Snack Combo",
+      "duration": "",
+      "price": "₹ 150",
+      "category": "extras",
+      "icon": "fa-mug-hot"
+    },
+    {
+      "name": "Party Room",
+      "duration": "2 hrs",
+      "price": "₹ 3000",
+      "category": "events",
+      "icon": "fa-chair"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Kevin L.",
+      "rating": 4,
+      "service": "Arcade Pass",
+      "comment": "Kids loved it."
+    },
+    {
+      "name": "Maya R.",
+      "rating": 5,
+      "service": "VR Experience",
+      "comment": "So immersive!"
+    },
+    {
+      "name": "Sanjay T.",
+      "rating": 4,
+      "service": "Laser Tag",
+      "comment": "Great fun with friends."
+    },
+    {
+      "name": "Priya S.",
+      "rating": 5,
+      "service": "Birthday Package",
+      "comment": "Well organized party."
+    },
+    {
+      "name": "Arif N.",
+      "rating": 4,
+      "service": "Snack Combo",
+      "comment": "Tasty snacks and drinks."
+    }
+  ],
+  "stylists": [
+    {
+      "name": "Rohit",
+      "title": "Game Attendant",
+      "image": "https://placehold.co/400x400?text=Crew+1"
+    },
+    {
+      "name": "Sneha",
+      "title": "Party Host",
+      "image": "https://placehold.co/400x400?text=Crew+2"
+    },
+    {
+      "name": "Ajay",
+      "title": "VR Guide",
+      "image": "https://placehold.co/400x400?text=Crew+3"
+    }
+  ],
+  "reels": [
+    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
+  ],
+  "gallery": [
+    "https://placehold.co/600x400?text=Fun+1",
+    "https://placehold.co/600x400?text=Fun+2",
+    "https://placehold.co/600x400?text=Fun+3",
+    "https://placehold.co/600x400?text=Fun+4",
+    "https://placehold.co/600x400?text=Fun+5"
+  ]
 }
