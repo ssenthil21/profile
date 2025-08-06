@@ -7,6 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
       :root {
           --brand-charcoal:#36322F;
@@ -157,7 +159,11 @@
       </div>
     </div>
     <div id="results" class="hidden mt-16 lg:mt-0 lg:pl-12 results-section">
-      <h3 class="text-3xl font-bold mb-12">Results</h3>
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-3xl font-bold">Results</h3>
+        <button id="mapToggle" class="hidden px-4 py-2 border rounded-md">Map View</button>
+      </div>
+      <div id="mapContainer" class="hidden h-96 mb-8 w-full"></div>
       <div id="resultsContainer" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-2"></div>
     </div>
   </section>
@@ -169,6 +175,24 @@
     const categoriesSection = document.getElementById("categories");
     const explore = document.getElementById("explore");
     const searchInput = document.getElementById("categorySearch");
+    const mapToggle = document.getElementById("mapToggle");
+    const mapContainer = document.getElementById("mapContainer");
+    let currentFiltered = [];
+    let map;
+    let markerGroup;
+    const categoryIcons = {
+      salon: 'fa-scissors',
+      spa: 'fa-spa',
+      parlour: 'fa-hand-sparkles',
+      clinic: 'fa-clinic-medical',
+      food: 'fa-burger',
+      laundry: 'fa-bath',
+      turf: 'fa-futbol',
+      gamezone: 'fa-gamepad',
+      massage: 'fa-hand-holding-heart',
+      event: 'fa-calendar-check',
+      petclinic: 'fa-paw'
+    };
 
     const businessesUrl = new URL("data/businesses.json", window.location.origin);
     fetch(businessesUrl)
@@ -187,6 +211,7 @@
       card.addEventListener("click", () => {
         const category = card.dataset.category;
         const filtered = businesses.filter(b => b.category === category);
+        currentFiltered = filtered;
         let html = "";
         for (let i = 0; i < 5; i++) {
           const b = filtered[i];
@@ -232,7 +257,47 @@
         document.querySelectorAll(".result-card").forEach((rc, idx) => {
           setTimeout(() => rc.classList.add("show"), idx * 100);
         });
+        mapToggle.classList.remove("hidden");
+        mapContainer.classList.add("hidden");
+        resultsContainer.classList.remove("hidden");
+        mapToggle.textContent = "Map View";
       });
+    });
+
+    mapToggle.addEventListener("click", () => {
+      if (mapContainer.classList.contains("hidden")) {
+        mapContainer.classList.remove("hidden");
+        resultsContainer.classList.add("hidden");
+        mapToggle.textContent = "List View";
+        if (!map) {
+          map = L.map('mapContainer').setView([13.0827, 80.2707], 12);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+          }).addTo(map);
+          markerGroup = L.layerGroup().addTo(map);
+        }
+        markerGroup.clearLayers();
+        currentFiltered.forEach(b => {
+          if (b.lat && b.lng) {
+            const icon = L.divIcon({
+              html: `<i class="fa-solid ${categoryIcons[b.category] || 'fa-map-marker'} text-[var(--brand-accent)] text-xl"></i>`,
+              className: '',
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
+            const marker = L.marker([b.lat, b.lng], { icon }).addTo(markerGroup);
+            marker.on('click', () => {
+              window.location.href = `businessview.html?business=${b.id}`;
+            });
+          }
+        });
+        setTimeout(() => map.invalidateSize(), 0);
+      } else {
+        mapContainer.classList.add("hidden");
+        resultsContainer.classList.remove("hidden");
+        mapToggle.textContent = "Map View";
+      }
     });
   </script>
 </body>
