@@ -166,11 +166,14 @@
   ],
   "reels": [
     "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4"
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
   ],
   "gallery": [
     "https://placehold.co/600x400?text=Food+1",
     "https://placehold.co/600x400?text=Food+2",
-    "https://placehold.co/600x400?text=Food+3"
+    "https://placehold.co/600x400?text=Food+3",
+    "https://placehold.co/600x400?text=Food+4",
+    "https://placehold.co/600x400?text=Food+5"
   ]
 }
