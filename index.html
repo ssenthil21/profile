@@ -58,6 +58,12 @@
           opacity: 1;
           transform: translateY(0);
       }
+
+      @keyframes starGlow {
+          0%,100% { text-shadow: 0 0 2px #FBBF24; }
+          50% { text-shadow: 0 0 8px #FBBF24; }
+      }
+      .star-glow { animation: starGlow 1.5s ease-in-out infinite; }
   </style>
 </head>
 <body class="bg-white">
@@ -169,6 +175,13 @@
       <div id="resultsContainer" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-2"></div>
     </div>
   </section>
+  <div id="ratingPanel" class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg overflow-y-auto transform translate-x-full transition-transform z-50">
+    <div class="flex justify-between items-center p-4 border-b">
+      <h3 class="text-lg font-semibold">Ratings</h3>
+      <button id="ratingPanelClose" class="text-2xl leading-none">&times;</button>
+    </div>
+    <div id="ratingPanelContent" class="p-4 space-y-4"></div>
+  </div>
   <script>
     let businesses = [];
     const results = document.getElementById("results");
@@ -181,6 +194,10 @@
     const searchInput = document.getElementById("categorySearch");
     const mapToggle = document.getElementById("mapToggle");
     const mapContainer = document.getElementById("mapContainer");
+    const ratingPanel = document.getElementById("ratingPanel");
+    const ratingPanelContent = document.getElementById("ratingPanelContent");
+    const ratingPanelClose = document.getElementById("ratingPanelClose");
+    ratingPanelClose.addEventListener("click", () => ratingPanel.classList.add("translate-x-full"));
     let currentFiltered = [];
     let map;
     let markerGroup;
@@ -213,6 +230,37 @@
       });
     });
 
+    function attachRatingListeners() {
+      document.querySelectorAll('.rating-star').forEach(el => {
+        el.addEventListener('click', () => showRatings(el.dataset.id));
+      });
+    }
+
+    function showRatings(id) {
+      fetch(`data/${id}.json`)
+        .then(r => r.json())
+        .then(data => {
+          const reviews = data.reviews || [];
+          if (reviews.length) {
+            ratingPanelContent.innerHTML = reviews.map(rv => {
+              const stars = Array.from({length:5}).map((_,i)=> `<i class="fa-star ${i < rv.rating ? 'fas star-glow' : 'far'}"></i>`).join('');
+              return `
+              <div class="border-b pb-2">
+                <div class="flex items-center text-yellow-500 mb-1">${stars}</div>
+                <p class="text-sm text-gray-700">${rv.comment}</p>
+                <p class="text-xs text-gray-500 mt-1">${rv.name} - ${rv.service}</p>
+              </div>`;}).join('');
+          } else {
+            ratingPanelContent.innerHTML = '<p class="text-gray-500">No ratings available.</p>';
+          }
+          ratingPanel.classList.remove('translate-x-full');
+        })
+        .catch(() => {
+          ratingPanelContent.innerHTML = '<p class="text-gray-500">No ratings available.</p>';
+          ratingPanel.classList.remove('translate-x-full');
+        });
+    }
+
     globalMapToggle.addEventListener("click", () => {
       if (globalMapContainer.classList.contains("hidden")) {
         globalMapContainer.classList.remove("hidden");
@@ -236,6 +284,9 @@
               iconAnchor: [12, 12]
             });
             const marker = L.marker([b.lat, b.lng], { icon }).addTo(globalMarkerGroup);
+            marker.bindPopup(`<strong>${b.name}</strong><br>${b.address}<br>Rating: ${b.rating}`);
+            marker.on('mouseover', function(){ this.openPopup(); });
+            marker.on('mouseout', function(){ this.closePopup(); });
             marker.on('click', () => {
               window.location.href = `businessview.html?business=${b.id}`;
             });
@@ -266,14 +317,14 @@
                 <div class="p-6 flex flex-col h-full">
                   <div class="flex justify-between items-start mb-2">
                     <h4 class="text-xl font-semibold">${b.name}</h4>
-                    <span class="flex items-center text-yellow-500"><i class="fa-solid fa-star mr-1"></i>${b.rating}</span>
+                    <span class="rating-star flex items-center text-yellow-500 cursor-pointer" data-id="${b.id}"><i class="fa-solid fa-star mr-1 star-glow"></i>${b.rating}</span>
                   </div>
                   <p class="text-gray-600 mb-4 flex-grow">${b.description}</p>
                   <div class="text-sm text-gray-500 mb-4 space-y-1">
                     <p><i class="fa-solid fa-map-marker-alt mr-2"></i>${b.address}</p>
                     <p><i class="fa-solid fa-phone mr-2"></i>${b.phone}</p>
                   </div>
-                  ${i < 2 ? '<span class="mt-auto text-[var(--brand-accent)] font-semibold">View details</span>' : ''}
+                  ${i < 2 ? '<span class="mt-auto text-[var(--brand-accent)] font-semibold flex items-center">View details<i class="fa-solid fa-arrow-right ml-2"></i></span>' : ''}
                 </div>
               </div>`;
             html += i < 2 ? `<a href="businessview.html?business=${b.id}" class="block">${content}</a>` : content;
@@ -288,6 +339,7 @@
           }
         }
         resultsContainer.innerHTML = html;
+        attachRatingListeners();
         explore.classList.add("lg:flex");
         categoriesSection.classList.add("lg:w-1/3", "lg:pr-8");
         categoryGrid.classList.remove("sm:grid-cols-2", "lg:grid-cols-4");
@@ -329,6 +381,9 @@
               iconAnchor: [12, 12]
             });
             const marker = L.marker([b.lat, b.lng], { icon }).addTo(markerGroup);
+            marker.bindPopup(`<strong>${b.name}</strong><br>${b.address}<br>Rating: ${b.rating}`);
+            marker.on('mouseover', function(){ this.openPopup(); });
+            marker.on('mouseout', function(){ this.closePopup(); });
             marker.on('click', () => {
               window.location.href = `businessview.html?business=${b.id}`;
             });
