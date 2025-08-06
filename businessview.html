@@ -78,8 +78,14 @@
 
         /* Stat Card Styles */
         .stat-card {
-            @apply bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2 border-2;
-            border-color: var(--brand-accent);
+            @apply relative overflow-hidden p-8 rounded-2xl text-center bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transform transition-transform duration-300 hover:-translate-y-2;
+        }
+        .stat-card::after {
+            content: '';
+            @apply absolute inset-0 bg-gradient-to-br from-[var(--brand-accent)]/20 to-transparent opacity-0 transition-opacity duration-300;
+        }
+        .stat-card:hover::after {
+            @apply opacity-100;
         }
 
         /* Review Card Styles */
@@ -236,9 +242,10 @@
             </div>
         </section>
 
-        <section id="stats" class="bg-brand-light parallax" style="padding-top:1.35rem;padding-bottom:1.35rem;">
-            <div class="container mx-auto px-6">
-                <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
+        <section id="stats" class="relative py-20 bg-brand-charcoal text-white">
+            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_left,var(--brand-accent),transparent_50%)]"></div>
+            <div class="container relative mx-auto px-6">
+                <div id="stats-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
             </div>
         </section>
 
@@ -503,13 +510,13 @@
             const statsGrid = document.getElementById('stats-grid');
             statsGrid.innerHTML = data.stats.map((stat, index) => `
                 <div class="stat-card reveal" style="transition-delay: ${index * 150}ms;">
-                    <div class="text-5xl font-bold text-brand-accent mb-2">
-                        <i class="${stat.icon}"></i>
+                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 shadow-lg">
+                        <i class="${stat.icon} text-2xl"></i>
                     </div>
-                    <div class="text-3xl font-bold text-brand-charcoal">
+                    <div class="text-4xl font-bold">
                         <span class="stat-number" data-count="${stat.value}" data-decimal="${stat.decimal || 0}">0</span>
                     </div>
-                    <p class="text-gray-500 mt-1">${stat.label}</p>
+                    <p class="text-sm text-gray-200 mt-1">${stat.label}</p>
                 </div>
             `).join('');
 
