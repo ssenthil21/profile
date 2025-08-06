@@ -2,15 +2,58 @@
   "businessName": "Health Clinic",
   "logo": "https://placehold.co/200x80?text=Health+Clinic",
   "rating": 4.8,
-  "contact": { "location": "33 Wellness Rd, Care City", "phone": "3333333333", "hours": "Mon - Fri: 8am - 6pm", "whatsapp": "3333333333" },
-  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "contact": {
+    "location": "33 Wellness Rd, Care City",
+    "phone": "3333333333",
+    "hours": "Mon - Fri: 8am - 6pm",
+    "whatsapp": "3333333333"
+  },
+  "theme": {
+    "charcoal": "#36322F",
+    "accent": "#C08261",
+    "light": "#F5EFE6"
+  },
   "heroSlides": [
-    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Health+Clinic", "title": "Your Health, Our Priority", "subtitle": "Professional care when you need it" }
+    {
+      "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Health+Clinic",
+      "title": "Your Health, Our Priority",
+      "subtitle": "Professional care when you need it"
+    }
   ],
-  "stats": [ { "icon": "fas fa-star", "value": "4.8", "decimal": 1, "label": "Rating" } ],
-  "services": [ { "name": "General Checkup", "duration": "30 mins", "price": "₹ 500", "category": "clinic", "icon": "GC" } ],
-  "reviews": [ { "name": "Liam K.", "rating": 5, "service": "Checkup", "comment": "Friendly staff and quick service." } ],
-  "stylists": [ { "name": "Dr. Maya", "title": "Physician", "image": "https://placehold.co/400x400" } ],
-  "reels": [],
-  "gallery": []
+  "stats": [
+    { "icon": "fas fa-star", "value": "4.8", "decimal": 1, "label": "Rating" }
+  ],
+  "services": [
+    { "name": "General Checkup", "duration": "30 mins", "price": "₹ 500", "category": "general", "icon": "fa-stethoscope" },
+    { "name": "Dental Checkup", "duration": "30 mins", "price": "₹ 600", "category": "general", "icon": "fa-tooth" },
+    { "name": "Pediatric Consultation", "duration": "30 mins", "price": "₹ 700", "category": "specialty", "icon": "fa-child" },
+    { "name": "Cardiology Consultation", "duration": "45 mins", "price": "₹ 1200", "category": "specialty", "icon": "fa-heart-pulse" },
+    { "name": "Orthopedic Consultation", "duration": "45 mins", "price": "₹ 1100", "category": "specialty", "icon": "fa-bone" },
+    { "name": "Blood Test", "duration": "15 mins", "price": "₹ 400", "category": "diagnostics", "icon": "fa-vial" },
+    { "name": "X-Ray", "duration": "20 mins", "price": "₹ 800", "category": "diagnostics", "icon": "fa-x-ray" },
+    { "name": "Vaccination", "duration": "10 mins", "price": "₹ 300", "category": "general", "icon": "fa-syringe" },
+    { "name": "Physiotherapy Session", "duration": "45 mins", "price": "₹ 900", "category": "therapy", "icon": "fa-person-walking" },
+    { "name": "Telemedicine", "duration": "30 mins", "price": "₹ 500", "category": "general", "icon": "fa-video" }
+  ],
+  "reviews": [
+    { "name": "Liam K.", "rating": 5, "service": "General Checkup", "comment": "Friendly staff and quick service." },
+    { "name": "Maya S.", "rating": 4, "service": "Dental Checkup", "comment": "Very gentle care." },
+    { "name": "Ravi P.", "rating": 5, "service": "Cardiology Consultation", "comment": "Expert advice." },
+    { "name": "Sonia L.", "rating": 4, "service": "Physiotherapy Session", "comment": "Helped my recovery." },
+    { "name": "Karan D.", "rating": 5, "service": "Vaccination", "comment": "Quick and painless." }
+  ],
+  "stylists": [
+    { "name": "Dr. Maya", "title": "Physician", "image": "https://placehold.co/400x400?text=Doctor+1" },
+    { "name": "Dr. Anil", "title": "Orthopedic", "image": "https://placehold.co/400x400?text=Doctor+2" },
+    { "name": "Dr. Priya", "title": "Dentist", "image": "https://placehold.co/400x400?text=Doctor+3" }
+  ],
+  "reels": [
+    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4"
+  ],
+  "gallery": [
+    "https://placehold.co/600x400?text=Clinic+1",
+    "https://placehold.co/600x400?text=Clinic+2",
+    "https://placehold.co/600x400?text=Clinic+3"
+  ]
 }

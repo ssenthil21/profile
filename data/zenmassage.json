@@ -2,15 +2,160 @@
   "businessName": "Zen Massage",
   "logo": "https://placehold.co/200x80?text=Zen+Massage",
   "rating": 4.9,
-  "contact": { "location": "88 Calm St, Peace City", "phone": "8888888888", "hours": "Daily: 9am - 9pm", "whatsapp": "8888888888" },
-  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "contact": {
+    "location": "88 Calm St, Peace City",
+    "phone": "8888888888",
+    "hours": "Daily: 9am - 9pm",
+    "whatsapp": "8888888888"
+  },
+  "theme": {
+    "charcoal": "#36322F",
+    "accent": "#C08261",
+    "light": "#F5EFE6"
+  },
   "heroSlides": [
-    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Zen+Massage", "title": "Find Your Zen", "subtitle": "Relaxing massage therapies" }
+    {
+      "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Zen+Massage",
+      "title": "Find Your Zen",
+      "subtitle": "Relaxing massage therapies"
+    }
   ],
-  "stats": [ { "icon": "fas fa-star", "value": "4.9", "decimal": 1, "label": "Rating" } ],
-  "services": [ { "name": "Deep Tissue Massage", "duration": "60 mins", "price": "₹ 1800", "category": "massage", "icon": "DT" } ],
-  "reviews": [ { "name": "Priya S.", "rating": 5, "service": "Massage", "comment": "Best massage experience." } ],
-  "stylists": [ { "name": "Sunita", "title": "Masseur", "image": "https://placehold.co/400x400" } ],
-  "reels": [],
-  "gallery": []
+  "stats": [
+    {
+      "icon": "fas fa-star",
+      "value": "4.9",
+      "decimal": 1,
+      "label": "Rating"
+    }
+  ],
+  "services": [
+    {
+      "name": "Thai Massage",
+      "duration": "60 mins",
+      "price": "₹ 1700",
+      "category": "massage",
+      "icon": "fa-spa"
+    },
+    {
+      "name": "Deep Tissue Massage",
+      "duration": "60 mins",
+      "price": "₹ 1800",
+      "category": "massage",
+      "icon": "fa-hands"
+    },
+    {
+      "name": "Aromatherapy",
+      "duration": "45 mins",
+      "price": "₹ 1600",
+      "category": "therapy",
+      "icon": "fa-wind"
+    },
+    {
+      "name": "Hot Stone Massage",
+      "duration": "60 mins",
+      "price": "₹ 2000",
+      "category": "therapy",
+      "icon": "fa-fire"
+    },
+    {
+      "name": "Couples Massage",
+      "duration": "90 mins",
+      "price": "₹ 3000",
+      "category": "special",
+      "icon": "fa-heart"
+    },
+    {
+      "name": "Pregnancy Massage",
+      "duration": "60 mins",
+      "price": "₹ 1900",
+      "category": "special",
+      "icon": "fa-baby"
+    },
+    {
+      "name": "Reflexology",
+      "duration": "30 mins",
+      "price": "₹ 900",
+      "category": "therapy",
+      "icon": "fa-shoe-prints"
+    },
+    {
+      "name": "Head Massage",
+      "duration": "30 mins",
+      "price": "₹ 800",
+      "category": "massage",
+      "icon": "fa-head-side-relaxed"
+    },
+    {
+      "name": "Foot Massage",
+      "duration": "30 mins",
+      "price": "₹ 800",
+      "category": "massage",
+      "icon": "fa-shoe-prints"
+    },
+    {
+      "name": "Back Massage",
+      "duration": "30 mins",
+      "price": "₹ 850",
+      "category": "massage",
+      "icon": "fa-user"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Priya S.",
+      "rating": 5,
+      "service": "Thai Massage",
+      "comment": "Best massage experience."
+    },
+    {
+      "name": "Rahul M.",
+      "rating": 5,
+      "service": "Hot Stone Massage",
+      "comment": "Ultimate relaxation."
+    },
+    {
+      "name": "Sneha T.",
+      "rating": 4,
+      "service": "Reflexology",
+      "comment": "Feet felt light."
+    },
+    {
+      "name": "Vikas L.",
+      "rating": 5,
+      "service": "Couples Massage",
+      "comment": "Wonderful session."
+    },
+    {
+      "name": "Anjali B.",
+      "rating": 4,
+      "service": "Pregnancy Massage",
+      "comment": "Very soothing."
+    }
+  ],
+  "stylists": [
+    {
+      "name": "Sunita",
+      "title": "Masseur",
+      "image": "https://placehold.co/400x400?text=Therapist+1"
+    },
+    {
+      "name": "Deepa",
+      "title": "Therapist",
+      "image": "https://placehold.co/400x400?text=Therapist+2"
+    },
+    {
+      "name": "Mohan",
+      "title": "Massage Expert",
+      "image": "https://placehold.co/400x400?text=Therapist+3"
+    }
+  ],
+  "reels": [
+    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4"
+  ],
+  "gallery": [
+    "https://placehold.co/600x400?text=Massage+1",
+    "https://placehold.co/600x400?text=Massage+2",
+    "https://placehold.co/600x400?text=Massage+3"
+  ]
 }
