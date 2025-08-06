@@ -20,6 +20,21 @@
       h1,h2,h3,h4,h5,h6{
           font-family:'DM Sans', sans-serif;
       }
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(20px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+      .category-card {
+          opacity: 0;
+          animation: fadeInUp 0.6s ease forwards;
+          animation-delay: var(--delay);
+      }
   </style>
 </head>
 <body class="bg-white">
@@ -33,58 +48,85 @@
     </div>
   </header>
 
-  <section class="bg-[var(--brand-light)] text-center py-20">
-    <h2 class="text-4xl font-bold mb-4">Find your perfect salon</h2>
-    <p class="text-lg mb-8">Discover and book beauty services near you.</p>
-    <a href="#categories" class="px-8 py-3 rounded-md bg-[var(--brand-accent)] text-white font-semibold">Explore</a>
-  </section>
-
   <section id="categories" class="max-w-6xl mx-auto py-16">
     <h3 class="text-3xl font-bold text-center mb-10">Popular categories</h3>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="salon">
-        <i class="fa-solid fa-scissors text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Salon</span>
+      <button style="--delay:0s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="salon">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-scissors text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Salon</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="spa">
-        <i class="fa-solid fa-spa text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Spa</span>
+      <button style="--delay:0.1s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="spa">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-spa text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Spa</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="parlour">
-        <i class="fa-solid fa-hand-sparkles text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Parlours</span>
+      <button style="--delay:0.2s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="parlour">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-hand-sparkles text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Parlours</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="clinic">
-        <i class="fa-solid fa-clinic-medical text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Clinic</span>
+      <button style="--delay:0.3s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="clinic">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-clinic-medical text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Clinic</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="food">
-        <i class="fa-solid fa-burger text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Food Take Away</span>
+      <button style="--delay:0.4s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="food">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-burger text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Food Take Away</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="laundry">
-        <i class="fa-solid fa-shirt text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Laundry</span>
+      <button style="--delay:0.5s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="laundry">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-shirt text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Laundry</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="turf">
-        <i class="fa-solid fa-golf-ball-tee text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Turf Club</span>
+      <button style="--delay:0.6s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="turf">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-golf-ball-tee text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Turf Club</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="gamezone">
-        <i class="fa-solid fa-gamepad text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Gamezone</span>
+      <button style="--delay:0.7s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="gamezone">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-gamepad text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Gamezone</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="massage">
-        <i class="fa-solid fa-hand-holding-heart text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Massage</span>
+      <button style="--delay:0.8s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="massage">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-hand-holding-heart text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Massage</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="event">
-        <i class="fa-solid fa-calendar-check text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Event Management</span>
+      <button style="--delay:0.9s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="event">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-calendar-check text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Event Management</span>
       </button>
-      <button class="category-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition flex flex-col items-center text-center" data-category="petclinic">
-        <i class="fa-solid fa-paw text-5xl text-[var(--brand-accent)] mb-4"></i>
-        <span class="text-xl font-semibold">Pet Clinic</span>
+      <button style="--delay:1s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="petclinic">
+        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
+          <i class="fa-solid fa-paw text-3xl"></i>
+        </div>
+        <span class="text-lg font-semibold">Pet Clinic</span>
       </button>
     </div>
   </section>
