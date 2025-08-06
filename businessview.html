@@ -525,21 +525,30 @@
             galleryContainer.innerHTML = (data.gallery || []).map(imageUrl => `
                 <div class="gallery-item media-item image-reveal"> <img class="rounded-lg w-full blur-up" src="${imageUrl}" onerror="this.onerror=null;this.src='https://placehold.co/800x1000/cccccc/ffffff?text=Image';" alt="Gallery Image"> <div class="media-overlay"><i class="fas fa-eye text-white text-3xl"></i></div> </div>
             `).join('');
-            galleryContainer.querySelectorAll('img.blur-up').forEach(img => {
-                if (img.complete) img.classList.add('loaded');
-                else img.addEventListener('load', () => img.classList.add('loaded'));
-            });
+              galleryContainer.querySelectorAll('img.blur-up').forEach(img => {
+                  if (img.complete) img.classList.add('loaded');
+                  else img.addEventListener('load', () => img.classList.add('loaded'));
+              });
 
-            initializePageFunctionality();
+              initializePageFunctionality();
 
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.classList.add('fade-out');
-                setTimeout(() => preloader.style.display = 'none', 500);
-            }
-        });
+              const preloader = document.getElementById('preloader');
+              if (preloader) {
+                  preloader.classList.add('fade-out');
+                  setTimeout(() => preloader.style.display = 'none', 500);
+              }
+          })
+          .catch(error => {
+              console.error('Failed to load business data:', error);
+              const preloader = document.getElementById('preloader');
+              if (preloader) {
+                  preloader.classList.add('fade-out');
+                  setTimeout(() => preloader.style.display = 'none', 500);
+              }
+              document.body.innerHTML = '<div class="text-center p-10">Error: Could not load business data. Please check the business name in the URL and the data file.</div>';
+          });
 
-        function initializePageFunctionality() {
+          function initializePageFunctionality() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             if(mobileMenuButton) mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
@@ -767,16 +776,7 @@
                     section.style.backgroundPositionY = `${offset * 0.5}px`;
                 });
             });
-        })
-        .catch(error => {
-            console.error('Failed to load business data:', error);
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.classList.add('fade-out');
-                setTimeout(() => preloader.style.display = 'none', 500);
-            }
-            document.body.innerHTML = '<div class="text-center p-10">Error: Could not load business data. Please check the business name in the URL and the data file.</div>';
-        });
+        }
     });
     </script>
 </body>
