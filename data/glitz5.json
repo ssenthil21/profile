@@ -1,0 +1,55 @@
+{
+  "businessName": "Glitz 5",
+  "logo": "https://placehold.co/200x80?text=Glitz5",
+  "rating": 4.9,
+  "contact": { "location": "456 Glamour Ave, Sparkle City", "phone": "9876543210", "hours": "Mon - Sat: 9am - 8pm", "whatsapp": "9876543210" },
+  "theme": { "charcoal": "#43384a", "accent": "#8B5CF6", "light": "#F3E8FF" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/8B5CF6/FFFFFF?text=Glitz+5", "title": "Where Glamour Meets Perfection.", "subtitle": "Experience luxury and style at Glitz 5." },
+    { "bgImage": "https://placehold.co/1920x1080/D946EF/FFFFFF?text=Special+Offer", "title": "30% Off All Manicures!", "subtitle": "Get ready for the weekend with a stunning manicure." }
+  ],
+  "stats": [
+    { "icon": "fas fa-star", "value": "4.9", "decimal": 1, "label": "Client Ratings" },
+    { "icon": "fas fa-users", "value": "1200", "label": "Happy Customers" },
+    { "icon": "fas fa-cut", "value": "5000", "label": "Jobs Completed" },
+    { "icon": "fas fa-award", "value": "5", "label": "Years Experience" }
+  ],
+  "services": [
+    { "name": "Eyebrows", "duration": "10 mins", "price": "₹ 70", "category": "skin", "icon": "EY" },
+    { "name": "Upperlip Threading", "duration": "5 mins", "price": "₹ 30", "category": "skin", "icon": "UP" },
+    { "name": "Wax Upper Lip", "duration": "5 mins", "price": "₹ 80", "category": "skin", "icon": "WA" },
+    { "name": "Hair Cut", "duration": "45 mins", "price": "₹ 500", "category": "hair", "icon": "HC" },
+    { "name": "Hair Coloring", "duration": "90 mins", "price": "₹ 1500", "category": "hair", "icon": "CL" },
+    { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "bridal", "icon": "BM" }
+  ],
+  "reviews": [
+    { "name": "Jessica L.", "rating": 5, "service": "Facial", "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none." },
+    { "name": "Emily R.", "rating": 5, "service": "Hair Styling", "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations." },
+    { "name": "Sarah P.", "rating": 5, "service": "Spa Experience", "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
+    { "name": "Megan B.", "rating": 4, "service": "Manicure", "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
+    { "name": "David K.", "rating": 5, "service": "Haircut & Beard Trim", "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
+    { "name": "Laura T.", "rating": 5, "service": "Nail Art", "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." },
+    { "name": "Olivia M.", "rating": 5, "service": "Makeup", "comment": "Absolutely loved the service. Will come back!" },
+    { "name": "James H.", "rating": 4, "service": "General Services", "comment": "Great atmosphere and professional staff." }
+  ],
+  "stylists": [
+    { "name": "Arjun Reddy", "title": "Hair Expert", "image": "https://images.unsplash.com/photo-1589571894960-20bbe2828a9a?auto=format&fit=crop&w=400&q=80" },
+    { "name": "Meera Subramanian", "title": "Color Specialist", "image": "https://images.unsplash.com/photo-1596962820792-5ac8345a0ff3?auto=format&fit=crop&w=400&q=80" },
+    { "name": "Sneha Rajan", "title": "Nail Artist", "image": "https://images.unsplash.com/photo-1509414023293-79d5d2b18e34?auto=format&fit=crop&w=400&q=80" }
+  ],
+  "reels": [
+    "https://videos.pexels.com/video-files/3688454/3688454-hd_1920_1080_24fps.mp4",
+    "https://videos.pexels.com/video-files/3688456/3688456-hd_1920_1080_25fps.mp4",
+    "https://videos.pexels.com/video-files/3201726/3201726-hd_1920_1080_24fps.mp4"
+  ],
+  "gallery": [
+    "https://images.unsplash.com/photo-1519744346368-cb4a66974107?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1581091870627-3e6d64ecb4e1?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1556228724-4b8e80bdbad1?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1555680207-9e8b5f3ca9f8?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1553547276-54c6c33bc1a6?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1599586123892-ec72b1cec0a7?auto=format&fit=crop&w=800&q=80"
+  ]
+}

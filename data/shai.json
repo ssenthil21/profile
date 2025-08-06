@@ -1,0 +1,54 @@
+{
+  "businessName": "Shai.",
+  "logo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nODAnIHZpZXdCb3g9JzAgMCAyMDAgODAnPjxyZWN0IHdpZHRoPScyMDAnIGhlaWdodD0nODAnIGZpbGw9JyNDMDgyNjEnLz48dGV4dCB4PScxMDAnIHk9JzUwJyBmb250LXNpemU9JzQwJyBmb250LWZhbWlseT0nUG9wcGlucycgZmlsbD0nd2hpdGUnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGRvbWluYW50LWJhc2VsaW5lPSdjZW50cmFsJz5TaGFpPC90ZXh0Pjwvc3ZnPg==",
+  "rating": 4.5,
+  "contact": { "location": "123 Beauty Lane, Style City", "phone": "1234567890", "hours": "Tues - Sat: 10am - 6pm", "whatsapp": "1234567890" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/36322F?text=Shai+Beauty", "title": "A Sanctuary of Modern Beauty.", "subtitle": "Escape into a world of tranquility and style." },
+    { "bgImage": "https://placehold.co/1920x1080/8B5CF6/FFFFFF?text=Special+Offer", "title": "20% Off Bridal Packages", "subtitle": "Book your dream bridal look this month." }
+  ],
+  "stats": [
+    { "icon": "fas fa-star", "value": "4.5", "decimal": 1, "label": "Client Ratings" },
+    { "icon": "fas fa-users", "value": "400", "label": "Happy Customers" },
+    { "icon": "fas fa-cut", "value": "2400", "label": "Jobs Completed" },
+    { "icon": "fas fa-award", "value": "7", "label": "Years Experience" }
+  ],
+  "services": [
+    { "name": "Eyebrows", "duration": "10 mins", "price": "₹ 70", "category": "skin", "icon": "EY" },
+    { "name": "Upperlip Threading", "duration": "5 mins", "price": "₹ 30", "category": "skin", "icon": "UP" },
+    { "name": "Wax Upper Lip", "duration": "5 mins", "price": "₹ 80", "category": "skin", "icon": "WA" },
+    { "name": "Hair Cut", "duration": "45 mins", "price": "₹ 500", "category": "hair", "icon": "HC" },
+    { "name": "Hair Coloring", "duration": "90 mins", "price": "₹ 1500", "category": "hair", "icon": "CL" },
+    { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "bridal", "icon": "BM" }
+  ],
+  "reviews": [
+    { "name": "Jessica L.", "rating": 5, "service": "Facial", "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none." },
+    { "name": "Emily R.", "rating": 5, "service": "Hair Styling", "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations." },
+    { "name": "Sarah P.", "rating": 5, "service": "Spa Experience", "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
+    { "name": "Megan B.", "rating": 4, "service": "Manicure", "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
+    { "name": "David K.", "rating": 5, "service": "Haircut & Beard Trim", "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." },
+    { "name": "Laura T.", "rating": 5, "service": "Nail Art", "comment": "Sophia is a nail art genius! I'm always so impressed with her creativity and skill." },
+    { "name": "Olivia M.", "rating": 5, "service": "Makeup", "comment": "Absolutely loved the service. Will come back!" },
+    { "name": "James H.", "rating": 4, "service": "General Services", "comment": "Great atmosphere and professional staff." }
+  ],
+  "stylists": [
+    { "name": "Karthik Iyer", "title": "Lead Stylist", "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" },
+    { "name": "Lakshmi Nair", "title": "Senior Beautician", "image": "https://images.unsplash.com/photo-1528747045269-390fe33c19d0?auto=format&fit=crop&w=400&q=80" },
+    { "name": "Divya Menon", "title": "Makeup Artist", "image": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" }
+  ],
+  "reels": [
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/27/27c1722844298893.mp4",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/27/27c1722844446736.mp4",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/27/longvolumnlayerhaircut-haircut-at-chillbreeze-unisex-salon-via-qtick-94.mp4"
+  ],
+  "gallery": [
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-139.jpg",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-145.jpg",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/bridal-makeupbridal-makeup-at-shai-beauty-parlour-via-qtick-131.jpg",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-140.jpg",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-142.jpg",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-145.jpg",
+    "https://sgp1.digitaloceanspaces.com/storage.qtick.com/q_image/52/at-shai-beauty-parlour-via-qtick-146.jpg"
+  ]
+}
