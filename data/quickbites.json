@@ -2,15 +2,58 @@
   "businessName": "Quick Bites",
   "logo": "https://placehold.co/200x80?text=Quick+Bites",
   "rating": 4.3,
-  "contact": { "location": "44 Snack St, Foodville", "phone": "4444444444", "hours": "Daily: 11am - 11pm", "whatsapp": "4444444444" },
-  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "contact": {
+    "location": "44 Snack St, Foodville",
+    "phone": "4444444444",
+    "hours": "Daily: 11am - 11pm",
+    "whatsapp": "4444444444"
+  },
+  "theme": {
+    "charcoal": "#4E342E",
+    "accent": "#FF5722",
+    "light": "#FFF3E0"
+  },
   "heroSlides": [
-    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Quick+Bites", "title": "Fast & Tasty", "subtitle": "Grab a bite on the go" }
+    {
+      "bgImage": "https://placehold.co/1920x1080/FF5722/FFFFFF?text=Quick+Bites",
+      "title": "Fast & Tasty",
+      "subtitle": "Grab a bite on the go"
+    }
   ],
-  "stats": [ { "icon": "fas fa-star", "value": "4.3", "decimal": 1, "label": "Rating" } ],
-  "services": [ { "name": "Veg Burger", "duration": "10 mins", "price": "₹ 120", "category": "food", "icon": "VB" } ],
-  "reviews": [ { "name": "Asha M.", "rating": 4, "service": "Burger", "comment": "Tasty and quick." } ],
-  "stylists": [],
-  "reels": [],
-  "gallery": []
+  "stats": [
+    { "icon": "fas fa-star", "value": "4.3", "decimal": 1, "label": "Rating" }
+  ],
+  "services": [
+    { "name": "Veg Burger", "duration": "10 mins", "price": "₹ 120", "category": "burgers", "icon": "fa-burger" },
+    { "name": "Chicken Burger", "duration": "12 mins", "price": "₹ 150", "category": "burgers", "icon": "fa-burger" },
+    { "name": "Paneer Burger", "duration": "12 mins", "price": "₹ 140", "category": "burgers", "icon": "fa-burger" },
+    { "name": "Double Cheese Burger", "duration": "15 mins", "price": "₹ 180", "category": "burgers", "icon": "fa-burger" },
+    { "name": "French Fries", "duration": "5 mins", "price": "₹ 60", "category": "sides", "icon": "fa-bowl-food" },
+    { "name": "Chicken Nuggets", "duration": "7 mins", "price": "₹ 90", "category": "sides", "icon": "fa-drumstick-bite" },
+    { "name": "Salad Cup", "duration": "6 mins", "price": "₹ 70", "category": "sides", "icon": "fa-leaf" },
+    { "name": "Cola", "duration": "2 mins", "price": "₹ 40", "category": "drinks", "icon": "fa-glass-water" },
+    { "name": "Orange Juice", "duration": "3 mins", "price": "₹ 50", "category": "drinks", "icon": "fa-wine-glass" },
+    { "name": "Chocolate Milkshake", "duration": "4 mins", "price": "₹ 80", "category": "drinks", "icon": "fa-ice-cream" }
+  ],
+  "reviews": [
+    { "name": "Asha M.", "rating": 4, "service": "Veg Burger", "comment": "Tasty and quick." },
+    { "name": "Rohan K.", "rating": 5, "service": "Chicken Burger", "comment": "Best burger in town!" },
+    { "name": "Lina D.", "rating": 4, "service": "French Fries", "comment": "Crispy and hot." },
+    { "name": "Sanjay P.", "rating": 5, "service": "Chocolate Milkshake", "comment": "Loved the thick shake." },
+    { "name": "Meena S.", "rating": 4, "service": "Orange Juice", "comment": "Refreshing and fresh." }
+  ],
+  "stylists": [
+    { "name": "Chef Arjun", "title": "Head Chef", "image": "https://placehold.co/400x400?text=Chef+1" },
+    { "name": "Chef Divya", "title": "Sous Chef", "image": "https://placehold.co/400x400?text=Chef+2" },
+    { "name": "Chef Vinod", "title": "Pastry Chef", "image": "https://placehold.co/400x400?text=Chef+3" }
+  ],
+  "reels": [
+    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4"
+  ],
+  "gallery": [
+    "https://placehold.co/600x400?text=Food+1",
+    "https://placehold.co/600x400?text=Food+2",
+    "https://placehold.co/600x400?text=Food+3"
+  ]
 }
