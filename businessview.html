@@ -314,7 +314,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const business = params.get("business") || "shai";
-            const dataUrl = new URL(`./data/${business}.json`, window.location.href);
+            const dataUrl = new URL(`data/${business}.json`, window.location.origin);
 
             fetch(dataUrl)
                 .then(response => {
