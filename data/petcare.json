@@ -1,0 +1,16 @@
+{
+  "businessName": "Pet Care Clinic",
+  "logo": "https://placehold.co/200x80?text=Pet+Care",
+  "rating": 4.8,
+  "contact": { "location": "11 Paw Rd, Pet Town", "phone": "1010101010", "hours": "Mon - Sat: 9am - 8pm", "whatsapp": "1010101010" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Pet+Care", "title": "Care for Your Pets", "subtitle": "Compassionate pet health services" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.8", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Vet Consultation", "duration": "30 mins", "price": "₹ 500", "category": "petclinic", "icon": "VC" } ],
+  "reviews": [ { "name": "Mark D.", "rating": 5, "service": "Consultation", "comment": "Took great care of my dog." } ],
+  "stylists": [ { "name": "Dr. Neha", "title": "Veterinarian", "image": "https://placehold.co/400x400" } ],
+  "reels": [],
+  "gallery": []
+}

@@ -1,0 +1,16 @@
+{
+  "businessName": "Fun Zone",
+  "logo": "https://placehold.co/200x80?text=Fun+Zone",
+  "rating": 4.2,
+  "contact": { "location": "77 Play Ave, Joy Town", "phone": "7777777777", "hours": "Daily: 10am - 10pm", "whatsapp": "7777777777" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Fun+Zone", "title": "Game On!", "subtitle": "Arcade fun for everyone" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.2", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Arcade Pass", "duration": "60 mins", "price": "₹ 300", "category": "gamezone", "icon": "AP" } ],
+  "reviews": [ { "name": "Kevin L.", "rating": 4, "service": "Arcade", "comment": "Kids loved it." } ],
+  "stylists": [],
+  "reels": [],
+  "gallery": []
+}

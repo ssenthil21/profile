@@ -1,0 +1,16 @@
+{
+  "businessName": "Relax Spa",
+  "logo": "https://placehold.co/200x80?text=Relax+Spa",
+  "rating": 4.7,
+  "contact": { "location": "1 Spa Street, Relax City", "phone": "1111111111", "hours": "Mon - Sun: 9am - 9pm", "whatsapp": "1111111111" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Relax+Spa", "title": "Relax and Unwind", "subtitle": "Experience our top-notch spa treatments" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.7", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Full Body Massage", "duration": "60 mins", "price": "₹ 1500", "category": "spa", "icon": "FB" } ],
+  "reviews": [ { "name": "John D.", "rating": 5, "service": "Massage", "comment": "Very relaxing!" } ],
+  "stylists": [ { "name": "Alice", "title": "Therapist", "image": "https://placehold.co/400x400" } ],
+  "reels": [],
+  "gallery": []
+}

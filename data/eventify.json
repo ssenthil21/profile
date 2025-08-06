@@ -1,0 +1,16 @@
+{
+  "businessName": "Eventify",
+  "logo": "https://placehold.co/200x80?text=Eventify",
+  "rating": 4.6,
+  "contact": { "location": "99 Party Blvd, Festive City", "phone": "9999999999", "hours": "Mon - Fri: 9am - 6pm", "whatsapp": "9999999999" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Eventify", "title": "Make It Memorable", "subtitle": "Event planning made easy" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.6", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Birthday Package", "duration": "Full day", "price": "₹ 15000", "category": "event", "icon": "BP" } ],
+  "reviews": [ { "name": "Anil K.", "rating": 5, "service": "Event Planning", "comment": "Wonderful arrangements!" } ],
+  "stylists": [],
+  "reels": [],
+  "gallery": []
+}

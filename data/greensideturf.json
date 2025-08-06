@@ -1,0 +1,16 @@
+{
+  "businessName": "Greenside Turf",
+  "logo": "https://placehold.co/200x80?text=Greenside+Turf",
+  "rating": 4.5,
+  "contact": { "location": "66 Field Rd, Sport City", "phone": "6666666666", "hours": "Daily: 6am - 10pm", "whatsapp": "6666666666" },
+  "theme": { "charcoal": "#36322F", "accent": "#C08261", "light": "#F5EFE6" },
+  "heroSlides": [
+    { "bgImage": "https://placehold.co/1920x1080/C08261/FFFFFF?text=Greenside+Turf", "title": "Play on Premium Turf", "subtitle": "Book your slot today" }
+  ],
+  "stats": [ { "icon": "fas fa-star", "value": "4.5", "decimal": 1, "label": "Rating" } ],
+  "services": [ { "name": "Turf Hour", "duration": "60 mins", "price": "₹ 1200", "category": "turf", "icon": "TH" } ],
+  "reviews": [ { "name": "Rahul V.", "rating": 4, "service": "Turf Booking", "comment": "Great surface for football." } ],
+  "stylists": [],
+  "reels": [],
+  "gallery": []
+}
