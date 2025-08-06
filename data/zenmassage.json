@@ -9,9 +9,9 @@
     "whatsapp": "8888888888"
   },
   "theme": {
-    "charcoal": "#36322F",
-    "accent": "#C08261",
-    "light": "#F5EFE6"
+    "charcoal": "#3B0764",
+    "accent": "#D946EF",
+    "light": "#F5D0FE"
   },
   "heroSlides": [
     {
@@ -25,7 +25,22 @@
       "icon": "fas fa-star",
       "value": "4.9",
       "decimal": 1,
-      "label": "Rating"
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "1000",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "9",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-hands",
+      "value": "4500",
+      "label": "Massages Given"
     }
   ],
   "services": [

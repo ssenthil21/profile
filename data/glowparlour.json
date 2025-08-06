@@ -9,9 +9,9 @@
     "whatsapp": "2222222222"
   },
   "theme": {
-    "charcoal": "#36322F",
-    "accent": "#C08261",
-    "light": "#F5EFE6"
+    "charcoal": "#1C1917",
+    "accent": "#EC4899",
+    "light": "#FCE7F3"
   },
   "heroSlides": [
     {
@@ -21,31 +21,148 @@
     }
   ],
   "stats": [
-    { "icon": "fas fa-star", "value": "4.6", "decimal": 1, "label": "Rating" }
+    {
+      "icon": "fas fa-star",
+      "value": "4.6",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "900",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "5",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-spa",
+      "value": "3000",
+      "label": "Treatments Completed"
+    }
   ],
   "services": [
-    { "name": "Classic Facial", "duration": "45 mins", "price": "₹ 1200", "category": "skin", "icon": "fa-spa" },
-    { "name": "Gold Facial", "duration": "60 mins", "price": "₹ 1800", "category": "skin", "icon": "fa-gem" },
-    { "name": "Threading", "duration": "15 mins", "price": "₹ 80", "category": "skin", "icon": "fa-scissors" },
-    { "name": "Manicure", "duration": "30 mins", "price": "₹ 500", "category": "nails", "icon": "fa-hand-sparkles" },
-    { "name": "Pedicure", "duration": "40 mins", "price": "₹ 700", "category": "nails", "icon": "fa-shoe-prints" },
-    { "name": "Hair Cut", "duration": "45 mins", "price": "₹ 600", "category": "hair", "icon": "fa-cut" },
-    { "name": "Hair Styling", "duration": "60 mins", "price": "₹ 900", "category": "hair", "icon": "fa-wand-magic-sparkles" },
-    { "name": "Hair Coloring", "duration": "90 mins", "price": "₹ 1500", "category": "hair", "icon": "fa-palette" },
-    { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "makeup", "icon": "fa-ring" },
-    { "name": "Party Makeup", "duration": "90 mins", "price": "₹ 3000", "category": "makeup", "icon": "fa-masks-theater" }
+    {
+      "name": "Classic Facial",
+      "duration": "45 mins",
+      "price": "₹ 1200",
+      "category": "skin",
+      "icon": "fa-spa"
+    },
+    {
+      "name": "Gold Facial",
+      "duration": "60 mins",
+      "price": "₹ 1800",
+      "category": "skin",
+      "icon": "fa-gem"
+    },
+    {
+      "name": "Threading",
+      "duration": "15 mins",
+      "price": "₹ 80",
+      "category": "skin",
+      "icon": "fa-scissors"
+    },
+    {
+      "name": "Manicure",
+      "duration": "30 mins",
+      "price": "₹ 500",
+      "category": "nails",
+      "icon": "fa-hand-sparkles"
+    },
+    {
+      "name": "Pedicure",
+      "duration": "40 mins",
+      "price": "₹ 700",
+      "category": "nails",
+      "icon": "fa-shoe-prints"
+    },
+    {
+      "name": "Hair Cut",
+      "duration": "45 mins",
+      "price": "₹ 600",
+      "category": "hair",
+      "icon": "fa-cut"
+    },
+    {
+      "name": "Hair Styling",
+      "duration": "60 mins",
+      "price": "₹ 900",
+      "category": "hair",
+      "icon": "fa-wand-magic-sparkles"
+    },
+    {
+      "name": "Hair Coloring",
+      "duration": "90 mins",
+      "price": "₹ 1500",
+      "category": "hair",
+      "icon": "fa-palette"
+    },
+    {
+      "name": "Bridal Makeup",
+      "duration": "120 mins",
+      "price": "₹ 8000",
+      "category": "makeup",
+      "icon": "fa-ring"
+    },
+    {
+      "name": "Party Makeup",
+      "duration": "90 mins",
+      "price": "₹ 3000",
+      "category": "makeup",
+      "icon": "fa-masks-theater"
+    }
   ],
   "reviews": [
-    { "name": "Sara P.", "rating": 5, "service": "Gold Facial", "comment": "Left my skin glowing!" },
-    { "name": "Priya K.", "rating": 4, "service": "Hair Styling", "comment": "Loved the new look." },
-    { "name": "Leena S.", "rating": 5, "service": "Bridal Makeup", "comment": "Made my day special." },
-    { "name": "Anita R.", "rating": 4, "service": "Manicure", "comment": "Relaxing and neat." },
-    { "name": "Vikram D.", "rating": 5, "service": "Hair Coloring", "comment": "Perfect shade!" }
+    {
+      "name": "Sara P.",
+      "rating": 5,
+      "service": "Gold Facial",
+      "comment": "Left my skin glowing!"
+    },
+    {
+      "name": "Priya K.",
+      "rating": 4,
+      "service": "Hair Styling",
+      "comment": "Loved the new look."
+    },
+    {
+      "name": "Leena S.",
+      "rating": 5,
+      "service": "Bridal Makeup",
+      "comment": "Made my day special."
+    },
+    {
+      "name": "Anita R.",
+      "rating": 4,
+      "service": "Manicure",
+      "comment": "Relaxing and neat."
+    },
+    {
+      "name": "Vikram D.",
+      "rating": 5,
+      "service": "Hair Coloring",
+      "comment": "Perfect shade!"
+    }
   ],
   "stylists": [
-    { "name": "Riya", "title": "Senior Beautician", "image": "https://placehold.co/400x400?text=Beautician+1" },
-    { "name": "Neha", "title": "Makeup Artist", "image": "https://placehold.co/400x400?text=Beautician+2" },
-    { "name": "Sonia", "title": "Hair Stylist", "image": "https://placehold.co/400x400?text=Beautician+3" }
+    {
+      "name": "Riya",
+      "title": "Senior Beautician",
+      "image": "https://placehold.co/400x400?text=Beautician+1"
+    },
+    {
+      "name": "Neha",
+      "title": "Makeup Artist",
+      "image": "https://placehold.co/400x400?text=Beautician+2"
+    },
+    {
+      "name": "Sonia",
+      "title": "Hair Stylist",
+      "image": "https://placehold.co/400x400?text=Beautician+3"
+    }
   ],
   "reels": [
     "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",

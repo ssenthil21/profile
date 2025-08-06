@@ -9,9 +9,9 @@
     "whatsapp": "5555555555"
   },
   "theme": {
-    "charcoal": "#36322F",
-    "accent": "#C08261",
-    "light": "#F5EFE6"
+    "charcoal": "#0B1120",
+    "accent": "#38BDF8",
+    "light": "#BAE6FD"
   },
   "heroSlides": [
     {
@@ -21,31 +21,148 @@
     }
   ],
   "stats": [
-    { "icon": "fas fa-star", "value": "4.4", "decimal": 1, "label": "Rating" }
+    {
+      "icon": "fas fa-star",
+      "value": "4.4",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "800",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "6",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-soap",
+      "value": "5000",
+      "label": "Loads Washed"
+    }
   ],
   "services": [
-    { "name": "Regular Wash", "duration": "24 hrs", "price": "₹ 80/kg", "category": "wash", "icon": "fa-soap" },
-    { "name": "Dry Cleaning", "duration": "48 hrs", "price": "₹ 200/item", "category": "wash", "icon": "fa-tshirt" },
-    { "name": "Ironing", "duration": "24 hrs", "price": "₹ 15/item", "category": "wash", "icon": "fa-wind" },
-    { "name": "Express Laundry", "duration": "12 hrs", "price": "₹ 150/kg", "category": "special", "icon": "fa-bolt" },
-    { "name": "Stain Removal", "duration": "24 hrs", "price": "₹ 50/item", "category": "special", "icon": "fa-spray-can-sparkles" },
-    { "name": "Carpet Cleaning", "duration": "3 days", "price": "₹ 500", "category": "special", "icon": "fa-broom" },
-    { "name": "Shoe Cleaning", "duration": "48 hrs", "price": "₹ 300/pair", "category": "special", "icon": "fa-shoe-prints" },
-    { "name": "Blanket Wash", "duration": "2 days", "price": "₹ 250/blanket", "category": "wash", "icon": "fa-bed" },
-    { "name": "Pickup & Delivery", "duration": "", "price": "Free", "category": "add-on", "icon": "fa-truck" },
-    { "name": "Premium Care", "duration": "48 hrs", "price": "₹ 300/kg", "category": "special", "icon": "fa-star" }
+    {
+      "name": "Regular Wash",
+      "duration": "24 hrs",
+      "price": "₹ 80/kg",
+      "category": "wash",
+      "icon": "fa-soap"
+    },
+    {
+      "name": "Dry Cleaning",
+      "duration": "48 hrs",
+      "price": "₹ 200/item",
+      "category": "wash",
+      "icon": "fa-tshirt"
+    },
+    {
+      "name": "Ironing",
+      "duration": "24 hrs",
+      "price": "₹ 15/item",
+      "category": "wash",
+      "icon": "fa-wind"
+    },
+    {
+      "name": "Express Laundry",
+      "duration": "12 hrs",
+      "price": "₹ 150/kg",
+      "category": "special",
+      "icon": "fa-bolt"
+    },
+    {
+      "name": "Stain Removal",
+      "duration": "24 hrs",
+      "price": "₹ 50/item",
+      "category": "special",
+      "icon": "fa-spray-can-sparkles"
+    },
+    {
+      "name": "Carpet Cleaning",
+      "duration": "3 days",
+      "price": "₹ 500",
+      "category": "special",
+      "icon": "fa-broom"
+    },
+    {
+      "name": "Shoe Cleaning",
+      "duration": "48 hrs",
+      "price": "₹ 300/pair",
+      "category": "special",
+      "icon": "fa-shoe-prints"
+    },
+    {
+      "name": "Blanket Wash",
+      "duration": "2 days",
+      "price": "₹ 250/blanket",
+      "category": "wash",
+      "icon": "fa-bed"
+    },
+    {
+      "name": "Pickup & Delivery",
+      "duration": "",
+      "price": "Free",
+      "category": "add-on",
+      "icon": "fa-truck"
+    },
+    {
+      "name": "Premium Care",
+      "duration": "48 hrs",
+      "price": "₹ 300/kg",
+      "category": "special",
+      "icon": "fa-star"
+    }
   ],
   "reviews": [
-    { "name": "Nina S.", "rating": 5, "service": "Regular Wash", "comment": "Clothes came back spotless." },
-    { "name": "Aravind G.", "rating": 4, "service": "Dry Cleaning", "comment": "Good service and timely." },
-    { "name": "Rita L.", "rating": 5, "service": "Express Laundry", "comment": "Saved me a lot of time." },
-    { "name": "Kunal P.", "rating": 4, "service": "Shoe Cleaning", "comment": "Shoes look brand new." },
-    { "name": "Meera T.", "rating": 5, "service": "Stain Removal", "comment": "Removed tough stains easily." }
+    {
+      "name": "Nina S.",
+      "rating": 5,
+      "service": "Regular Wash",
+      "comment": "Clothes came back spotless."
+    },
+    {
+      "name": "Aravind G.",
+      "rating": 4,
+      "service": "Dry Cleaning",
+      "comment": "Good service and timely."
+    },
+    {
+      "name": "Rita L.",
+      "rating": 5,
+      "service": "Express Laundry",
+      "comment": "Saved me a lot of time."
+    },
+    {
+      "name": "Kunal P.",
+      "rating": 4,
+      "service": "Shoe Cleaning",
+      "comment": "Shoes look brand new."
+    },
+    {
+      "name": "Meera T.",
+      "rating": 5,
+      "service": "Stain Removal",
+      "comment": "Removed tough stains easily."
+    }
   ],
   "stylists": [
-    { "name": "Raj", "title": "Laundry Attendant", "image": "https://placehold.co/400x400?text=Attendant+1" },
-    { "name": "Sita", "title": "Pressing Expert", "image": "https://placehold.co/400x400?text=Attendant+2" },
-    { "name": "Vikram", "title": "Delivery Lead", "image": "https://placehold.co/400x400?text=Attendant+3" }
+    {
+      "name": "Raj",
+      "title": "Laundry Attendant",
+      "image": "https://placehold.co/400x400?text=Attendant+1"
+    },
+    {
+      "name": "Sita",
+      "title": "Pressing Expert",
+      "image": "https://placehold.co/400x400?text=Attendant+2"
+    },
+    {
+      "name": "Vikram",
+      "title": "Delivery Lead",
+      "image": "https://placehold.co/400x400?text=Attendant+3"
+    }
   ],
   "reels": [
     "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",

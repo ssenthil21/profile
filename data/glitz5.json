@@ -26,34 +26,148 @@
     }
   ],
   "stats": [
-    { "icon": "fas fa-star", "value": "4.9", "decimal": 1, "label": "Client Ratings" },
-    { "icon": "fas fa-users", "value": "1200", "label": "Happy Customers" },
-    { "icon": "fas fa-cut", "value": "5000", "label": "Jobs Completed" },
-    { "icon": "fas fa-award", "value": "5", "label": "Years Experience" }
+    {
+      "icon": "fas fa-star",
+      "value": "4.9",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "1500",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "8",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-cut",
+      "value": "7000",
+      "label": "Styles Completed"
+    }
   ],
   "services": [
-    { "name": "Eyebrow Shaping", "duration": "10 mins", "price": "₹ 70", "category": "grooming", "icon": "fa-eye" },
-    { "name": "Upperlip Threading", "duration": "5 mins", "price": "₹ 30", "category": "grooming", "icon": "fa-scissors" },
-    { "name": "Wax Upper Lip", "duration": "5 mins", "price": "₹ 80", "category": "grooming", "icon": "fa-wand-magic-sparkles" },
-    { "name": "Manicure", "duration": "30 mins", "price": "₹ 500", "category": "grooming", "icon": "fa-hand-sparkles" },
-    { "name": "Pedicure", "duration": "40 mins", "price": "₹ 700", "category": "grooming", "icon": "fa-shoe-prints" },
-    { "name": "Hair Cut", "duration": "45 mins", "price": "₹ 500", "category": "hair", "icon": "fa-cut" },
-    { "name": "Hair Coloring", "duration": "90 mins", "price": "₹ 1500", "category": "hair", "icon": "fa-palette" },
-    { "name": "Hair Spa", "duration": "60 mins", "price": "₹ 1000", "category": "hair", "icon": "fa-hot-tub-person" },
-    { "name": "Bridal Makeup", "duration": "120 mins", "price": "₹ 8000", "category": "makeup", "icon": "fa-ring" },
-    { "name": "Party Makeup", "duration": "90 mins", "price": "₹ 3000", "category": "makeup", "icon": "fa-masks-theater" }
+    {
+      "name": "Eyebrow Shaping",
+      "duration": "10 mins",
+      "price": "₹ 70",
+      "category": "grooming",
+      "icon": "fa-eye"
+    },
+    {
+      "name": "Upperlip Threading",
+      "duration": "5 mins",
+      "price": "₹ 30",
+      "category": "grooming",
+      "icon": "fa-scissors"
+    },
+    {
+      "name": "Wax Upper Lip",
+      "duration": "5 mins",
+      "price": "₹ 80",
+      "category": "grooming",
+      "icon": "fa-wand-magic-sparkles"
+    },
+    {
+      "name": "Manicure",
+      "duration": "30 mins",
+      "price": "₹ 500",
+      "category": "grooming",
+      "icon": "fa-hand-sparkles"
+    },
+    {
+      "name": "Pedicure",
+      "duration": "40 mins",
+      "price": "₹ 700",
+      "category": "grooming",
+      "icon": "fa-shoe-prints"
+    },
+    {
+      "name": "Hair Cut",
+      "duration": "45 mins",
+      "price": "₹ 500",
+      "category": "hair",
+      "icon": "fa-cut"
+    },
+    {
+      "name": "Hair Coloring",
+      "duration": "90 mins",
+      "price": "₹ 1500",
+      "category": "hair",
+      "icon": "fa-palette"
+    },
+    {
+      "name": "Hair Spa",
+      "duration": "60 mins",
+      "price": "₹ 1000",
+      "category": "hair",
+      "icon": "fa-hot-tub-person"
+    },
+    {
+      "name": "Bridal Makeup",
+      "duration": "120 mins",
+      "price": "₹ 8000",
+      "category": "makeup",
+      "icon": "fa-ring"
+    },
+    {
+      "name": "Party Makeup",
+      "duration": "90 mins",
+      "price": "₹ 3000",
+      "category": "makeup",
+      "icon": "fa-masks-theater"
+    }
   ],
   "reviews": [
-    { "name": "Jessica L.", "rating": 5, "service": "Facial", "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none." },
-    { "name": "Emily R.", "rating": 5, "service": "Hair Styling", "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations." },
-    { "name": "Sarah P.", "rating": 5, "service": "Spa Experience", "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered." },
-    { "name": "Megan B.", "rating": 4, "service": "Manicure", "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional." },
-    { "name": "David K.", "rating": 5, "service": "Haircut & Beard Trim", "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure." }
+    {
+      "name": "Jessica L.",
+      "rating": 5,
+      "service": "Facial",
+      "comment": "An absolute oasis! The best facial I've ever had. The attention to detail is second to none."
+    },
+    {
+      "name": "Emily R.",
+      "rating": 5,
+      "service": "Hair Styling",
+      "comment": "My hair has never looked better! The stylist really listened and exceeded my expectations."
+    },
+    {
+      "name": "Sarah P.",
+      "rating": 5,
+      "service": "Spa Experience",
+      "comment": "The most beautiful and clean salon. From the moment I walked in, I felt welcomed and pampered."
+    },
+    {
+      "name": "Megan B.",
+      "rating": 4,
+      "service": "Manicure",
+      "comment": "A wonderful experience. My manicure is flawless and the staff is so friendly and professional."
+    },
+    {
+      "name": "David K.",
+      "rating": 5,
+      "service": "Haircut & Beard Trim",
+      "comment": "Great haircut and beard trim. Ben is a true professional. I'll be coming back for sure."
+    }
   ],
   "stylists": [
-    { "name": "Arjun Reddy", "title": "Hair Expert", "image": "https://images.unsplash.com/photo-1589571894960-20bbe2828a9a?auto=format&fit=crop&w=400&q=80" },
-    { "name": "Meera Subramanian", "title": "Color Specialist", "image": "https://images.unsplash.com/photo-1596962820792-5ac8345a0ff3?auto=format&fit=crop&w=400&q=80" },
-    { "name": "Sneha Rajan", "title": "Nail Artist", "image": "https://images.unsplash.com/photo-1509414023293-79d5d2b18e34?auto=format&fit=crop&w=400&q=80" }
+    {
+      "name": "Arjun Reddy",
+      "title": "Hair Expert",
+      "image": "https://images.unsplash.com/photo-1589571894960-20bbe2828a9a?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      "name": "Meera Subramanian",
+      "title": "Color Specialist",
+      "image": "https://images.unsplash.com/photo-1596962820792-5ac8345a0ff3?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      "name": "Sneha Rajan",
+      "title": "Nail Artist",
+      "image": "https://images.unsplash.com/photo-1509414023293-79d5d2b18e34?auto=format&fit=crop&w=400&q=80"
+    }
   ],
   "reels": [
     "https://videos.pexels.com/video-files/3688454/3688454-hd_1920_1080_24fps.mp4",

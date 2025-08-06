@@ -9,9 +9,9 @@
     "whatsapp": "6666666666"
   },
   "theme": {
-    "charcoal": "#36322F",
-    "accent": "#C08261",
-    "light": "#F5EFE6"
+    "charcoal": "#14532D",
+    "accent": "#22C55E",
+    "light": "#DCFCE7"
   },
   "heroSlides": [
     {
@@ -21,31 +21,148 @@
     }
   ],
   "stats": [
-    { "icon": "fas fa-star", "value": "4.5", "decimal": 1, "label": "Rating" }
+    {
+      "icon": "fas fa-star",
+      "value": "4.5",
+      "decimal": 1,
+      "label": "Client Ratings"
+    },
+    {
+      "icon": "fas fa-users",
+      "value": "700",
+      "label": "Happy Customers"
+    },
+    {
+      "icon": "fas fa-award",
+      "value": "3",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "fas fa-futbol",
+      "value": "400",
+      "label": "Matches Hosted"
+    }
   ],
   "services": [
-    { "name": "Turf Hour", "duration": "60 mins", "price": "₹ 1200", "category": "booking", "icon": "fa-futbol" },
-    { "name": "Half-Day Pass", "duration": "6 hrs", "price": "₹ 6000", "category": "booking", "icon": "fa-clock" },
-    { "name": "Full-Day Pass", "duration": "12 hrs", "price": "₹ 10000", "category": "booking", "icon": "fa-calendar-day" },
-    { "name": "Coaching Session", "duration": "60 mins", "price": "₹ 1500", "category": "coaching", "icon": "fa-chalkboard-user" },
-    { "name": "Tournament Booking", "duration": "Full day", "price": "₹ 15000", "category": "events", "icon": "fa-trophy" },
-    { "name": "Night Lights", "duration": "", "price": "₹ 500/hr", "category": "extras", "icon": "fa-lightbulb" },
-    { "name": "Equipment Rental", "duration": "", "price": "₹ 200", "category": "extras", "icon": "fa-person-running" },
-    { "name": "Monthly Membership", "duration": "30 days", "price": "₹ 4000", "category": "booking", "icon": "fa-id-card" },
-    { "name": "Group Booking", "duration": "60 mins", "price": "₹ 1000", "category": "events", "icon": "fa-users" },
-    { "name": "Kids Camp", "duration": "3 hrs", "price": "₹ 2000", "category": "events", "icon": "fa-child" }
+    {
+      "name": "Turf Hour",
+      "duration": "60 mins",
+      "price": "₹ 1200",
+      "category": "booking",
+      "icon": "fa-futbol"
+    },
+    {
+      "name": "Half-Day Pass",
+      "duration": "6 hrs",
+      "price": "₹ 6000",
+      "category": "booking",
+      "icon": "fa-clock"
+    },
+    {
+      "name": "Full-Day Pass",
+      "duration": "12 hrs",
+      "price": "₹ 10000",
+      "category": "booking",
+      "icon": "fa-calendar-day"
+    },
+    {
+      "name": "Coaching Session",
+      "duration": "60 mins",
+      "price": "₹ 1500",
+      "category": "coaching",
+      "icon": "fa-chalkboard-user"
+    },
+    {
+      "name": "Tournament Booking",
+      "duration": "Full day",
+      "price": "₹ 15000",
+      "category": "events",
+      "icon": "fa-trophy"
+    },
+    {
+      "name": "Night Lights",
+      "duration": "",
+      "price": "₹ 500/hr",
+      "category": "extras",
+      "icon": "fa-lightbulb"
+    },
+    {
+      "name": "Equipment Rental",
+      "duration": "",
+      "price": "₹ 200",
+      "category": "extras",
+      "icon": "fa-person-running"
+    },
+    {
+      "name": "Monthly Membership",
+      "duration": "30 days",
+      "price": "₹ 4000",
+      "category": "booking",
+      "icon": "fa-id-card"
+    },
+    {
+      "name": "Group Booking",
+      "duration": "60 mins",
+      "price": "₹ 1000",
+      "category": "events",
+      "icon": "fa-users"
+    },
+    {
+      "name": "Kids Camp",
+      "duration": "3 hrs",
+      "price": "₹ 2000",
+      "category": "events",
+      "icon": "fa-child"
+    }
   ],
   "reviews": [
-    { "name": "Rahul V.", "rating": 4, "service": "Turf Hour", "comment": "Great surface for football." },
-    { "name": "Saira P.", "rating": 5, "service": "Coaching Session", "comment": "Coach was very encouraging." },
-    { "name": "Kiran L.", "rating": 4, "service": "Night Lights", "comment": "Loved playing under lights." },
-    { "name": "Arun D.", "rating": 5, "service": "Tournament Booking", "comment": "Smooth arrangements." },
-    { "name": "Neha T.", "rating": 4, "service": "Kids Camp", "comment": "Kids had a blast!" }
+    {
+      "name": "Rahul V.",
+      "rating": 4,
+      "service": "Turf Hour",
+      "comment": "Great surface for football."
+    },
+    {
+      "name": "Saira P.",
+      "rating": 5,
+      "service": "Coaching Session",
+      "comment": "Coach was very encouraging."
+    },
+    {
+      "name": "Kiran L.",
+      "rating": 4,
+      "service": "Night Lights",
+      "comment": "Loved playing under lights."
+    },
+    {
+      "name": "Arun D.",
+      "rating": 5,
+      "service": "Tournament Booking",
+      "comment": "Smooth arrangements."
+    },
+    {
+      "name": "Neha T.",
+      "rating": 4,
+      "service": "Kids Camp",
+      "comment": "Kids had a blast!"
+    }
   ],
   "stylists": [
-    { "name": "Coach Manoj", "title": "Head Coach", "image": "https://placehold.co/400x400?text=Coach+1" },
-    { "name": "Priya", "title": "Assistant Coach", "image": "https://placehold.co/400x400?text=Coach+2" },
-    { "name": "Ramesh", "title": "Facility Manager", "image": "https://placehold.co/400x400?text=Coach+3" }
+    {
+      "name": "Coach Manoj",
+      "title": "Head Coach",
+      "image": "https://placehold.co/400x400?text=Coach+1"
+    },
+    {
+      "name": "Priya",
+      "title": "Assistant Coach",
+      "image": "https://placehold.co/400x400?text=Coach+2"
+    },
+    {
+      "name": "Ramesh",
+      "title": "Facility Manager",
+      "image": "https://placehold.co/400x400?text=Coach+3"
+    }
   ],
   "reels": [
     "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
