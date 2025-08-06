@@ -88,7 +88,14 @@
         }
         .star-rating .fa-star {
             color: #FBBF24; /* amber-400 */
+            animation: starGlow 1.5s ease-in-out infinite;
         }
+
+        @keyframes starGlow {
+            0%,100% { text-shadow: 0 0 2px #FBBF24; }
+            50% { text-shadow: 0 0 8px #FBBF24; }
+        }
+        .star-glow { animation: starGlow 1.5s ease-in-out infinite; }
         
         .gallery-container { column-count: 2; column-gap: 1rem; }
         @media (min-width: 768px) { .gallery-container { column-count: 3; } }
@@ -209,7 +216,7 @@
             <div class="w-1/4 bg-brand-light flex flex-col items-center justify-center p-6 text-center">
                 <img id="company-logo" class="mb-4 max-w-full h-auto" alt="Company Logo">
                 <div class="text-sm text-gray-600 space-y-1">
-                    <p><i class="fas fa-star text-brand-accent mr-1"></i><span id="company-rating"></span></p>
+                    <p><i class="fas fa-star text-brand-accent mr-1 star-glow"></i><span id="company-rating"></span></p>
                     <p><i class="fas fa-map-marker-alt text-brand-accent mr-1"></i><span id="company-address"></span></p>
                     <p><i class="fas fa-phone text-brand-accent mr-1"></i><span id="company-phone"></span></p>
                     <p><i class="fas fa-clock text-brand-accent mr-1"></i><span id="company-hours"></span></p>

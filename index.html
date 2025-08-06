@@ -58,6 +58,12 @@
           opacity: 1;
           transform: translateY(0);
       }
+
+      @keyframes starGlow {
+          0%,100% { text-shadow: 0 0 2px #FBBF24; }
+          50% { text-shadow: 0 0 8px #FBBF24; }
+      }
+      .star-glow { animation: starGlow 1.5s ease-in-out infinite; }
   </style>
 </head>
 <body class="bg-white">
@@ -76,6 +82,7 @@
       <div class="flex items-center justify-center lg:justify-start mb-8 space-x-4">
         <span class="flex items-center text-gray-600"><i class="fa-solid fa-location-dot mr-1"></i>Chenai</span>
         <input id="categorySearch" type="text" placeholder="Search categories..." class="border border-gray-300 rounded-md px-3 py-2 w-64"/>
+        <button id="globalMapToggle" class="px-4 py-2 border rounded-md">Map View</button>
       </div>
       <h3 class="text-3xl font-bold text-center mb-10 lg:text-left">Popular categories</h3>
       <div id="categoryGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -86,8 +93,8 @@
         </div>
         <span class="text-lg font-semibold">Salon</span>
       </button>
-      <button style="--delay:0.1s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="spa">
-        <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
+      <button style="--delay:0.1s" class="category-card group relative p-8 rounded-xl bg-gradient-to-br from-white to-[var(--brand-light)] border border-[var(--brand-accent)] shadow-md hover:-translate-y-1 hover:scale-105 transform transition-all flex flex-col items-center text-center overflow-hidden" data-category="spa">
+      <span class="absolute inset-0 bg-[var(--brand-accent)] opacity-0 group-hover:opacity-10 transition-opacity"></span>
         <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
           <i class="fa-solid fa-spa text-3xl"></i>
         </div>
@@ -154,9 +161,10 @@
         <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--brand-accent)] text-white mb-4 transition-transform group-hover:scale-110">
           <i class="fa-solid fa-paw text-3xl"></i>
         </div>
-        <span class="text-lg font-semibold">Pet Clinic</span>
+      <span class="text-lg font-semibold">Pet Clinic</span>
       </button>
       </div>
+      <div id="globalMapContainer" class="hidden h-96 mb-8 w-full"></div>
     </div>
     <div id="results" class="hidden mt-16 lg:mt-0 lg:pl-12 results-section">
       <div class="flex justify-between items-center mb-6">
@@ -167,6 +175,13 @@
       <div id="resultsContainer" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-2"></div>
     </div>
   </section>
+  <div id="ratingPanel" class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg overflow-y-auto transform translate-x-full transition-transform z-50">
+    <div class="flex justify-between items-center p-4 border-b">
+      <h3 class="text-lg font-semibold">Ratings</h3>
+      <button id="ratingPanelClose" class="text-2xl leading-none">&times;</button>
+    </div>
+    <div id="ratingPanelContent" class="p-4 space-y-4"></div>
+  </div>
   <script>
     let businesses = [];
     const results = document.getElementById("results");
@@ -174,12 +189,20 @@
     const categoryGrid = document.getElementById("categoryGrid");
     const categoriesSection = document.getElementById("categories");
     const explore = document.getElementById("explore");
+    const globalMapToggle = document.getElementById("globalMapToggle");
+    const globalMapContainer = document.getElementById("globalMapContainer");
     const searchInput = document.getElementById("categorySearch");
     const mapToggle = document.getElementById("mapToggle");
     const mapContainer = document.getElementById("mapContainer");
+    const ratingPanel = document.getElementById("ratingPanel");
+    const ratingPanelContent = document.getElementById("ratingPanelContent");
+    const ratingPanelClose = document.getElementById("ratingPanelClose");
+    ratingPanelClose.addEventListener("click", () => ratingPanel.classList.add("translate-x-full"));
     let currentFiltered = [];
     let map;
     let markerGroup;
+    let globalMap;
+    let globalMarkerGroup;
     const categoryIcons = {
       salon: 'fa-scissors',
       spa: 'fa-spa',
@@ -207,6 +230,76 @@
       });
     });
 
+    function attachRatingListeners() {
+      document.querySelectorAll('.rating-star').forEach(el => {
+        el.addEventListener('click', () => showRatings(el.dataset.id));
+      });
+    }
+
+    function showRatings(id) {
+      fetch(`data/${id}.json`)
+        .then(r => r.json())
+        .then(data => {
+          const reviews = data.reviews || [];
+          if (reviews.length) {
+            ratingPanelContent.innerHTML = reviews.map(rv => {
+              const stars = Array.from({length:5}).map((_,i)=> `<i class="fa-star ${i < rv.rating ? 'fas star-glow' : 'far'}"></i>`).join('');
+              return `
+              <div class="border-b pb-2">
+                <div class="flex items-center text-yellow-500 mb-1">${stars}</div>
+                <p class="text-sm text-gray-700">${rv.comment}</p>
+                <p class="text-xs text-gray-500 mt-1">${rv.name} - ${rv.service}</p>
+              </div>`;}).join('');
+          } else {
+            ratingPanelContent.innerHTML = '<p class="text-gray-500">No ratings available.</p>';
+          }
+          ratingPanel.classList.remove('translate-x-full');
+        })
+        .catch(() => {
+          ratingPanelContent.innerHTML = '<p class="text-gray-500">No ratings available.</p>';
+          ratingPanel.classList.remove('translate-x-full');
+        });
+    }
+
+    globalMapToggle.addEventListener("click", () => {
+      if (globalMapContainer.classList.contains("hidden")) {
+        globalMapContainer.classList.remove("hidden");
+        categoryGrid.classList.add("hidden");
+        globalMapToggle.textContent = "List View";
+        if (!globalMap) {
+          globalMap = L.map('globalMapContainer').setView([13.0827, 80.2707], 12);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+          }).addTo(globalMap);
+          globalMarkerGroup = L.layerGroup().addTo(globalMap);
+        }
+        globalMarkerGroup.clearLayers();
+        businesses.forEach(b => {
+          if (b.lat && b.lng) {
+            const icon = L.divIcon({
+              html: `<i class="fa-solid ${categoryIcons[b.category] || 'fa-map-marker'} text-[var(--brand-accent)] text-xl"></i>`,
+              className: '',
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
+            const marker = L.marker([b.lat, b.lng], { icon }).addTo(globalMarkerGroup);
+            marker.bindPopup(`<strong>${b.name}</strong><br>${b.address}<br>Rating: ${b.rating}`);
+            marker.on('mouseover', function(){ this.openPopup(); });
+            marker.on('mouseout', function(){ this.closePopup(); });
+            marker.on('click', () => {
+              window.location.href = `businessview.html?business=${b.id}`;
+            });
+          }
+        });
+        setTimeout(() => globalMap.invalidateSize(), 0);
+      } else {
+        globalMapContainer.classList.add("hidden");
+        categoryGrid.classList.remove("hidden");
+        globalMapToggle.textContent = "Map View";
+      }
+    });
+
     document.querySelectorAll(".category-card").forEach(card => {
       card.addEventListener("click", () => {
         const category = card.dataset.category;
@@ -224,14 +317,14 @@
                 <div class="p-6 flex flex-col h-full">
                   <div class="flex justify-between items-start mb-2">
                     <h4 class="text-xl font-semibold">${b.name}</h4>
-                    <span class="flex items-center text-yellow-500"><i class="fa-solid fa-star mr-1"></i>${b.rating}</span>
+                    <span class="rating-star flex items-center text-yellow-500 cursor-pointer" data-id="${b.id}"><i class="fa-solid fa-star mr-1 star-glow"></i>${b.rating}</span>
                   </div>
                   <p class="text-gray-600 mb-4 flex-grow">${b.description}</p>
                   <div class="text-sm text-gray-500 mb-4 space-y-1">
                     <p><i class="fa-solid fa-map-marker-alt mr-2"></i>${b.address}</p>
                     <p><i class="fa-solid fa-phone mr-2"></i>${b.phone}</p>
                   </div>
-                  ${i < 2 ? '<span class="mt-auto text-[var(--brand-accent)] font-semibold">View details</span>' : ''}
+                  ${i < 2 ? '<span class="mt-auto text-[var(--brand-accent)] font-semibold flex items-center">View details<i class="fa-solid fa-arrow-right ml-2"></i></span>' : ''}
                 </div>
               </div>`;
             html += i < 2 ? `<a href="businessview.html?business=${b.id}" class="block">${content}</a>` : content;
@@ -246,6 +339,7 @@
           }
         }
         resultsContainer.innerHTML = html;
+        attachRatingListeners();
         explore.classList.add("lg:flex");
         categoriesSection.classList.add("lg:w-1/3", "lg:pr-8");
         categoryGrid.classList.remove("sm:grid-cols-2", "lg:grid-cols-4");
@@ -287,6 +381,9 @@
               iconAnchor: [12, 12]
             });
             const marker = L.marker([b.lat, b.lng], { icon }).addTo(markerGroup);
+            marker.bindPopup(`<strong>${b.name}</strong><br>${b.address}<br>Rating: ${b.rating}`);
+            marker.on('mouseover', function(){ this.openPopup(); });
+            marker.on('mouseout', function(){ this.closePopup(); });
             marker.on('click', () => {
               window.location.href = `businessview.html?business=${b.id}`;
             });
