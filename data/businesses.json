@@ -130,5 +130,16 @@
     "phone": "1010101010",
     "lat": 13.07,
     "lng": 80.24
+  },
+  {
+    "id": "dressiron",
+    "name": "Dress Iron",
+    "category": "dressiron",
+    "description": "Professional ironing for your garments.",
+    "rating": 4.5,
+    "address": "12 Iron St, Press Town",
+    "phone": "1112223333",
+    "lat": 13.12,
+    "lng": 80.22
   }
 ]

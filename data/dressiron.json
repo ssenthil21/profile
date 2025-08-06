@@ -1,0 +1,38 @@
+{
+  "businessName": "Dress Iron",
+  "logo": "https://placehold.co/200x80?text=Dress+Iron",
+  "rating": 4.5,
+  "contact": {
+    "location": "12 Iron St, Press Town",
+    "phone": "1112223333",
+    "hours": "Mon - Sat: 9am - 7pm",
+    "whatsapp": "1112223333"
+  },
+  "theme": {
+    "charcoal": "#222831",
+    "accent": "#00ADB5",
+    "light": "#E3F6F5"
+  },
+  "heroSlides": [
+    {
+      "bgImage": "https://placehold.co/1920x1080/00ADB5/FFFFFF?text=Dress+Iron",
+      "title": "Crisp & Quick",
+      "subtitle": "Professional ironing services"
+    }
+  ],
+  "stats": [
+    { "icon": "fas fa-star", "value": "4.5", "decimal": 1, "label": "Client Ratings" },
+    { "icon": "fas fa-shirt", "value": "1200", "label": "Garments Pressed" }
+  ],
+  "services": [
+    { "name": "Shirt Ironing", "duration": "24 hrs", "price": "\u20B9 12/shirt", "category": "iron", "icon": "fa-shirt" },
+    { "name": "Dress Pressing", "duration": "24 hrs", "price": "\u20B9 25/item", "category": "iron", "icon": "fa-person-dress" }
+  ],
+  "stylists": [],
+  "gallery": [],
+  "reels": [],
+  "reviews": [
+    { "rating": 5, "comment": "Clothes came back perfectly pressed.", "service": "Shirt Ironing", "name": "Ravi" },
+    { "rating": 4, "comment": "Fast and reliable service.", "service": "Dress Pressing", "name": "Anita" }
+  ]
+}
